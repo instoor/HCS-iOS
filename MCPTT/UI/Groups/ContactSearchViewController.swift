@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ContactSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
+class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
    
+    lazy var viewModel: ContactSearchModel = {
+        return ContactSearchModel()
+    }()
+    
+    
     @IBOutlet var collectionView: UICollectionView!
     
     @IBOutlet var selectTypeTxtField: UITextField!
@@ -20,23 +25,45 @@ class ContactSearchViewController: UIViewController, UICollectionViewDelegate, U
     var newContacts = ["Arvind","Hemanth","Raju","Sunil","Satish"]
     var mcIDS = ["1234","4567","3456","2345","5678"]
     
-   var pickerData = ["Select","First Name","Second Name", "Email"]
+   var pickerData = ["First Name","Last Name", "Email"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
         
-        // Do any additional setup after loading the view.
         
         picker.dataSource = self
         picker.delegate = self
         selectTypeTxtField.inputView = picker
         
+        //Registering the nib file
+        registernib()
+        
+        //initiate view model
+        initView()
+        
+        initVM()
+    }
+    
+    func initView() {
+        self.title = "Contact List"
+    }
+    
+    func registernib(){
+    
+    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
     }
 
+    func initVM(){
+        viewModel.initFetch()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+}
+
+extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell", for: indexPath) as? ContactHeaderCell
@@ -52,7 +79,7 @@ class ContactSearchViewController: UIViewController, UICollectionViewDelegate, U
         if section == 0 {
             return contacts.count
         } else {
-            return newContacts.count
+            return viewModel.numberOfCells
         }
         
     }
@@ -71,9 +98,12 @@ class ContactSearchViewController: UIViewController, UICollectionViewDelegate, U
             return cell ?? UICollectionViewCell()
             
         } else {
-            cell?.nameLabel.text = newContacts[indexPath.row]
-            cell?.mcidLabel.text = mcIDS[indexPath.row]
+            //cell?.nameLabel.text = newContacts[indexPath.row]
+            //cell?.mcidLabel.text = mcIDS[indexPath.row]
             
+           let cellvm = viewModel.getCellViewModel(at: indexPath)
+            cell?.nameLabel.text = cellvm.contactName
+            cell?.mcidLabel.text = mcIDS[indexPath.row]
             return cell ?? UICollectionViewCell()
         }
         
@@ -89,12 +119,12 @@ class ContactSearchViewController: UIViewController, UICollectionViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-         selectTypeTxtField.text = pickerData[row]
-       picker.isHidden = false
+        selectTypeTxtField.text = pickerData[row]
+        picker.isHidden = false
         picker.resignFirstResponder()
         
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
@@ -105,3 +135,4 @@ class ContactSearchViewController: UIViewController, UICollectionViewDelegate, U
     }
     
 }
+

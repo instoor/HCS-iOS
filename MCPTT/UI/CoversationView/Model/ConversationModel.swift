@@ -1,16 +1,16 @@
 //
-//  MessageDetails.swift
+//  ConversationViewModel.swift
 //  mcpttapp
 //
-//  Created by Hemanth Kumar H N on 03/10/18.
+//  Created by Hemanth Kumar H N on 09/10/18.
 //  Copyright © 2018 Harman connected services. All rights reserved.
 //
 
 import Foundation
 
-enum MessageKind {
+public enum MessageKind {
     case text(String)
-    case video(Data)
+    case audio(Data)
 }
 
 protocol MessageType {
@@ -28,8 +28,7 @@ struct Sender {
         self.displayName = displayName
     }
 }
-
-struct MesssageDetails: MessageType {
+struct ConversationModel: MessageType {
     var messageId: String
     var sender: Sender
     var sentDate: Date
@@ -45,9 +44,9 @@ struct MesssageDetails: MessageType {
         self.init(kind: .text(text), sender: sender, messageId: messageId, date: date)
     }
     
-    //todo
-//    init(audioUrl: Data, sender: Sender, messageId: String, date: Date) {
-//       // let mediaItem = MockMediaItem(image: thumbnail)
-//        self.init(kind: .audio(Data), sender: sender, messageId: messageId, date: date)
-//    }
+    //todo audio
+    //    init(audioUrl: Data, sender: Sender, messageId: String, date: Date) {
+    //       // let mediaItem = MockMediaItem(image: thumbnail)
+    //        self.init(kind: .audio(Data), sender: sender, messageId: messageId, date: date)
+    //    }
 }

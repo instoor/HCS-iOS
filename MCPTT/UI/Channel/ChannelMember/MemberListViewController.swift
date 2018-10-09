@@ -1,5 +1,5 @@
 //
-//  ChannelMemberListViewController.swift
+//  MemberListViewController.swift
 //  mcpttapp
 //
 //  Created by Sunil Kumar Yadav on 01/10/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class ChannelMemberListViewController: UIViewController {
+final class MemberListViewController: UIViewController {
     @IBOutlet weak var memberListTableView: UITableView!
     
-    lazy var viewModel: ChannelMemberListViewModel = {
-        return ChannelMemberListViewModel()
+    lazy var viewModel: MemberListViewModel = {
+        return MemberListViewModel()
     }()
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ final class ChannelMemberListViewController: UIViewController {
     }
 }
 
-extension ChannelMemberListViewController: UITableViewDelegate, UITableViewDataSource {
+extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,12 +53,12 @@ extension ChannelMemberListViewController: UITableViewDelegate, UITableViewDataS
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelMemberListTableViewCell", for: indexPath) as? ChannelMemberListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberListTableViewCell", for: indexPath) as? MemberListTableViewCell else {
             fatalError("Cell not exists in storyboard")
         }
          cell.selectionStyle = .none
          let cellVM = viewModel.getCellViewModel( at: indexPath )
-         cell.configureChanneListCell(channelMemberListCellVM: cellVM)
+         cell.configureChanneListCell(memberListCellVM: cellVM)
         
         return cell
     }
@@ -72,7 +72,7 @@ extension ChannelMemberListViewController: UITableViewDelegate, UITableViewDataS
         guard let memberDetailVc = contactStoryboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as? MemberDetailViewController else {
             return
         }
-        memberDetailVc.channelMemberListModel = viewModel.getCellViewModel( at: indexPath )
+        memberDetailVc.memberListModel = viewModel.getCellViewModel( at: indexPath )
         self.navigationController?.pushViewController(memberDetailVc, animated: true)
     }
 }

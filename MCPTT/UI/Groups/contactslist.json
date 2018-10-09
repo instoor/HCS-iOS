@@ -1,0 +1,21 @@
+
+{
+    "contacts": [
+                {
+                "name": "Anderw Adams",
+                 "availablity": "online",
+                 "mcid": "andrew.adams@gmail.com",
+               
+                },
+                {
+                "name": "Maggie Forbes",
+                 "availablity": "online",
+                "mcid": "maggie.forbes@gmail.com",
+                },
+                {
+                "name": "Grace Olsen",
+                 "availablity": "online",
+                "mcid": "grace.olsen@gmail.com",
+                }
+                ]
+}

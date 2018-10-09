@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LG7-Sa-1Z2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Member Detail View Controller-->
         <scene sceneID="hKZ-YJ-KAp">
             <objects>
-                <viewController storyboardIdentifier="MemberDetailViewController" id="fBm-Ip-qtw" customClass="MemberDetailViewController" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberDetailViewController" id="fBm-Ip-qtw" customClass="MemberDetailViewController" customModule="MCPTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gDf-dh-7uh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,51 +170,42 @@
             <point key="canvasLocation" x="1292" y="-219.04047976011995"/>
         </scene>
         <!--Contact List View Controller-->
-        <scene sceneID="RpS-5R-FUX">
+        <scene sceneID="SKI-C5-xZY">
             <objects>
-                <collectionViewController storyboardIdentifier="ContactListViewController" id="ACv-hW-q7o" customClass="ContactListViewController" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ytx-rA-Lal">
+                <viewController storyboardIdentifier="ContactListViewController" id="qMh-RN-wNR" customClass="ContactListViewController" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XUd-7f-CwP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3X0-a7-JSj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nGa-Oq-H56">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="oPo-zG-4Fm">
-                            <size key="itemSize" width="375" height="133"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                        <connections>
-                            <outlet property="dataSource" destination="ACv-hW-q7o" id="czJ-11-r0B"/>
-                            <outlet property="delegate" destination="ACv-hW-q7o" id="skk-0b-T6c"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="6J0-SZ-pt2"/>
+                        <constraints>
+                            <constraint firstItem="3X0-a7-JSj" firstAttribute="leading" secondItem="YXR-NP-BMQ" secondAttribute="leading" id="1AM-f6-w8H"/>
+                            <constraint firstItem="3X0-a7-JSj" firstAttribute="bottom" secondItem="YXR-NP-BMQ" secondAttribute="bottom" id="dM1-ce-RIZ"/>
+                            <constraint firstItem="3X0-a7-JSj" firstAttribute="top" secondItem="XUd-7f-CwP" secondAttribute="top" id="jth-47-83I"/>
+                            <constraint firstItem="3X0-a7-JSj" firstAttribute="trailing" secondItem="YXR-NP-BMQ" secondAttribute="trailing" id="qxl-tp-M3D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YXR-NP-BMQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lA9-zR-KX9"/>
                     <connections>
-                        <segue destination="fBm-Ip-qtw" kind="show" identifier="contactDetailSegueId" id="pD5-jy-4rS"/>
+                        <outlet property="collectionView" destination="3X0-a7-JSj" id="Sgp-vu-17c"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ruJ-Qk-bq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5w-XE-9F9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="-219.04047976011995"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZBV-Um-rNI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LG7-Sa-1Z2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wl5-U0-tTY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ACv-hW-q7o" kind="relationship" relationship="rootViewController" id="nrr-6i-B3m"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9fk-KQ-dWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-567.20000000000005" y="-219.04047976011995"/>
+            <point key="canvasLocation" x="372" y="-277.51124437781112"/>
         </scene>
     </scenes>
     <resources>

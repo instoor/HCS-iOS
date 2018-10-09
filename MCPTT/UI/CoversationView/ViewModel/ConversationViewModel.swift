@@ -1,5 +1,5 @@
 //
-//  MessageData.swift
+//  ConversationViewModel.swift
 //  mcpttapp
 //
 //  Created by Hemanth Kumar H N on 03/10/18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MessageData {
-    static let shared = MessageData()
+class ConversationViewModel {
+    static let shared = ConversationViewModel()
     
     private init() {}
    
@@ -19,7 +19,7 @@ class MessageData {
         "Ok",
         "k",
         "lol",
-        "1-800-555-0000",
+        "1",
         "One Infinite Loop Cupertino, CA 95014 This is some extra text that should not be detected.",
         "This is an example of the date detector 11/11/2017. April 1st is April Fools Day. Next Friday is not Friday the 13th.",
         "https://github.com/SD10",
@@ -49,8 +49,8 @@ class MessageData {
     lazy var senders = [sunil, raj, raju, hemanth, sanju, niranjan]
     let messageTypes = ["Text"]// "Audio"]
     
-    func getMessages(count: Int, completion: ([MesssageDetails]) -> Void) {
-        var messages: [MesssageDetails] = []
+    func getMessages(count: Int, completion: ([ConversationModel]) -> Void) {
+        var messages: [ConversationModel] = []
         for _ in 0..<count {
             messages.append(randomMessage())
         }
@@ -76,8 +76,8 @@ class MessageData {
         return hemanth
     }
     
-    func randomMessage() -> MesssageDetails {
-        
+    func randomMessage() -> ConversationModel {
+        //business logic
         let randomNumberSender = Int(arc4random_uniform(UInt32(senders.count)))
         let randomNumberText = Int(arc4random_uniform(UInt32(messageTextValues.count)))
         let randomMessageType = Int(arc4random_uniform(UInt32(messageTypes.count)))
@@ -87,13 +87,17 @@ class MessageData {
         
         switch messageTypes[randomMessageType] {
         case "Text":
-            return MesssageDetails(text: messageTextValues[randomNumberText], sender: sender, messageId: uniqueID, date: date)
+            return ConversationModel(text: messageTextValues[randomNumberText], sender: sender, messageId: uniqueID, date: date)
 //        case "Audio":
 //            let audioPath = audioMessage[0]
-//            return MesssageDetails(thumbnail: audioPath, sender: sender, messageId: uniqueID, date: date)
+//            return ConversationModel(thumbnail: audioPath, sender: sender, messageId: uniqueID, date: date)
         default:
-            fatalError("Unrecognized mock message type")
+            fatalError("Unrecognized")
         }
     }
-
+    lazy var formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
 }
