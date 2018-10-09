@@ -4,7 +4,7 @@
 1. Fork the repo to your username.
 2. Clone the forked repo to your local directory.
 3. Add remote upstream
-    git remote add upstream https://github.com/arvindsharma024/MCPTT-iOS
+    git remote add upstream https://github.com/arvindsharma024/HCS-iOS
 4. Check whether upstream has been added correctly
     git remote -v
 5. Take latest pull from upstream develop branch
