@@ -20,7 +20,7 @@ class MemberDetailViewController: UIViewController {
     @IBOutlet weak var createChannelButton: UIButton!
     @IBOutlet weak var addContactButtonWidth: NSLayoutConstraint!
     //Need to change it as Model once API Integeration
-    var channelMemberListModel: ChannelMemberListCellViewModel?
+    var memberListModel: MemberListCellViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +41,16 @@ class MemberDetailViewController: UIViewController {
         actionItemContainer.layer.borderColor = UIColor.lightGray.cgColor
         
         //Need to put logic for show Add Contact Once DB Integeration
-        addContactButtonWidth.constant = UIScreen.main.bounds.width/2
+        if let memberListModel = memberListModel {
+            if memberListModel.isMemeberInConatctList {
+                addContactButtonWidth.constant = 0
+            } else {
+                addContactButtonWidth.constant = UIScreen.main.bounds.width/2
+            }
+        }
         
-        nameLabel.text = channelMemberListModel?.memberName
-        emailLabel.text = channelMemberListModel?.memberEmail
+        nameLabel.text = memberListModel?.memberName
+        emailLabel.text = memberListModel?.memberEmail
     }
     
     @IBAction func addContact(_ sender: Any) {

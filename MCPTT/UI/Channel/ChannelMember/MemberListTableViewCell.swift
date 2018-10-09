@@ -1,5 +1,5 @@
 //
-//  ChannelMemberListTableViewCell.swift
+//  MemberListTableViewCell.swift
 //  mcpttapp
 //
 //  Created by Sunil Kumar Yadav on 01/10/18.
@@ -14,7 +14,7 @@ enum MemberAvailability: String {
     case dnd
 }
 
-class ChannelMemberListTableViewCell: UITableViewCell {
+class MemberListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberNameLabel: UILabel!
     @IBOutlet weak var memberEmailLabel: UILabel!
@@ -32,11 +32,11 @@ class ChannelMemberListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureChanneListCell(channelMemberListCellVM: ChannelMemberListCellViewModel) {
+    func configureChanneListCell(memberListCellVM: MemberListCellViewModel) {
         
-        memberNameLabel.text = channelMemberListCellVM.memberName
-        memberEmailLabel.text = channelMemberListCellVM.memberEmail
-        switch channelMemberListCellVM.memberAvailablabilityStatus {
+        memberNameLabel.text = memberListCellVM.memberName
+        memberEmailLabel.text = memberListCellVM.memberEmail
+        switch memberListCellVM.memberAvailablabilityStatus {
         case MemberAvailability.online.rawValue:
             memberAvailabiltyStatus.image = UIImage(named: "blue-circele")
         case MemberAvailability.offline.rawValue:
@@ -46,7 +46,7 @@ class ChannelMemberListTableViewCell: UITableViewCell {
         default:
            memberAvailabiltyStatus.image = UIImage(named: "blue-circele")
         }
-        if channelMemberListCellVM.isMemeberInConatctList {
+        if memberListCellVM.isMemeberInConatctList {
             addMemberButton.isHidden = true
         } else {
            addMemberButton.isHidden = false

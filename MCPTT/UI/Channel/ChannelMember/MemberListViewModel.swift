@@ -1,5 +1,5 @@
 //
-//  ChannelMemberListViewModel.swift
+//  MemberListViewModel.swift
 //  mcpttapp
 //
 //  Created by Sunil Kumar Yadav on 01/10/18.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class ChannelMemberListViewModel {
+final class MemberListViewModel {
     
-    private var cellViewModels = [ChannelMemberListCellViewModel]() {
+    private var cellViewModels = [MemberListCellViewModel]() {
         didSet {
             self.reloadTableViewClosure?()
         }
@@ -25,7 +25,7 @@ final class ChannelMemberListViewModel {
         processFetchedData()
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> ChannelMemberListCellViewModel {
+    func getCellViewModel( at indexPath: IndexPath ) -> MemberListCellViewModel {
         return cellViewModels[indexPath.row]
     }
     
@@ -34,15 +34,15 @@ final class ChannelMemberListViewModel {
         if let path = Bundle.main.path(forResource: "channelmemberlist", ofType: "json") {
             do {
                 
-                 var vms = [ChannelMemberListCellViewModel]()
+                 var vms = [MemberListCellViewModel]()
                 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject>
                 
-                let memebers = jsonResult?["members"] as? [[String: String]]
+                let memebers = jsonResult?["members"] as? [[String: Any]]
                 
                 for member in memebers ?? [[:]] {
-                    let memberListCellVm = ChannelMemberListCellViewModel.init(memberName: member["name"], memberEmail: member["email"], memberAvailablabilityStatus: member["availablity"], isMemeberInConatctList: false)
+                    let memberListCellVm = MemberListCellViewModel.init(memberName: member["name"] as? String, memberEmail: member["email"] as? String, memberAvailablabilityStatus: member["availablity"] as? String, isMemeberInConatctList: member["isUserContact"] as? Bool ?? false)
                     vms.append(memberListCellVm)
                     
                 }
@@ -55,7 +55,7 @@ final class ChannelMemberListViewModel {
     }
 }
 
-struct ChannelMemberListCellViewModel {
+struct MemberListCellViewModel {
     let memberName: String?
     let memberEmail: String?
     let memberAvailablabilityStatus: String?

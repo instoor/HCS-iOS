@@ -10,45 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Channel View Contoller-->
-        <scene sceneID="Z48-5P-SO5">
-            <objects>
-                <collectionViewController restorationIdentifier="ChannelViewContoller" storyboardIdentifier="ChannelViewContoller" id="a4j-KW-qZQ" customClass="ChannelViewContoller" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DcC-I6-6nS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tPd-0o-Fpa">
-                            <size key="itemSize" width="375" height="271"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelListCell" id="8Xn-zp-EhK" customClass="ChannelListCell" customModule="mcpttapp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="a4j-KW-qZQ" id="qu3-Vd-etf"/>
-                            <outlet property="delegate" destination="a4j-KW-qZQ" id="NGn-FP-sF7"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="uLX-AI-EVZ"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Awf-AM-QBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3800.8000000000002" y="-202.84857571214394"/>
-        </scene>
         <!--Channel List View Controller-->
         <scene sceneID="jhC-Um-SEN">
             <objects>
-                <viewController storyboardIdentifier="ChannelListViewController" id="laj-G7-rIm" customClass="ChannelListViewController" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChannelListViewController" id="laj-G7-rIm" customClass="ChannelListViewController" customModule="MCPTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eg5-iD-USX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="2076" y="-174.06296851574214"/>
         </scene>
-        <!--Channel Member List View Controller-->
+        <!--Member List View Controller-->
         <scene sceneID="UTv-64-n0i">
             <objects>
-                <viewController storyboardIdentifier="ChannelMemberListViewController" id="sjO-BN-tSd" customClass="ChannelMemberListViewController" customModule="mcpttapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberListViewController" id="sjO-BN-tSd" customClass="MemberListViewController" customModule="MCPTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sxv-Mb-Tfv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +72,7 @@
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelMemberListTableViewCell" rowHeight="65" id="CJM-Og-TIQ" customClass="ChannelMemberListTableViewCell" customModule="mcpttapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberListTableViewCell" rowHeight="65" id="CJM-Og-TIQ" customClass="MemberListTableViewCell" customModule="MCPTT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CJM-Og-TIQ" id="GDE-mp-55D">
