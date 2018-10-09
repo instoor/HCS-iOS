@@ -60,7 +60,6 @@ final class ChannelViewContoller: UICollectionViewController, UICollectionViewDe
 
         let indexPath = NSIndexPath(item: Int(index), section: 0)
         channelMenuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
-
     }
 
 /// Collection's Delegate/DataSource Methods
