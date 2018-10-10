@@ -60,10 +60,6 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
             }
         }
     }
-    
-    
-    
-    
 } //class ending
 
 extension ContactListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -122,8 +118,7 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
             return CGSize(width: screenSize.width, height: 80)
         }
     }
-    
-    
+
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch (indexPath.section) {
@@ -159,6 +154,7 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
             return cell
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
@@ -181,4 +177,3 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
         
     }
 }
-
