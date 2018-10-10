@@ -73,9 +73,7 @@
 		5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF4E216CC360006DC121 /* ChatMessageCell.swift */; };
 		5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF56216CC3F8006DC121 /* LandingViewController.swift */; };
 		5613CF59216CC3F8006DC121 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF57216CC3F8006DC121 /* Dashboard.storyboard */; };
-		5613CF61216CC664006DC121 /* ContactsGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5A216CC664006DC121 /* ContactsGroupCell.xib */; };
 		5613CF62216CC664006DC121 /* ContactsMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5B216CC664006DC121 /* ContactsMainCell.swift */; };
-		5613CF63216CC664006DC121 /* ContactsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5C216CC664006DC121 /* ContactsGroupCell.swift */; };
 		5613CF64216CC664006DC121 /* ContactsMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5D216CC664006DC121 /* ContactsMainCell.xib */; };
 		5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5E216CC664006DC121 /* ContactListViewController.swift */; };
 		5613CF66216CC664006DC121 /* ContactsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5F216CC664006DC121 /* ContactsData.json */; };
@@ -174,9 +172,7 @@
 		5613CF4E216CC360006DC121 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		5613CF56216CC3F8006DC121 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5613CF57216CC3F8006DC121 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
-		5613CF5A216CC664006DC121 /* ContactsGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsGroupCell.xib; sourceTree = "<group>"; };
 		5613CF5B216CC664006DC121 /* ContactsMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsMainCell.swift; sourceTree = "<group>"; };
-		5613CF5C216CC664006DC121 /* ContactsGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsGroupCell.swift; sourceTree = "<group>"; };
 		5613CF5D216CC664006DC121 /* ContactsMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsMainCell.xib; sourceTree = "<group>"; };
 		5613CF5E216CC664006DC121 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		5613CF5F216CC664006DC121 /* ContactsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactsData.json; sourceTree = "<group>"; };
@@ -296,8 +292,6 @@
 				5613CF60216CC664006DC121 /* ContactsViewModel.swift */,
 				5613CF5B216CC664006DC121 /* ContactsMainCell.swift */,
 				5613CF5D216CC664006DC121 /* ContactsMainCell.xib */,
-				5613CF5C216CC664006DC121 /* ContactsGroupCell.swift */,
-				5613CF5A216CC664006DC121 /* ContactsGroupCell.xib */,
 				5613CF5F216CC664006DC121 /* ContactsData.json */,
 			);
 			path = "Contact List";
@@ -655,7 +649,6 @@
 				5613CF51216CC360006DC121 /* ChatMessageCell.xib in Resources */,
 				0A0B1D5A216CAA69007A0FD8 /* ContactSearchHeaderCell.xib in Resources */,
 				5613CF59216CC3F8006DC121 /* Dashboard.storyboard in Resources */,
-				5613CF61216CC664006DC121 /* ContactsGroupCell.xib in Resources */,
 				0A0B1D67216CAA69007A0FD8 /* SectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,7 +692,6 @@
 			files = (
 				0A0B1D80216CAA69007A0FD8 /* TermAndConditionViewController.swift in Sources */,
 				0A0B1D54216CAA69007A0FD8 /* GroupsListViewController.swift in Sources */,
-				5613CF63216CC664006DC121 /* ContactsGroupCell.swift in Sources */,
 				0A0B1D55216CAA69007A0FD8 /* AddedContactCell.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,

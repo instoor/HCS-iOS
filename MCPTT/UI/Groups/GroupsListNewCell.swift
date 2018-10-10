@@ -11,4 +11,5 @@ import UIKit
 class GroupsListNewCell: UICollectionViewCell {
     
     @IBOutlet var groupsNameLabel: UILabel!
+    @IBOutlet var groupSeparatorLabel: UILabel!
 }
