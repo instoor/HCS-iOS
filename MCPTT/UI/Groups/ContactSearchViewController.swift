@@ -14,7 +14,6 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
         return ContactSearchModel()
     }()
     
-    
     @IBOutlet var collectionView: UICollectionView!
     
     @IBOutlet var selectTypeTxtField: UITextField!
@@ -25,10 +24,9 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
     var newContacts = ["Arvind","Hemanth","Raju","Sunil","Satish"]
     var mcIDS = ["1234","4567","3456","2345","5678"]
     
-   var pickerData = ["First Name","Last Name", "Email"]
+    var pickerData = ["First Name","Last Name", "Email"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         picker.dataSource = self
         picker.delegate = self
@@ -47,12 +45,12 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
         self.title = "Contact List"
     }
     
-    func registernib(){
+    func registernib() {
     
-    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
+    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell")
     }
 
-    func initVM(){
+    func initVM() {
         viewModel.initFetch()
     }
     
@@ -63,7 +61,7 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
    
 }
 
-extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ContactSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell", for: indexPath) as? ContactHeaderCell
@@ -135,4 +133,3 @@ extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionVi
     }
     
 }
-

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum ContactAvailability: String {
     case online
     case offline
@@ -17,7 +16,6 @@ enum ContactAvailability: String {
 
 class ContactsMainCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactEmailLabel: UILabel!
     @IBOutlet weak var contactAvailabiltyStatus: UIImageView!
@@ -26,7 +24,6 @@ class ContactsMainCell: UICollectionViewCell {
     @IBAction func callContact(_ sender: Any) {
         
     }
-    
     
     func configureContactCell(contactMainCellVM: ContactsMainCellViewModel) {
         
@@ -43,8 +40,6 @@ class ContactsMainCell: UICollectionViewCell {
                 contactAvailabiltyStatus.image = UIImage(named: "blue-circele")
         }
     }
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
