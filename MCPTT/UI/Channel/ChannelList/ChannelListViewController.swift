@@ -120,7 +120,7 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return viewModel.numberOfActiveChannelCells 
+            return viewModel.numberOfActiveChannelCells
         default:
             return viewModel.numberOfIdleChannelCells
         }
