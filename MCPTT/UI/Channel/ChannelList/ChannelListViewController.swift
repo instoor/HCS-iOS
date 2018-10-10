@@ -12,27 +12,92 @@ class ChannelListViewController: UIViewController {
     
     fileprivate var idleChannelListArray: [Channel]?
     fileprivate var activeChannelListArray: [Channel]?
-    fileprivate var icFabButton = UIButton()
+    
+    lazy var viewModel: ChannelListViewModel = {
+        return ChannelListViewModel()
+    }()
     
     let screenSize = UIScreen.main.bounds
-    @IBOutlet weak var chaneelCollectionView: UICollectionView!
+    private var isNetworkAvailable: Bool = false
+    
+    @IBOutlet weak var channelCollectionView: UICollectionView!
+    @IBOutlet weak var icFabButton: UIButton!
+    @IBOutlet private weak var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var syncWithServerView: UIView!
+    @IBOutlet private weak var syncAnimationImageView: UIImageView!
+    @IBOutlet private weak var syncWithServerButton: UIButton!
+    @IBOutlet private weak var updatingLabel: UILabel!
+    @IBOutlet private weak var updatingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        chaneelCollectionView.register(UINib.init(nibName: "ChannelCell", bundle: nil), forCellWithReuseIdentifier: "ChannelCell" )
-        chaneelCollectionView.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
-        fetchChannelList()
+        channelCollectionView.register(UINib.init(nibName: "ChannelCell", bundle: nil), forCellWithReuseIdentifier: "ChannelCell" )
+        channelCollectionView.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
+        initVM()
     }
     
-    func fetchChannelList() {
-        ChannelListViewModel.shared.fetchChannelData(completion: { (idleChannelArray: [Channel], activeChannelArray: [Channel]?) in
-            self.idleChannelListArray = idleChannelArray
-            self.activeChannelListArray = activeChannelArray
-            self.chaneelCollectionView.reloadData()
-        })
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updatingView.isHidden = true
+        syncWithServerView.isHidden = true
+        loadingActivityIndicator.isHidden = true
+        syncAnimationImageView.isHidden = true
+        
+        setupsyncWithServerButton()
+        setupICFabButtons()
+        
+        if (!isNetworkAvailable) {
+            channelCollectionView.isHidden = true
+            icFabButton.isHidden = true
+            syncWithServerView.isHidden = false
+        }
+        
+    }
+    func initVM() {
+        viewModel.initFetch()
+        
+        viewModel.reloadCollectionViewClosure = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.channelCollectionView.reloadData()
+            }
+        }
+    }
+    
+    private func setupsyncWithServerButton() {
+        syncWithServerButton.layer.borderWidth = 1
+        syncWithServerButton.layer.borderColor = UIColor.black.cgColor
+        syncWithServerButton.layer.masksToBounds = true
+    }
+    
+    @IBAction func syncWithServerButtonAction(_ sender: Any) {
+        self.syncWithServerView.isHidden = true
+        channelCollectionView.isHidden = true
+        self.updatingView.isHidden = false
+        loadingActivityIndicator.isHidden = false
+        loadingActivityIndicator.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // your code here
+            self.isNetworkAvailable = true
+            self.loadingActivityIndicator.stopAnimating()
+            self.updatingView.isHidden = true
+            self.syncWithServerView.isHidden = true
+            self.channelCollectionView.isHidden = false
+            self.icFabButton.isHidden = false
+        }
+    }
+    
+    private func setupICFabButtons() {
+        icFabButton.setTitle("IC", for: .normal)
+        icFabButton.backgroundColor = UIColor.darkGray
+        icFabButton.layer.cornerRadius = 27
+        icFabButton.layer.masksToBounds = true
+        icFabButton.layer.zPosition = 1
+    }
+    
+    @IBAction func icFabButtonAction(_ sender: Any) {
+        print("Create Channel Button Pressed")
     }
 }
 extension ChannelListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -53,30 +118,32 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
         return CGSize.init(width: screenSize.width, height: 30)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return activeChannelListArray?.count ?? 0
-        } else {
-            return idleChannelListArray?.count ?? 0
+        switch section {
+        case 0:
+            return viewModel.numberOfActiveChannelCells 
+        default:
+            return viewModel.numberOfIdleChannelCells
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelCell", for: indexPath) as? ChannelCell else {
-            return UICollectionViewCell()
-        }
-        cell.separatorView.isHidden = true
-        if indexPath.section == 0 {
-            cell.channel = activeChannelListArray?[indexPath.row]
-            cell.countStatusLabel.isHidden = true
-            cell.channelIconImage.isHidden = true
-            return cell
-            
-        } else {
-            cell.channel = idleChannelListArray?[indexPath.row]
-            cell.separatorView.isHidden = false
-            return cell
+            fatalError("Cell does not exist in storyboard")
         }
         
+        cell.separatorView.isHidden = true
+        switch indexPath.section {
+        case 0:
+            cell.channel = viewModel.getActiveChannelCellViewModel(at: indexPath)
+            cell.countStatusLabel.isHidden = true
+            cell.channelIconImage.isHidden = true
+            
+        default:
+            cell.channel = viewModel.getIdleChannelCellViewModel(at: indexPath)
+            cell.separatorView.isHidden = false
+            
+        }
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -94,5 +161,5 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
         
         self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
     }
-    
+
 }

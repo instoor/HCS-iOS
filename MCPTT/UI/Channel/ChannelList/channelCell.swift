@@ -97,4 +97,10 @@ class ChannelCell: BaseCell {
         super.awakeFromNib()
     }
 
+    override func prepareForReuse(){
+        self.statusDescriptionIconImage.image = nil
+        self.broadcastIconImage.image = nil
+        self.channelIconImage.image = nil
+        self.channelStatusIcon.image = nil
+    }
 }

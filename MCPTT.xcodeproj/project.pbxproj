@@ -357,10 +357,10 @@
 		0A0B1CFD216CAA68007A0FD8 /* ChannelList */ = {
 			isa = PBXGroup;
 			children = (
+				5613CF39216CBF71006DC121 /* channelListDemoData.json */,
+				5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */,
 				5613CF3B216CBF8E006DC121 /* ChannelListViewController.swift */,
 				5613CF37216CBF48006DC121 /* ScrollPager.swift */,
-				5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */,
-				5613CF39216CBF71006DC121 /* channelListDemoData.json */,
 				0A0B1CFE216CAA68007A0FD8 /* SectionHeaderCell.swift */,
 				0A0B1D04216CAA68007A0FD8 /* channelCell.swift */,
 				0A0B1D00216CAA68007A0FD8 /* ChannelCell.xib */,
