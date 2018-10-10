@@ -22,15 +22,47 @@ struct Channel {
 }
 
 class ChannelListViewModel {
-    private init() {}
-    static let shared = ChannelListViewModel()
-
-    func fetchChannelData (completion: @escaping ([Channel], [Channel]) -> ()) {
+    
+    private var activeChannelCellViewModel = [Channel]() {
+        didSet {
+            self.reloadCollectionViewClosure?()
+        }
+    }
+    
+    private var idleChannelCellViewModel = [Channel]() {
+        didSet {
+            self.reloadCollectionViewClosure?()
+        }
+    }
+    
+    var reloadCollectionViewClosure: (() -> Void)?
+    
+    func initFetch() {
+        processfetchedChannelData()
+    }
+    
+    var numberOfActiveChannelCells: Int {
+        return activeChannelCellViewModel.count
+    }
+    
+    var numberOfIdleChannelCells: Int {
+        return idleChannelCellViewModel.count
+    }
+    
+    func getIdleChannelCellViewModel( at indexPath: IndexPath ) -> Channel {
+        return idleChannelCellViewModel[indexPath.row]
+    }
+    
+    func getActiveChannelCellViewModel( at indexPath: IndexPath ) -> Channel {
+        return activeChannelCellViewModel[indexPath.row]
+    }
+    
+    func processfetchedChannelData () {
 
             if let path = Bundle.main.path(forResource: "channelListDemoData", ofType: "json") {
             do {
-                var idlechannelsData = [Channel]()
-                var activechannelsData = [Channel]()
+                var idleChannelsData = [Channel]()
+                var activeChannelsData = [Channel]()
 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 print(data)
@@ -52,14 +84,12 @@ class ChannelListViewModel {
                                           channelStatusDescription: channel["channel_description_status"])
 
                     if(channel.channelStatus == "active") {
-                        activechannelsData.append(channel)
+                        activeChannelsData.append(channel)
                     } else {
-                        idlechannelsData.append(channel)
+                        idleChannelsData.append(channel)
                     }
-                }
-
-                DispatchQueue.main.async {
-                    completion(idlechannelsData, activechannelsData)
+                    activeChannelCellViewModel = activeChannelsData
+                    idleChannelCellViewModel = idleChannelsData
                 }
             } catch {
             }

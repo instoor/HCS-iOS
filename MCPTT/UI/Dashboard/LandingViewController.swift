@@ -25,7 +25,10 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "MCPTT"
+        //self.title = "MCPTT"
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width-32, height: view.frame.size.height))
+        titleLabel.text = "MCPTT"
+        navigationItem.titleView = titleLabel
         navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
         
@@ -52,8 +55,8 @@ class LandingViewController: UIViewController {
         if let channelView = channelListViewController?.view, let contactListView = contactListViewController?.view {
             
             scrollPager.addSegmentsWithTitlesAndViews(segments: [
-                ("Channels", channelView),
-                ("Contacts", contactListView)
+                ("CHANNELS", channelView),
+                ("CONTACTS", contactListView)
                 ])
         }
         
