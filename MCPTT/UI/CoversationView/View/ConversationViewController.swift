@@ -85,11 +85,15 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
     
     // MARK: Navigate to UserList
     @objc func switchToUserList() {
-        let channelStoryboard = UIStoryboard.init(name: "Channel", bundle: nil)
-        guard let memberDetailVc = channelStoryboard.instantiateViewController(withIdentifier: "MemberListViewController") as? MemberListViewController else {
-            return
+        var actions: [(String, UIAlertActionStyle)] = []
+        actions.append(("Members", UIAlertActionStyle.default))
+        actions.append(("Cancel", UIAlertActionStyle.cancel))
+        CommonUtility.showActionsheet(viewController: self, title: "", message: "", actions: actions) { (index) in
+            if index == 0 {
+                 let memberDetailVc = MemberListViewController.instantiateFromStoryboard("Channel", storyboardId: "MemberListViewController")
+                self.navigationController?.pushViewController(memberDetailVc, animated: true)
+            }
         }
-        self.navigationController?.pushViewController(memberDetailVc, animated: true)
     }
     
      // MARK: activate and Deactivate call

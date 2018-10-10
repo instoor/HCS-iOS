@@ -68,11 +68,23 @@ class LandingViewController: UIViewController {
     }
     
     @objc func handleSettings() {
-        let settingStoryboard = UIStoryboard.init(name: "Setting", bundle: nil)
-        guard let settingViewController = settingStoryboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
+        var actions: [(String, UIAlertActionStyle)] = []
+        actions.append(("Settings", UIAlertActionStyle.default))
+        actions.append(("Sign Out", UIAlertActionStyle.default))
+        actions.append(("Cancel", UIAlertActionStyle.cancel))
+        
+        CommonUtility.showActionsheet(viewController: self, title: "", message: "", actions: actions) { (index) in
+            switch index {
+            case 0:
+                 let settingViewController = SettingsViewController.instantiateFromStoryboard("Setting", storyboardId: "SettingsViewController")
+                self.navigationController?.pushViewController(settingViewController, animated: true)
+            case 1:
+            //Need to implement logoout funtionality
             return
+            default:
+                return
+            }
         }
-        self.navigationController?.pushViewController(settingViewController, animated: true)
     }
 }
 extension LandingViewController: ScrollPagerDelegate {
