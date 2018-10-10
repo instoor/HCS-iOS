@@ -158,22 +158,13 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            let groupsStoryboard = UIStoryboard.init(name: "Groups", bundle: nil)
-            guard let conversationViewController = groupsStoryboard.instantiateViewController(withIdentifier: "GroupMembersViewController") as? GroupsMembersViewController else {
-                return
-            }
-            
-            self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
+             let memberDetailVc = GroupMembersListViewController.instantiateFromStoryboard("Groups", storyboardId: "GroupMembersListViewController")
+            self.navigationController?.pushViewController(memberDetailVc, animated: true)
         case 2:
-            let contactStoryboard = UIStoryboard.init(name: "Contact", bundle: nil)
-            guard let memberDetailVc = contactStoryboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as? MemberDetailViewController else {
-                return
-                
-            }
+             let memberDetailVc = MemberDetailViewController.instantiateFromStoryboard("Contact", storyboardId: "MemberDetailViewController")
             self.navigationController?.pushViewController(memberDetailVc, animated: true)
         default:
             return
         }
-        
     }
 }

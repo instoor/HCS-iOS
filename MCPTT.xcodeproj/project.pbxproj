@@ -15,21 +15,6 @@
 		0A0B1D4C216CAA69007A0FD8 /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CE4216CAA68007A0FD8 /* MemberDetailViewController.swift */; };
 		0A0B1D4D216CAA69007A0FD8 /* NotificationPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CE6216CAA68007A0FD8 /* NotificationPanelViewController.swift */; };
 		0A0B1D4E216CAA69007A0FD8 /* NotificationPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1CE7216CAA68007A0FD8 /* NotificationPanel.storyboard */; };
-		0A0B1D4F216CAA69007A0FD8 /* ContactSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CE9216CAA68007A0FD8 /* ContactSearchViewController.swift */; };
-		0A0B1D50216CAA69007A0FD8 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CEA216CAA68007A0FD8 /* GroupsListNewCell.swift */; };
-		0A0B1D51216CAA69007A0FD8 /* AddContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1CEB216CAA68007A0FD8 /* AddContact.storyboard */; };
-		0A0B1D52216CAA69007A0FD8 /* GroupsMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CEC216CAA68007A0FD8 /* GroupsMembersViewController.swift */; };
-		0A0B1D53216CAA69007A0FD8 /* NewContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CED216CAA68007A0FD8 /* NewContactsCell.swift */; };
-		0A0B1D54216CAA69007A0FD8 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CEE216CAA68007A0FD8 /* GroupsListViewController.swift */; };
-		0A0B1D55216CAA69007A0FD8 /* AddedContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CEF216CAA68007A0FD8 /* AddedContactCell.swift */; };
-		0A0B1D56216CAA69007A0FD8 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF0216CAA68007A0FD8 /* Group.storyboard */; };
-		0A0B1D57216CAA69007A0FD8 /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF1216CAA68007A0FD8 /* Groups.storyboard */; };
-		0A0B1D58216CAA69007A0FD8 /* GroupMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF2216CAA68007A0FD8 /* GroupMembersCell.swift */; };
-		0A0B1D59216CAA69007A0FD8 /* SearchAndDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF3216CAA68007A0FD8 /* SearchAndDropDownView.swift */; };
-		0A0B1D5A216CAA69007A0FD8 /* ContactSearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF4216CAA68007A0FD8 /* ContactSearchHeaderCell.xib */; };
-		0A0B1D5B216CAA69007A0FD8 /* ContactHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF5216CAA68007A0FD8 /* ContactHeaderCell.swift */; };
-		0A0B1D5C216CAA69007A0FD8 /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF6216CAA68007A0FD8 /* GroupMembersViewController.swift */; };
-		0A0B1D5D216CAA69007A0FD8 /* GroupsListNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CF7216CAA68007A0FD8 /* GroupsListNewController.swift */; };
 		0A0B1D61216CAA69007A0FD8 /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1CFE216CAA68007A0FD8 /* SectionHeaderCell.swift */; };
 		0A0B1D63216CAA69007A0FD8 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B1D00216CAA68007A0FD8 /* ChannelCell.xib */; };
 		0A0B1D66216CAA69007A0FD8 /* channelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D04216CAA68007A0FD8 /* channelCell.swift */; };
@@ -78,8 +63,21 @@
 		5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5E216CC664006DC121 /* ContactListViewController.swift */; };
 		5613CF66216CC664006DC121 /* ContactsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5F216CC664006DC121 /* ContactsData.json */; };
 		5613CF67216CC664006DC121 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF60216CC664006DC121 /* ContactsViewModel.swift */; };
-		5613CF6A216CC93B006DC121 /* ContactSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF68216CC93B006DC121 /* ContactSearchModel.swift */; };
-		5613CF6B216CC93B006DC121 /* contactslist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF69216CC93B006DC121 /* contactslist.json */; };
+		5FF8A43E216E1CE700ADCFF1 /* contactslist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A430216E1CE700ADCFF1 /* contactslist.json */; };
+		5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */; };
+		5FF8A440216E1CE700ADCFF1 /* AddContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A432216E1CE700ADCFF1 /* AddContact.storyboard */; };
+		5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A433216E1CE700ADCFF1 /* ContactSearchModel.swift */; };
+		5FF8A442216E1CE700ADCFF1 /* GroupsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A434216E1CE700ADCFF1 /* GroupsListCell.swift */; };
+		5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A435216E1CE700ADCFF1 /* ContactSearchCell.swift */; };
+		5FF8A444216E1CE700ADCFF1 /* AddedContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A436216E1CE700ADCFF1 /* AddedContactCell.swift */; };
+		5FF8A445216E1CE700ADCFF1 /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A437216E1CE700ADCFF1 /* Groups.storyboard */; };
+		5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A438216E1CE700ADCFF1 /* GroupMembersCell.swift */; };
+		5FF8A447216E1CE700ADCFF1 /* GroupMembersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A439216E1CE700ADCFF1 /* GroupMembersListViewController.swift */; };
+		5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43A216E1CE700ADCFF1 /* SearchAndDropDownView.swift */; };
+		5FF8A449216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */; };
+		5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */; };
+		5FF8A44B216E1CE700ADCFF1 /* GroupsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43D216E1CE700ADCFF1 /* GroupsListController.swift */; };
+		5FF8A44D216E20EA00ADCFF1 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,21 +112,6 @@
 		0A0B1CE4216CAA68007A0FD8 /* MemberDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
 		0A0B1CE6216CAA68007A0FD8 /* NotificationPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPanelViewController.swift; sourceTree = "<group>"; };
 		0A0B1CE7216CAA68007A0FD8 /* NotificationPanel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificationPanel.storyboard; sourceTree = "<group>"; };
-		0A0B1CE9216CAA68007A0FD8 /* ContactSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchViewController.swift; sourceTree = "<group>"; };
-		0A0B1CEA216CAA68007A0FD8 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListNewCell.swift; sourceTree = "<group>"; };
-		0A0B1CEB216CAA68007A0FD8 /* AddContact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddContact.storyboard; sourceTree = "<group>"; };
-		0A0B1CEC216CAA68007A0FD8 /* GroupsMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsMembersViewController.swift; sourceTree = "<group>"; };
-		0A0B1CED216CAA68007A0FD8 /* NewContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewContactsCell.swift; sourceTree = "<group>"; };
-		0A0B1CEE216CAA68007A0FD8 /* GroupsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
-		0A0B1CEF216CAA68007A0FD8 /* AddedContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedContactCell.swift; sourceTree = "<group>"; };
-		0A0B1CF0216CAA68007A0FD8 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
-		0A0B1CF1216CAA68007A0FD8 /* Groups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
-		0A0B1CF2216CAA68007A0FD8 /* GroupMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMembersCell.swift; sourceTree = "<group>"; };
-		0A0B1CF3216CAA68007A0FD8 /* SearchAndDropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAndDropDownView.swift; sourceTree = "<group>"; };
-		0A0B1CF4216CAA68007A0FD8 /* ContactSearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSearchHeaderCell.xib; sourceTree = "<group>"; };
-		0A0B1CF5216CAA68007A0FD8 /* ContactHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactHeaderCell.swift; sourceTree = "<group>"; };
-		0A0B1CF6216CAA68007A0FD8 /* GroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMembersViewController.swift; sourceTree = "<group>"; };
-		0A0B1CF7216CAA68007A0FD8 /* GroupsListNewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListNewController.swift; sourceTree = "<group>"; };
 		0A0B1CFE216CAA68007A0FD8 /* SectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		0A0B1D00216CAA68007A0FD8 /* ChannelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
 		0A0B1D04216CAA68007A0FD8 /* channelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = channelCell.swift; sourceTree = "<group>"; };
@@ -177,8 +160,21 @@
 		5613CF5E216CC664006DC121 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		5613CF5F216CC664006DC121 /* ContactsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactsData.json; sourceTree = "<group>"; };
 		5613CF60216CC664006DC121 /* ContactsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
-		5613CF68216CC93B006DC121 /* ContactSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchModel.swift; sourceTree = "<group>"; };
-		5613CF69216CC93B006DC121 /* contactslist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contactslist.json; sourceTree = "<group>"; };
+		5FF8A430216E1CE700ADCFF1 /* contactslist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contactslist.json; sourceTree = "<group>"; };
+		5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchViewController.swift; sourceTree = "<group>"; };
+		5FF8A432216E1CE700ADCFF1 /* AddContact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddContact.storyboard; sourceTree = "<group>"; };
+		5FF8A433216E1CE700ADCFF1 /* ContactSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchModel.swift; sourceTree = "<group>"; };
+		5FF8A434216E1CE700ADCFF1 /* GroupsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListCell.swift; sourceTree = "<group>"; };
+		5FF8A435216E1CE700ADCFF1 /* ContactSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchCell.swift; sourceTree = "<group>"; };
+		5FF8A436216E1CE700ADCFF1 /* AddedContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedContactCell.swift; sourceTree = "<group>"; };
+		5FF8A437216E1CE700ADCFF1 /* Groups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
+		5FF8A438216E1CE700ADCFF1 /* GroupMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMembersCell.swift; sourceTree = "<group>"; };
+		5FF8A439216E1CE700ADCFF1 /* GroupMembersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMembersListViewController.swift; sourceTree = "<group>"; };
+		5FF8A43A216E1CE700ADCFF1 /* SearchAndDropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAndDropDownView.swift; sourceTree = "<group>"; };
+		5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSearchHeaderCell.xib; sourceTree = "<group>"; };
+		5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactHeaderCell.swift; sourceTree = "<group>"; };
+		5FF8A43D216E1CE700ADCFF1 /* GroupsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListController.swift; sourceTree = "<group>"; };
+		5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsListNewCell.swift; path = ../../../../../../../../Downloads/GroupsListNewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +264,6 @@
 				0A0B1CF8216CAA68007A0FD8 /* Channel */,
 				0A0B1CD7216CAA68007A0FD8 /* Contact */,
 				5613CF44216CC360006DC121 /* CoversationView */,
-				0A0B1CE8216CAA68007A0FD8 /* Groups */,
 				0A0B1CE5216CAA68007A0FD8 /* NotificationPanel */,
 				0A0B1D22216CAA68007A0FD8 /* Setting */,
 			);
@@ -281,6 +276,7 @@
 				0A0B1CD8216CAA68007A0FD8 /* Contact.storyboard */,
 				0A0B1CD9216CAA68007A0FD8 /* Contact List */,
 				0A0B1CE3216CAA68007A0FD8 /* Contact Detail */,
+				5FF8A42F216E1CE700ADCFF1 /* Groups */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -291,6 +287,7 @@
 				5613CF5E216CC664006DC121 /* ContactListViewController.swift */,
 				5613CF60216CC664006DC121 /* ContactsViewModel.swift */,
 				5613CF5B216CC664006DC121 /* ContactsMainCell.swift */,
+				5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */,
 				5613CF5D216CC664006DC121 /* ContactsMainCell.xib */,
 				5613CF5F216CC664006DC121 /* ContactsData.json */,
 			);
@@ -312,30 +309,6 @@
 				0A0B1CE7216CAA68007A0FD8 /* NotificationPanel.storyboard */,
 			);
 			path = NotificationPanel;
-			sourceTree = "<group>";
-		};
-		0A0B1CE8216CAA68007A0FD8 /* Groups */ = {
-			isa = PBXGroup;
-			children = (
-				0A0B1CE9216CAA68007A0FD8 /* ContactSearchViewController.swift */,
-				5613CF68216CC93B006DC121 /* ContactSearchModel.swift */,
-				5613CF69216CC93B006DC121 /* contactslist.json */,
-				0A0B1CEA216CAA68007A0FD8 /* GroupsListNewCell.swift */,
-				0A0B1CEB216CAA68007A0FD8 /* AddContact.storyboard */,
-				0A0B1CEC216CAA68007A0FD8 /* GroupsMembersViewController.swift */,
-				0A0B1CED216CAA68007A0FD8 /* NewContactsCell.swift */,
-				0A0B1CEE216CAA68007A0FD8 /* GroupsListViewController.swift */,
-				0A0B1CEF216CAA68007A0FD8 /* AddedContactCell.swift */,
-				0A0B1CF0216CAA68007A0FD8 /* Group.storyboard */,
-				0A0B1CF1216CAA68007A0FD8 /* Groups.storyboard */,
-				0A0B1CF2216CAA68007A0FD8 /* GroupMembersCell.swift */,
-				0A0B1CF3216CAA68007A0FD8 /* SearchAndDropDownView.swift */,
-				0A0B1CF4216CAA68007A0FD8 /* ContactSearchHeaderCell.xib */,
-				0A0B1CF5216CAA68007A0FD8 /* ContactHeaderCell.swift */,
-				0A0B1CF6216CAA68007A0FD8 /* GroupMembersViewController.swift */,
-				0A0B1CF7216CAA68007A0FD8 /* GroupsListNewController.swift */,
-			);
-			path = Groups;
 			sourceTree = "<group>";
 		};
 		0A0B1CF8216CAA68007A0FD8 /* Channel */ = {
@@ -523,6 +496,27 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		5FF8A42F216E1CE700ADCFF1 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				5FF8A430216E1CE700ADCFF1 /* contactslist.json */,
+				5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */,
+				5FF8A433216E1CE700ADCFF1 /* ContactSearchModel.swift */,
+				5FF8A435216E1CE700ADCFF1 /* ContactSearchCell.swift */,
+				5FF8A432216E1CE700ADCFF1 /* AddContact.storyboard */,
+				5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */,
+				5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */,
+				5FF8A439216E1CE700ADCFF1 /* GroupMembersListViewController.swift */,
+				5FF8A434216E1CE700ADCFF1 /* GroupsListCell.swift */,
+				5FF8A436216E1CE700ADCFF1 /* AddedContactCell.swift */,
+				5FF8A437216E1CE700ADCFF1 /* Groups.storyboard */,
+				5FF8A438216E1CE700ADCFF1 /* GroupMembersCell.swift */,
+				5FF8A43A216E1CE700ADCFF1 /* SearchAndDropDownView.swift */,
+				5FF8A43D216E1CE700ADCFF1 /* GroupsListController.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -628,28 +622,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF8A445216E1CE700ADCFF1 /* Groups.storyboard in Resources */,
 				0A0B1CA9216CA5DE007A0FD8 /* LaunchScreen.storyboard in Resources */,
 				0A0B1D68216CAA69007A0FD8 /* channelmemberlist.json in Resources */,
-				0A0B1D51216CAA69007A0FD8 /* AddContact.storyboard in Resources */,
 				0A0B1D4E216CAA69007A0FD8 /* NotificationPanel.storyboard in Resources */,
 				0A0B1D84216CAA69007A0FD8 /* Login.storyboard in Resources */,
 				5613CF64216CC664006DC121 /* ContactsMainCell.xib in Resources */,
 				0A0B1D6D216CAA69007A0FD8 /* Channel.storyboard in Resources */,
 				0A0B1D7C216CAA69007A0FD8 /* Setting.storyboard in Resources */,
-				5613CF6B216CC93B006DC121 /* contactslist.json in Resources */,
+				5FF8A440216E1CE700ADCFF1 /* AddContact.storyboard in Resources */,
 				5613CF52216CC360006DC121 /* ConversationView.storyboard in Resources */,
 				5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */,
 				0A0B1D42216CAA69007A0FD8 /* Contact.storyboard in Resources */,
 				0A0B1D81216CAA69007A0FD8 /* Main.storyboard in Resources */,
-				0A0B1D56216CAA69007A0FD8 /* Group.storyboard in Resources */,
-				0A0B1D57216CAA69007A0FD8 /* Groups.storyboard in Resources */,
 				0A0B1D63216CAA69007A0FD8 /* ChannelCell.xib in Resources */,
 				0A0B1CA6216CA5DE007A0FD8 /* Assets.xcassets in Resources */,
 				5613CF66216CC664006DC121 /* ContactsData.json in Resources */,
 				5613CF51216CC360006DC121 /* ChatMessageCell.xib in Resources */,
-				0A0B1D5A216CAA69007A0FD8 /* ContactSearchHeaderCell.xib in Resources */,
 				5613CF59216CC3F8006DC121 /* Dashboard.storyboard in Resources */,
+				5FF8A43E216E1CE700ADCFF1 /* contactslist.json in Resources */,
 				0A0B1D67216CAA69007A0FD8 /* SectionHeaderView.xib in Resources */,
+				5FF8A449216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +674,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -691,15 +684,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0B1D80216CAA69007A0FD8 /* TermAndConditionViewController.swift in Sources */,
-				0A0B1D54216CAA69007A0FD8 /* GroupsListViewController.swift in Sources */,
-				0A0B1D55216CAA69007A0FD8 /* AddedContactCell.swift in Sources */,
+				5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,
-				0A0B1D52216CAA69007A0FD8 /* GroupsMembersViewController.swift in Sources */,
+				5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */,
 				5613CF40216CC040006DC121 /* MemberListViewController.swift in Sources */,
 				0A0B1D89216CAA69007A0FD8 /* EncryptionUtils.swift in Sources */,
-				0A0B1D5C216CAA69007A0FD8 /* GroupMembersViewController.swift in Sources */,
 				5613CF62216CC664006DC121 /* ContactsMainCell.swift in Sources */,
+				5FF8A44D216E20EA00ADCFF1 /* GroupsListNewCell.swift in Sources */,
 				0A0B1D87216CAA69007A0FD8 /* CommonUtility.swift in Sources */,
 				0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */,
 				5613CF41216CC040006DC121 /* MemberListTableViewCell.swift in Sources */,
@@ -710,31 +702,31 @@
 				5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */,
 				0A0B1D8C216CAA69007A0FD8 /* AES256Cipher.swift in Sources */,
 				5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */,
-				0A0B1D59216CAA69007A0FD8 /* SearchAndDropDownView.swift in Sources */,
 				0A0B1D85216CAA69007A0FD8 /* LoginViewContoller.swift in Sources */,
-				0A0B1D53216CAA69007A0FD8 /* NewContactsCell.swift in Sources */,
 				5613CF4F216CC360006DC121 /* ConversationViewModel.swift in Sources */,
+				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
+				5FF8A44B216E1CE700ADCFF1 /* GroupsListController.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
+				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
 				0A0B1D8D216CAA69007A0FD8 /* AESCipher.swift in Sources */,
-				0A0B1D50216CAA69007A0FD8 /* GroupsListNewCell.swift in Sources */,
 				0A0B1D83216CAA69007A0FD8 /* LoginViewModel.swift in Sources */,
 				5613CF53216CC360006DC121 /* ConversationViewController.swift in Sources */,
 				0A0B1D4C216CAA69007A0FD8 /* MemberDetailViewController.swift in Sources */,
-				0A0B1D5D216CAA69007A0FD8 /* GroupsListNewController.swift in Sources */,
-				0A0B1D5B216CAA69007A0FD8 /* ContactHeaderCell.swift in Sources */,
-				0A0B1D4F216CAA69007A0FD8 /* ContactSearchViewController.swift in Sources */,
-				0A0B1D58216CAA69007A0FD8 /* GroupMembersCell.swift in Sources */,
 				0A0B1D7F216CAA69007A0FD8 /* SettingsViewController.swift in Sources */,
+				5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */,
 				0A0B1D8B216CAA69007A0FD8 /* ContactDatabaseHelper.swift in Sources */,
 				5613CF50216CC360006DC121 /* ConversationModel.swift in Sources */,
-				5613CF6A216CC93B006DC121 /* ContactSearchModel.swift in Sources */,
+				5FF8A444216E1CE700ADCFF1 /* AddedContactCell.swift in Sources */,
 				5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */,
 				5613CF3C216CBF8E006DC121 /* ChannelListViewController.swift in Sources */,
 				0A0B1D82216CAA69007A0FD8 /* HomeScreenViewController.swift in Sources */,
+				5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */,
 				0A0B1D4D216CAA69007A0FD8 /* NotificationPanelViewController.swift in Sources */,
 				0A0B1D7E216CAA69007A0FD8 /* SettingsTableViewCell.swift in Sources */,
 				0A0B1D86216CAA69007A0FD8 /* UIViewController+Extensions.swift in Sources */,
 				5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */,
+				5FF8A447216E1CE700ADCFF1 /* GroupMembersListViewController.swift in Sources */,
+				5FF8A442216E1CE700ADCFF1 /* GroupsListCell.swift in Sources */,
 				0A0B1D66216CAA69007A0FD8 /* channelCell.swift in Sources */,
 				0A0B1D88216CAA69007A0FD8 /* ChannelExtension.swift in Sources */,
 				0A0B1D7D216CAA69007A0FD8 /* SettingsViewModel.swift in Sources */,

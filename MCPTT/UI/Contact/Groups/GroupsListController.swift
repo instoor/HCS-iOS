@@ -1,5 +1,5 @@
 //
-//  GroupsListNewController.swift
+//  GroupsListController.swift
 //  mcpttapp
 //
 //  Created by harman on 07/10/18.
@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "groupsNames"
 
-class GroupsListNewController: UICollectionViewController {
+class GroupsListController: UICollectionViewController {
 
     var groupList:[String] = ["_team name_(10)","_team name_(21)","_team name_(7)","_team name_(14)","_team name_(87)","_team name_(75)","_team name_(25)","_team name_(13)"]
     
@@ -55,7 +55,7 @@ class GroupsListNewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as? GroupsListNewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "list", for: indexPath) as? GroupsListCell
      cell?.groupsNameLabel.text = groupList[indexPath.row]
         // Configure the cell
     
@@ -67,10 +67,6 @@ class GroupsListNewController: UICollectionViewController {
         performSegue(withIdentifier: "cell1", sender: groupList[indexPath.row])
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as? GroupsMembersViewController
-        print(vc)
-    }
     // MARK: UICollectionViewDelegate
 
     /*

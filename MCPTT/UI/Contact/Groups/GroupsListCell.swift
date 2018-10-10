@@ -1,5 +1,5 @@
 //
-//  GroupsListNewCell.swift
+//  GroupsListCell.swift
 //  mcpttapp
 //
 //  Created by harman on 07/10/18.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-class GroupsListNewCell: UICollectionViewCell {
+class GroupsListCell: UICollectionViewCell {
     
     @IBOutlet var groupsNameLabel: UILabel!
-    @IBOutlet var groupSeparatorLabel: UILabel!
 }

@@ -1,5 +1,5 @@
 //
-//  GroupsMembersViewController.swift
+//  GroupMembersListViewController.swift
 //  mcpttapp
 //
 //  Created by harman on 07/10/18.
@@ -10,9 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class GroupsMembersViewController: UICollectionViewController {
+class GroupMembersListViewController: UICollectionViewController {
 
-    var frndsName = ["Aiden Walker","Alexander McHale","Andrew Adams","Bailey Thwaites","Briella Sursok"]
+    var frndsName = ["Aiden Walker", "Alexander McHale", "Andrew Adams", "Bailey Thwaites","Briella Sursok"]
     
     let sections = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
     var dividedArray:NSMutableArray = []
@@ -24,9 +24,9 @@ class GroupsMembersViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        for i in sections{
+        for i in sections {
             let dummyArray:NSMutableArray = []
-            for j in frndsName{
+            for j in frndsName {
                 if  i.first  == j.first {
                     dummyArray.add(j)
                 }

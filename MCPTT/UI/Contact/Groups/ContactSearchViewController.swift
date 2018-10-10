@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
    
     lazy var viewModel: ContactSearchModel = {
         return ContactSearchModel()
@@ -18,25 +18,29 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
     
     @IBOutlet var selectTypeTxtField: UITextField!
     
+    @IBOutlet weak var searchController: UISearchBar!
     var picker = UIPickerView()
     
     var contacts = ["Prashant"]
-    var newContacts = ["Arvind","Hemanth","Raju","Sunil","Satish"]
-    var mcIDS = ["1234","4567","3456","2345","5678"]
+   // var newContacts = ["Arvind","Hemanth","Raju","Sunil","Satish"]
+    //var mcIDS = ["1234","4567","3456","2345","5678"]
     
-    var pickerData = ["First Name","Last Name", "Email"]
+   var pickerData = ["First Name", "Last Name", "Email"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
         picker.dataSource = self
         picker.delegate = self
         selectTypeTxtField.inputView = picker
-        
+        searchController.tintColor = .black
+        searchController.layer.borderWidth = 1
+        searchController.layer.borderColor = UIColor.black.cgColor
         //Registering the nib file
         registernib()
         
         //initiate view model
         initView()
+        
         initVM()
     }
     
@@ -44,12 +48,12 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
         self.title = "Contact List"
     }
     
-    func registernib() {
+    func registernib(){
     
-    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell")
+    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
     }
 
-    func initVM() {
+    func initVM(){
         viewModel.initFetch()
     }
     
@@ -60,7 +64,7 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
    
 }
 
-extension ContactSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell", for: indexPath) as? ContactHeaderCell
@@ -86,12 +90,12 @@ extension ContactSearchViewController: UICollectionViewDelegate, UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newContactCell", for: indexPath) as? NewContactsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newContactCell", for: indexPath) as? ContactSearchCell
         
         if indexPath.section == 0 {
             cell?.nameLabel.text = contacts[indexPath.row]
-            //cell.mcidLabel.text = mcIDS[indexPath.row]
-            cell?.plusIcon.isHidden = true
+            cell?.mcidLabel.text = "prashanth@harman.com"
+            //cell?.plusIcon.isHidden = true
             return cell ?? UICollectionViewCell()
             
         } else {
@@ -100,7 +104,7 @@ extension ContactSearchViewController: UICollectionViewDelegate, UICollectionVie
             
            let cellvm = viewModel.getCellViewModel(at: indexPath)
             cell?.nameLabel.text = cellvm.contactName
-            cell?.mcidLabel.text = mcIDS[indexPath.row]
+            cell?.mcidLabel.text = cellvm.mcid
             return cell ?? UICollectionViewCell()
         }
         
