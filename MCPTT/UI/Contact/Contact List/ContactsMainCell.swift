@@ -21,6 +21,8 @@ class ContactsMainCell: UICollectionViewCell {
     @IBOutlet weak var contactAvailabiltyStatus: UIImageView!
     @IBOutlet weak var callContactButton: UIButton!
     
+    @IBOutlet weak var separatorLineLabel: UILabel!
+    
     @IBAction func callContact(_ sender: Any) {
         
     }
