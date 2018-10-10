@@ -36,7 +36,7 @@ class ChannelCell: BaseCell {
     
     @IBOutlet weak var statusLabelLeadingConstraints: NSLayoutConstraint!
     
-    var channelStatus : String?
+    var channelStatus: String?
     var channelID: String?
 
     override func setupViews() {

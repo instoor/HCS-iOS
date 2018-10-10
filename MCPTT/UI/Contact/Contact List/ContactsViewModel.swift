@@ -14,7 +14,6 @@ struct ContactsMainCellViewModel {
     let contactAvailablabilityStatus: String?
 }
 
-
 final class ContactsViewModel {
     private var cellViewModels = [ContactsMainCellViewModel]() {
         didSet {
@@ -30,7 +29,6 @@ final class ContactsViewModel {
     var numberOfCells: Int {
         return cellViewModels.count
     }
-    
     
     func getCellViewModel( at indexPath: IndexPath ) -> ContactsMainCellViewModel {
         return cellViewModels[indexPath.row]

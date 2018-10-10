@@ -26,7 +26,7 @@ final class ContactSearchModel{
         return cellViewModels.count
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> ContactCellSearchModel {
+    func getCellViewModel(at indexPath: IndexPath) -> ContactCellSearchModel {
         return cellViewModels[indexPath.row]
     }
     
@@ -34,27 +34,22 @@ final class ContactSearchModel{
         // Need to delete this code once API integeration & Model class creation.
         if let path = Bundle.main.path(forResource: "contactslist", ofType: "json") {
             do {
-                
                 var vms = [ContactCellSearchModel]()
-                
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject>
                 
                 let contacts = jsonResult?["contacts"] as? [[String: String]]
                 
                 for contact in contacts ?? [[:]] {
-                    let memberListCellVm = ContactCellSearchModel.init(contactName: contact["name"],  contactAvailablity: contact["availablity"], mcid: contact["mcid"])
+                    let memberListCellVm = ContactCellSearchModel.init(contactName: contact["name"], contactAvailablity: contact["availablity"], mcid: contact["mcid"])
                     vms.append(memberListCellVm)
-                    
                 }
                 self.cellViewModels = vms
-                
             } catch {
                 
             }
         }
     }
-    
     
 }
 

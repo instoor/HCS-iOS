@@ -29,11 +29,11 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
         messageView.layer.borderColor = UIColor.darkGray.cgColor
         
         //Updating the image icon in navigatoritem for more and call
-        let moreImage   = UIImage(named: "nav_more_icon")
-        let callImage = UIImage(named: "call_icon")
+        let moreImage = UIImage(named: "nav_more_icon")
+        //let callImage = UIImage(named: "call_icon")
         
-        let moreButton   = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(switchToUserList))
-        let callButton = UIBarButtonItem(image: callImage, style: .plain, target: self, action: #selector(activatePTT)) //todo to enable call icon
+        let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(switchToUserList))
+        //let callButton = UIBarButtonItem(image: callImage, style: .plain, target: self, action: #selector(activatePTT)) //todo to enable call icon
         self.navigationItem.rightBarButtonItems = [moreButton]
         self.navigationItem.hidesBackButton = false
         self.navigationItem.title = "Private chat" //todo
@@ -109,7 +109,7 @@ extension ConversationViewController: UICollectionViewDataSource, UICollectionVi
             switch details.kind {
             case .text(let text):
                 cell.configure(senderName: details.sender.displayName, senderDate: details.sentDate, messageText: text)
-            case .audio(_):
+            case .audio:
                 //todo audio
                 cell.configure(senderName: details.sender.displayName, senderDate: details.sentDate, messageText: "")
             }

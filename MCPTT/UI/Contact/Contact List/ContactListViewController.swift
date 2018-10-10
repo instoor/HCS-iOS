@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class ContactListViewController : UIViewController, UICollectionViewDelegateFlowLayout{
+final class ContactListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     var userName = "Jeanette McHale"
     var userEmail = "MCID"
     var groups = ["Special TF A(999)"]
@@ -31,10 +31,10 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
-        collectionView?.register(UINib.init(nibName: "ContactsMainCell", bundle: nil), forCellWithReuseIdentifier:"ContactsMainCell")
-        collectionView?.register(UINib.init(nibName: "ContactsGroupCell", bundle: nil), forCellWithReuseIdentifier:"ContactsGroupCell")
+        collectionView?.register(UINib.init(nibName: "ContactsMainCell", bundle: nil), forCellWithReuseIdentifier: "ContactsMainCell")
+        collectionView?.register(UINib.init(nibName: "ContactsGroupCell", bundle: nil), forCellWithReuseIdentifier: "ContactsGroupCell")
         
-        collectionView?.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "Header")
+        collectionView?.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
         
         let cellSize = CGSize(width: view.frame.width, height: 100)
         
@@ -59,10 +59,6 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
             }
         }
     }
-    
-    
-    
-    
 } //class ending
 
 extension ContactListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -163,4 +159,3 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
         
     }
 }
-
