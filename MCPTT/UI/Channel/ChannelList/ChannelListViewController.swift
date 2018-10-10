@@ -21,7 +21,7 @@ class ChannelListViewController: UIViewController {
     private var isNetworkAvailable: Bool = false
     
     @IBOutlet weak var channelCollectionView: UICollectionView!
-    @IBOutlet weak var icFabButton: UIButton!
+    @IBOutlet private weak var icFabButton: UIButton!
     @IBOutlet private weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var syncWithServerView: UIView!
     @IBOutlet private weak var syncAnimationImageView: UIImageView!
@@ -34,7 +34,7 @@ class ChannelListViewController: UIViewController {
         
         channelCollectionView.register(UINib.init(nibName: "ChannelCell", bundle: nil), forCellWithReuseIdentifier: "ChannelCell" )
         channelCollectionView.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
-        initVM()
+        initViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +54,11 @@ class ChannelListViewController: UIViewController {
         }
         
     }
-    func initVM() {
+}
+
+private extension ChannelListViewController {
+    func initViewModel() {
         viewModel.initFetch()
-        
         viewModel.reloadCollectionViewClosure = { [weak self] () in
             DispatchQueue.main.async {
                 self?.channelCollectionView.reloadData()
@@ -70,10 +72,18 @@ class ChannelListViewController: UIViewController {
         syncWithServerButton.layer.masksToBounds = true
     }
     
+    private func setupICFabButtons() {
+        icFabButton.setTitle("IC", for: .normal)
+        icFabButton.backgroundColor = UIColor.darkGray
+        icFabButton.layer.cornerRadius = 27
+        icFabButton.layer.masksToBounds = true
+        icFabButton.layer.zPosition = 1
+    }
+    
     @IBAction func syncWithServerButtonAction(_ sender: Any) {
-        self.syncWithServerView.isHidden = true
+        syncWithServerView.isHidden = true
         channelCollectionView.isHidden = true
-        self.updatingView.isHidden = false
+        updatingView.isHidden = false
         loadingActivityIndicator.isHidden = false
         loadingActivityIndicator.startAnimating()
         
@@ -88,18 +98,12 @@ class ChannelListViewController: UIViewController {
         }
     }
     
-    private func setupICFabButtons() {
-        icFabButton.setTitle("IC", for: .normal)
-        icFabButton.backgroundColor = UIColor.darkGray
-        icFabButton.layer.cornerRadius = 27
-        icFabButton.layer.masksToBounds = true
-        icFabButton.layer.zPosition = 1
-    }
-    
     @IBAction func icFabButtonAction(_ sender: Any) {
-        print("Create Channel Button Pressed")
+        let contactSearchViewContoller = ContactSearchViewController.instantiateFromStoryboard("AddContact", storyboardId: "ContactSearchViewController")
+        navigationController?.pushViewController(contactSearchViewContoller, animated: true)
     }
 }
+
 extension ChannelListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -117,6 +121,7 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize.init(width: screenSize.width, height: 30)
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -158,8 +163,7 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
         guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
             return
         }
-        
-        self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
+        navigationController?.pushViewController(conversationViewController, animated: true)
     }
 
 }

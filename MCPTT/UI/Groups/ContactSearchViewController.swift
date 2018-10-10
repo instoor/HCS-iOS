@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
+class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
    
     lazy var viewModel: ContactSearchModel = {
         return ContactSearchModel()
@@ -37,7 +37,6 @@ class ContactSearchViewController: UIViewController, UIPickerViewDataSource, UIP
         
         //initiate view model
         initView()
-        
         initVM()
     }
     
