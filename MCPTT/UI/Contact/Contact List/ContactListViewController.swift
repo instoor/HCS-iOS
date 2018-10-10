@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol ChannelListProtocol {
+    func launchConversationView()
+}
+
 final class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     var contactNameDictionary = [String: [String]]()
@@ -73,8 +77,16 @@ final class ContactListViewController: UIViewController, UITableViewDataSource, 
                 self?.tableView.reloadData()
             }
         }
+func launchConversationView() {
+let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
+guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
+return
+}
+
+self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
+}
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
          return contactSectionTitlesUpdated.count
     }

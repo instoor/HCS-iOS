@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ChatAudioRecordCell" reuseIdentifier="ChatAudioRecordCell" id="Mxc-h0-CHT" customClass="ChatAudioRecordCell" customModule="MCPTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="556" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="556" height="92"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJx-Rg-pTz">
+                        <rect key="frame" x="33" y="0.0" width="453" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="X5G-Y6-8Vd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdr-sp-OPy">
+                        <rect key="frame" x="101" y="22" width="400" height="58"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_sent" translatesAutoresizingMaskIntoConstraints="NO" id="ar7-ip-tDT">
+                                <rect key="frame" x="8" y="0.0" width="400" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTb-vH-11o">
+                                <rect key="frame" x="43" y="15" width="255" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="JY0-8e-wDO"/>
+                                    <constraint firstAttribute="height" constant="21" id="SWW-vh-85P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEz-X0-6Vn">
+                                <rect key="frame" x="337" y="8" width="39" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="PQo-fa-erS"/>
+                                    <constraint firstAttribute="height" constant="34" id="dew-Ij-w7w"/>
+                                </constraints>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="playPauseAction:" destination="Mxc-h0-CHT" eventType="touchUpInside" id="xHZ-vY-VJA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ar7-ip-tDT" secondAttribute="bottom" constant="8" id="Bus-Dp-ugT"/>
+                            <constraint firstAttribute="bottom" secondItem="NTb-vH-11o" secondAttribute="bottom" constant="22" id="DeR-iT-h1d"/>
+                            <constraint firstItem="ar7-ip-tDT" firstAttribute="top" secondItem="sdr-sp-OPy" secondAttribute="top" id="FzS-5g-KKe"/>
+                            <constraint firstItem="ar7-ip-tDT" firstAttribute="leading" secondItem="sdr-sp-OPy" secondAttribute="leading" constant="8" id="KsA-pn-zoa"/>
+                            <constraint firstAttribute="trailing" secondItem="ar7-ip-tDT" secondAttribute="trailing" constant="-8" id="L0L-7t-GhA"/>
+                            <constraint firstItem="NTb-vH-11o" firstAttribute="leading" secondItem="sdr-sp-OPy" secondAttribute="leading" constant="43" id="faI-fc-vvH"/>
+                            <constraint firstItem="NTb-vH-11o" firstAttribute="top" secondItem="sdr-sp-OPy" secondAttribute="top" constant="15" id="oRG-J0-aAp"/>
+                            <constraint firstAttribute="bottom" secondItem="HEz-X0-6Vn" secondAttribute="bottom" constant="16" id="pkB-0E-aTr"/>
+                            <constraint firstItem="HEz-X0-6Vn" firstAttribute="top" secondItem="sdr-sp-OPy" secondAttribute="top" constant="8" id="uIg-8L-MYC"/>
+                            <constraint firstAttribute="trailing" secondItem="HEz-X0-6Vn" secondAttribute="trailing" constant="24" id="y3a-Yk-St8"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-dD-i8F">
+                        <rect key="frame" x="7" y="40" width="42" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Tne-T9-VGQ"/>
+                            <constraint firstAttribute="width" constant="42" id="uoi-2a-93i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sdr-sp-OPy" firstAttribute="leading" secondItem="EQM-dD-i8F" secondAttribute="trailing" constant="52" id="9r5-o9-jje"/>
+                <constraint firstItem="IJx-Rg-pTz" firstAttribute="leading" secondItem="Mxc-h0-CHT" secondAttribute="leading" constant="33" id="Uha-d0-MsY"/>
+                <constraint firstAttribute="bottom" secondItem="EQM-dD-i8F" secondAttribute="bottom" constant="20" id="Yty-Cm-gfm"/>
+                <constraint firstItem="IJx-Rg-pTz" firstAttribute="top" secondItem="Mxc-h0-CHT" secondAttribute="top" id="hlU-Pl-ltG"/>
+                <constraint firstItem="EQM-dD-i8F" firstAttribute="leading" secondItem="Mxc-h0-CHT" secondAttribute="leading" constant="7" id="qHf-ZW-3f6"/>
+                <constraint firstAttribute="bottom" secondItem="sdr-sp-OPy" secondAttribute="bottom" constant="12" id="sc1-6r-lxV"/>
+                <constraint firstAttribute="trailing" secondItem="sdr-sp-OPy" secondAttribute="trailing" constant="55" id="vt9-b9-gP1"/>
+                <constraint firstAttribute="trailing" secondItem="IJx-Rg-pTz" secondAttribute="trailing" constant="70" id="wdS-7k-0lB"/>
+                <constraint firstItem="sdr-sp-OPy" firstAttribute="top" secondItem="IJx-Rg-pTz" secondAttribute="bottom" constant="1" id="wgm-mI-URB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="EJg-XW-ejE"/>
+            <size key="customSize" width="314" height="67"/>
+            <connections>
+                <outlet property="messageSentTime" destination="EQM-dD-i8F" id="JOn-G3-WCd"/>
+                <outlet property="playPauseButton" destination="HEz-X0-6Vn" id="wjj-qq-pkk"/>
+                <outlet property="recordingLabel" destination="NTb-vH-11o" id="Aqs-07-kuX"/>
+                <outlet property="senderImageView" destination="ar7-ip-tDT" id="Th6-Os-jTG"/>
+                <outlet property="senderName" destination="IJx-Rg-pTz" id="5P0-d1-X48"/>
+            </connections>
+            <point key="canvasLocation" x="-223" y="65"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bubble_sent" width="118" height="34"/>
+        <image name="play" width="225" height="225"/>
+    </resources>
+</document>
