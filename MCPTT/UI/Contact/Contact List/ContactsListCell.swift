@@ -1,5 +1,5 @@
 //
-//  ContactsMainCell.swift
+//  ContactsListCell.swift
 //  mcpttapp
 //
 //  Created by Raju Maramulla on 09/10/18.
@@ -14,7 +14,7 @@ enum ContactAvailability: String {
     case dnd
 }
 
-class ContactsMainCell: UICollectionViewCell {
+class ContactsListCell: UICollectionViewCell {
 
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactEmailLabel: UILabel!
@@ -27,7 +27,7 @@ class ContactsMainCell: UICollectionViewCell {
         
     }
     
-    func configureContactCell(contactMainCellVM: ContactsMainCellViewModel) {
+    func configureContactCell(contactMainCellVM: ContactsListCellViewModel) {
         
         contactNameLabel.text = contactMainCellVM.contactName
         contactEmailLabel.text = contactMainCellVM.contactEmail

@@ -17,5 +17,28 @@
                  "availablity": "online",
                 "mcid": "grace.olsen@gmail.com",
                 }
-                ]
+                ],
+    "groupContacts": [
+        {
+            "name": "Aiden Walker",
+            "mcid": "andrew.adams@gmail.com",
+        },
+        {
+            "name": "Alexander McHale",
+            "mcid": "maggie.forbes@gmail.com",
+        },
+        {
+            "name": "Andrew Adams",
+            "mcid": "grace.olsen@gmail.com",
+        },
+        {
+            "name": "Aiden Walker",
+            "mcid": "aiden.walker@gmail.com",
+        },
+        {
+            "name": "Bailey Thwaites",
+            "mcid": "bailey.thwaites@gmail.com",
+        }
+        
+    ]
 }

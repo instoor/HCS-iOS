@@ -99,7 +99,7 @@ private extension ChannelListViewController {
     }
     
     @IBAction func icFabButtonAction(_ sender: Any) {
-        let contactSearchViewContoller = ContactSearchViewController.instantiateFromStoryboard("AddContact", storyboardId: "ContactSearchViewController")
+        let contactSearchViewContoller = ContactSearchViewController.instantiateFromStoryboard("Contact", storyboardId: "ContactSearchViewController")
         navigationController?.pushViewController(contactSearchViewContoller, animated: true)
     }
 }

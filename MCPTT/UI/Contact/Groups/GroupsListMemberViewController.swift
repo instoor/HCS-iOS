@@ -1,5 +1,5 @@
 //
-//  GroupMembersListViewController.swift
+//  GroupsListMemberViewController.swift
 //  mcpttapp
 //
 //  Created by harman on 07/10/18.
@@ -10,22 +10,24 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class GroupMembersListViewController: UICollectionViewController {
+class GroupsListMemberViewController: UICollectionViewController {
 
-    var frndsName = ["Aiden Walker", "Alexander McHale", "Andrew Adams", "Bailey Thwaites","Briella Sursok"]
+    lazy var viewModel: GroupsListMemberModel = {
+        return GroupsListMemberModel()
+    }()
     
-    let sections = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
-    var dividedArray:NSMutableArray = []
+    let sections = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"]
+    
+    var dividedArray: NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        initVM()
 
         // Register cell classes
-        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+      /*  self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         for i in sections {
-            let dummyArray:NSMutableArray = []
+            let dummyArray: NSMutableArray = []
             for j in frndsName {
                 if  i.first  == j.first {
                     dummyArray.add(j)
@@ -33,10 +35,14 @@ class GroupMembersListViewController: UICollectionViewController {
             }
             dividedArray.add(dummyArray)
         }
-
+*/
         // Do any additional setup after loading the view.
     }
 
+    func initVM() {
+        viewModel.initFetch()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,19 +62,26 @@ class GroupMembersListViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 26
+        return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return (dividedArray[section] as? NSMutableArray)?.count ?? 0
+       // return (dividedArray[section] as? NSMutableArray)?.count ?? 0
+        
+        return viewModel.numberOfCells
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "contactcell", for: indexPath) as? GroupMembersCell
-        let dummyArray = dividedArray[indexPath.section] as? NSMutableArray
-        cell?.contactNameLabel.text = dummyArray?[indexPath.row] as? String
-        cell?.mcidLabel.text = "MCID"
+        let cellvm = viewModel.getCellViewModel(at: indexPath)
+        
+        //let dummyArray = dividedArray[indexPath.section] as? NSMutableArray
+        //cell?.contactNameLabel.text = dummyArray?[indexPath.row] as? String
+        //cell?.mcidLabel.text = "MCID"
+        
+        cell?.contactNameLabel.text = cellvm.contactName
+        cell?.mcidLabel.text = cellvm.mcid
         // Configure the cell
     
         return cell ?? UICollectionViewCell()

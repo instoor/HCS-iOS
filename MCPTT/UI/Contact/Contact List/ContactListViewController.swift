@@ -19,8 +19,8 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
     
     let screenSize = UIScreen.main.bounds
     
-    lazy var viewModel: ContactsViewModel = {
-        return ContactsViewModel()
+    lazy var viewModel: ContactsListModel = {
+        return ContactsListModel()
     }()
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
         
         collectionView?.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "Header")
         
-        collectionView?.register(UINib.init(nibName: "ContactsMainCell", bundle: nil), forCellWithReuseIdentifier:"ContactsMainCell")
+        collectionView?.register(UINib.init(nibName: "ContactsListCell", bundle: nil), forCellWithReuseIdentifier:"ContactsListCell")
         //collectionView?.register(UINib.init(nibName: "ContactsGroupCell", bundle: nil), forCellWithReuseIdentifier:"ContactsGroupCell")
         
         let cellSize = CGSize(width: view.frame.width, height: 100)
@@ -123,7 +123,7 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
         
         switch (indexPath.section) {
         case 0:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsMainCell", for: indexPath) as? ContactsMainCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsListCell", for: indexPath) as? ContactsListCell else {
                 fatalError("Cell not exists in storyboard")
             }
             
@@ -144,7 +144,7 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
             return cell
             
         default:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsMainCell", for: indexPath) as? ContactsMainCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsListCell", for: indexPath) as? ContactsListCell else {
                 fatalError("Cell not exists in storyboard")
             }
             let cellVM = viewModel.getCellViewModel( at: indexPath )
@@ -158,7 +158,7 @@ extension ContactListViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-             let memberDetailVc = GroupMembersListViewController.instantiateFromStoryboard("Groups", storyboardId: "GroupMembersListViewController")
+             let memberDetailVc = GroupsListMemberViewController.instantiateFromStoryboard("Contact", storyboardId: "GroupsListMemberViewController")
             self.navigationController?.pushViewController(memberDetailVc, animated: true)
         case 2:
              let memberDetailVc = MemberDetailViewController.instantiateFromStoryboard("Contact", storyboardId: "MemberDetailViewController")
