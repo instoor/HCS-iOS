@@ -1,5 +1,5 @@
 //
-//  ContactListCellNew.swift
+//  GroupsListCell.swift
 //  MCPTT
 //
 //  Created by Harman on 10/11/18.
@@ -8,17 +8,9 @@
 
 import UIKit
 
-enum ContactAvailability: String {
-    case online
-    case offline
-    case dnd
-}
-class ContactListCellNew: UITableViewCell {
+class GroupsListCell: UITableViewCell {
 
-    @IBOutlet weak var callContactButton: UIButton!
-    @IBOutlet weak var contactNameLabel: UILabel!
-    @IBOutlet weak var contactAvailibilityStatus: UIImageView!
-    @IBOutlet weak var mcidLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

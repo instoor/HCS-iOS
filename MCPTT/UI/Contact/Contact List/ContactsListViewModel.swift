@@ -8,15 +8,9 @@
 
 import Foundation
 
-struct ContactsListCellViewModel {
-    let contactName: String!
-    let contactEmail: String!
-    let contactAvailablabilityStatus: String!
-}
-
-final class ContactsListModel {
+final class ContactsListViewModel {
     
-    public var cellViewModels = [ContactsListCellViewModel]() {
+    public var cellViewModels = [Contact]() {
         didSet {
             self.reloadCollectionViewClosure?()
         }
@@ -31,7 +25,7 @@ final class ContactsListModel {
         return cellViewModels.count
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> ContactsListCellViewModel {
+    func getCellViewModel( at indexPath: IndexPath ) -> Contact {
         return cellViewModels[indexPath.row]
     }
     
@@ -40,7 +34,7 @@ final class ContactsListModel {
         if let path = Bundle.main.path(forResource: "ContactsData", ofType: "json") {
             do {
                 
-                var vms = [ContactsListCellViewModel]()
+                var vms = [Contact]()
                 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject>
@@ -48,10 +42,10 @@ final class ContactsListModel {
                 let contacts = jsonResult?["contacts"] as? [[String: String]]
                 
                 for contact in contacts ?? [[:]] {
-                    let ContactsListCellVM = ContactsListCellViewModel.init(
-                        contactName: contact["name"],
-                        contactEmail: contact["email"],
-                        contactAvailablabilityStatus: contact["availablity"]
+                    let ContactsListCellVM = Contact.init(
+                        contactName: contact["name"] ?? "",
+                        contactEmail: contact["email"] ?? "",
+                        contactAvailablabilityStatus: contact["availablity"] ?? ""
                     )
                     vms.append(ContactsListCellVM)
                     
@@ -65,4 +59,9 @@ final class ContactsListModel {
         }
     }
     
-} //class ending
+}
+struct Contact {
+    let contactName: String
+    let contactEmail: String
+    let contactAvailablabilityStatus: String
+}
