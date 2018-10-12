@@ -7,18 +7,122 @@
 //
 
 import UIKit
+import PushKit
+import CallKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate, CXProviderDelegate {
 
     var window: UIWindow?
+    private var voipRegistry: PKPushRegistry?
+    private var voipNotificationRaised: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        registerForPushNotifications()
+
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
         return true
+    }
+    
+    // Registering for the push notification permission in the app
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            self.voipRegistry = PKPushRegistry.init(queue: DispatchQueue.main)
+            self.voipRegistry?.delegate = self
+            self.voipRegistry?.desiredPushTypes = [PKPushType.voIP]
+        }
+    }
+    
+    // MARK: Pushkit's delegates methods
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+        NSLog("pushRegistry:didUpdatePushCredentials:forType:")
+        
+        if (type != .voIP) {
+            return
+        }
+        NSLog("voip token: \(pushCredentials.token)")
+        print(pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined())
+    }
+    
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+        
+        let payloadDict = payload.dictionaryPayload["aps"] as? Dictionary<String, String>
+        let messageBody = payloadDict?["body"]
+        let messageTitle = payloadDict?["title"]
+        let messageSubtitle = payloadDict?["subtitle"]
+       
+        ///TBD: We can remove it in future.
+//        let type = payloadDict?["type"]
+        
+        let content = UNMutableNotificationContent()
+        content.title = messageTitle ?? ""
+        content.subtitle = messageSubtitle ?? ""
+        content.body = messageBody ?? ""
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        voipNotificationRaised = true
+  
+          ///TBD: We will remove this code after  confirmation on APNS
+//        if type == "message" {
+//            let content = UNMutableNotificationContent()
+//            content.title = messageTitle ?? ""
+//            content.subtitle = messageSubtitle ?? ""
+//            content.body = messageBody ?? ""
+//            content.sound = UNNotificationSound.default()
+//
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+//            let uuidString = UUID().uuidString
+//            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//            voipNotificationRaised = true
+//
+//        } else if type == "call" {
+//
+//            let config = CXProviderConfiguration(localizedName: "MCPTT")
+//            config.ringtoneSound = "ringtone.caf"
+//            let provider = CXProvider(configuration: config)
+//            provider.setDelegate(self, queue: nil)
+//            let update = CXCallUpdate()
+//            update.remoteHandle = CXHandle(type: .generic, value: "Sanju Toor")
+//            provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
+//        }
+    }
+    
+    private func pushRegistry(registry: PKPushRegistry!, didInvalidatePushTokenForType type: String!) {
+        
+        NSLog("token invalidated")
+    }
+   
+    // MARK: Callkit's delegate method
+    func providerDidReset(_ provider: CXProvider) {
+        
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -33,6 +137,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        guard voipNotificationRaised else {
+            fatalError("voip push notification is not received")
+        }
+        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
+        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
+            return
+        }
+        self.window?.rootViewController = conversationViewController
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
