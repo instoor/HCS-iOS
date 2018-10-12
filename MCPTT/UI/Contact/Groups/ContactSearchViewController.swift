@@ -21,7 +21,7 @@ class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPi
     @IBOutlet weak var searchController: UISearchBar!
     var picker = UIPickerView()
     
-    var contacts = ["Prashant"]
+    var contacts = ["Andrew Montero"]
    // var newContacts = ["Arvind","Hemanth","Raju","Sunil","Satish"]
     //var mcIDS = ["1234","4567","3456","2345","5678"]
     
@@ -36,7 +36,7 @@ class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPi
         searchController.layer.borderWidth = 1
         searchController.layer.borderColor = UIColor.black.cgColor
         //Registering the nib file
-        registernib()
+        registerNib()
         
         //initiate view model
         initView()
@@ -48,7 +48,7 @@ class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPi
         self.title = "Contact List"
     }
     
-    func registernib(){
+    func registerNib(){
     
     self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
     }
@@ -94,7 +94,7 @@ extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionVi
         
         if indexPath.section == 0 {
             cell?.nameLabel.text = contacts[indexPath.row]
-            cell?.mcidLabel.text = "prashanth@harman.com"
+            cell?.mcidLabel.text = "andrew.montero@gmail.com"
             //cell?.plusIcon.isHidden = true
             return cell ?? UICollectionViewCell()
             

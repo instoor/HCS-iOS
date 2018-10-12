@@ -9,13 +9,14 @@
 import Foundation
 
 struct ContactsListCellViewModel {
-    let contactName: String?
-    let contactEmail: String?
-    let contactAvailablabilityStatus: String?
+    let contactName: String!
+    let contactEmail: String!
+    let contactAvailablabilityStatus: String!
 }
 
 final class ContactsListModel {
-    private var cellViewModels = [ContactsListCellViewModel]() {
+    
+    public var cellViewModels = [ContactsListCellViewModel]() {
         didSet {
             self.reloadCollectionViewClosure?()
         }
@@ -56,7 +57,8 @@ final class ContactsListModel {
                     
                 }
                 self.cellViewModels = vms
-                
+                print(self.cellViewModels)
+                print("List")
             } catch {
                 
             }

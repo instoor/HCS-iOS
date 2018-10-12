@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-final class ContactListViewController : UIViewController, UICollectionViewDelegateFlowLayout{
-    var userName = "Jeanette McHale"
-    var userEmail = "MCID"
-    //var groups = ["Special TF A(999)"]
-    var groups:[String] = ["_team name_(10)","_team name_(21)","_team name_(7)","_team name_(14)","_team name_(87)","_team name_(75)","_team name_(25)","_team name_(13)"]
+final class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+   
+    var contactNameDictionary = [String: [String]]()
+    var contactNameTitles = [String]()
+    var contacts = [String]()
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    var groups = ["Special TF A(999)", "Special TF B(999)", "Special TF C(999)"]
+    
+     var contactSectionTitlesUpdated = [String]()
+   
+    @IBOutlet weak var tableView: UITableView!
     
     let screenSize = UIScreen.main.bounds
     
@@ -27,27 +31,37 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
         super.viewDidLoad()
         
         // init view model
+        tableView.register(UINib.init(nibName: "ContactListHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ContactListHeaderView")
         initVM()
+ 
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+       
+        let vm = viewModel.cellViewModels
         
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
+        for name in vm {
+            //print(names)
+            contacts.append(name.contactName)
+            //cars.append(names.contactEmail)
+            //cars.append(names.contactAvailablabilityStatus)
+        }
+       
+        for contact in contacts {
+            let contactKey = String(contact.prefix(1))
+            if var contactListArray = contactNameDictionary[contactKey] {
+                contactListArray.append(contact)
+                contactNameDictionary[contactKey] = contactListArray
+            } else {
+                contactNameDictionary[contactKey] = [contact]
+            }
+        }
+        //print(carsDictionary)
+        contactNameTitles = [String](contactNameDictionary.keys)
+        //print(carSectionTitles)
+        contactNameTitles = contactNameTitles.sorted(by: { $0 < $1 })
         
-        collectionView?.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "Header")
-        
-        collectionView?.register(UINib.init(nibName: "ContactsListCell", bundle: nil), forCellWithReuseIdentifier:"ContactsListCell")
-        //collectionView?.register(UINib.init(nibName: "ContactsGroupCell", bundle: nil), forCellWithReuseIdentifier:"ContactsGroupCell")
-        
-        let cellSize = CGSize(width: view.frame.width, height: 100)
-        
-        let layout = UICollectionViewFlowLayout()
-        //layout.scrollDirection = .vertical //.horizontal
-        layout.itemSize = cellSize
-        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        layout.minimumLineSpacing = 1.0
-        layout.minimumInteritemSpacing = 1.0
-        collectionView?.setCollectionViewLayout(layout, animated: true)
-        
-        collectionView?.reloadData()
+        contactSectionTitlesUpdated = ["Me", "Groups"]
+        contactSectionTitlesUpdated += contactNameTitles
         
     }
     
@@ -56,115 +70,80 @@ final class ContactListViewController : UIViewController, UICollectionViewDelega
         
         viewModel.reloadCollectionViewClosure = { [weak self] () in
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                self?.tableView.reloadData()
             }
         }
     }
-} //class ending
-
-extension ContactListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    // MARK: UICollectionViewDataSource
-    
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+    func numberOfSections(in tableView: UITableView) -> Int {
+         return contactSectionTitlesUpdated.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        switch section {
-        case 0:
-            return CGSize.init(width: screenSize.width, height: 30)
-        case 1:
-            return CGSize.init(width: screenSize.width, height: 30)
-        default:
-            return CGSize.init(width: screenSize.width, height: 30)
-        }
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as? SectionHeaderCell
-        switch (indexPath.section) {
-        case 0:
-            view?.headerNameLabel.text = "Me"
-            return view ?? UICollectionReusableView()
-        case 1:
-            view?.headerNameLabel.text = "Groups"
-            return view ?? UICollectionReusableView()
-        default:
-            view?.headerNameLabel.text = "A  "
-            return view ?? UICollectionReusableView()
-        }
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
         case 1:
             return groups.count
         default:
-            return viewModel.numberOfCells
+            let contactKey = contactSectionTitlesUpdated[section]
+            if let contactValue = contactNameDictionary[contactKey] {
+                return contactValue.count
+            }
+            return 0
+        }
+    }
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ContactListHeaderView") as? ContactListHeaderView
+         headerView?.contactListHeader.text = contactSectionTitlesUpdated[section]
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalCell", for: indexPath) as? PersonalCell
+            cell?.contactNameLabel.text = "Jeanette Mchale"
+            cell?.mcidLabel.text = "MCID"
+            return cell ?? PersonalCell()
+            
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsListCellnew", for: indexPath) as? GroupsListCellnew
+            cell?.groupNameLabel.text = groups[indexPath.row]
+            return cell  ?? GroupsListCellnew()
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCellNew", for: indexPath) as? ContactListCellNew
+            let contactKey = contactSectionTitlesUpdated[indexPath.section]
+            if let contactValue = contactNameDictionary[contactKey] {
+                //cell.textLabel?.text = carValues[indexPath.row]
+                cell?.contactNameLabel.text = contactValue[indexPath.row]
+                cell?.mcidLabel.text = "MCID"
+            }
+            return cell ?? ContactListCellNew()
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch  indexPath.section {
-        case 0:
-            return CGSize(width: screenSize.width, height: 80)
-        case 1:
-            return CGSize(width: screenSize.width, height: 65)
-        default:
-            return CGSize(width: screenSize.width, height: 80)
-        }
+//     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        //return carSectionTitles[section]
+//        return carSectionTitlesUpdated[section]
+//    }
+    
+     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return contactNameTitles
     }
-
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch (indexPath.section) {
-        case 0:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsListCell", for: indexPath) as? ContactsListCell else {
-                fatalError("Cell not exists in storyboard")
-            }
-            
-            cell.contactAvailabiltyStatus.isHidden = true
-            cell.callContactButton.isHidden = true
-            cell.separatorLineLabel.isHidden = true
-            
-            cell.contactNameLabel.text = userName
-            cell.contactEmailLabel.text = userEmail
-            return cell
-            
-        case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as? GroupsListNewCell else {
-                fatalError("Cell not exists in storyboard")
-            }
-            cell.groupsNameLabel.text = groups[indexPath.row]
-            //cell.groupSeparatorLabel.isHidden = false
-            return cell
-            
-        default:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactsListCell", for: indexPath) as? ContactsListCell else {
-                fatalError("Cell not exists in storyboard")
-            }
-            let cellVM = viewModel.getCellViewModel( at: indexPath )
-            cell.configureContactCell(contactMainCellVM: cellVM)
-            
-            cell.separatorLineLabel.isHidden = false
-            return cell
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-             let memberDetailVc = GroupsListMemberViewController.instantiateFromStoryboard("Contact", storyboardId: "GroupsListMemberViewController")
+            let memberDetailVc = GroupsListMemberViewController.instantiateFromStoryboard("Contact", storyboardId: "GroupsListMemberViewController")
             self.navigationController?.pushViewController(memberDetailVc, animated: true)
         case 2:
-             let memberDetailVc = MemberDetailViewController.instantiateFromStoryboard("Contact", storyboardId: "MemberDetailViewController")
+            let memberDetailVc = MemberDetailViewController.instantiateFromStoryboard("Contact", storyboardId: "MemberDetailViewController")
             self.navigationController?.pushViewController(memberDetailVc, animated: true)
         default:
             return
         }
     }
-}
+
+} //class ending

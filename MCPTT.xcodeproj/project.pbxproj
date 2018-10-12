@@ -72,8 +72,13 @@
 		5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43A216E1CE700ADCFF1 /* SearchAndDropDownView.swift */; };
 		5FF8A449216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */; };
 		5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */; };
-		5FF8A44D216E20EA00ADCFF1 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */; };
 		5FF8A44F216E6F4A00ADCFF1 /* GroupsListMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A44E216E6F4A00ADCFF1 /* GroupsListMemberModel.swift */; };
+		5FF8A459216F771200ADCFF1 /* ContactListCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */; };
+		5FF8A45B216F774500ADCFF1 /* GroupsListCellnew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */; };
+		5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */; };
+		5FF8A45F217074CA00ADCFF1 /* ContactListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */; };
+		5FF8A461217074F100ADCFF1 /* ContactListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */; };
+		5FF8A4632170951000ADCFF1 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,8 +170,13 @@
 		5FF8A43A216E1CE700ADCFF1 /* SearchAndDropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAndDropDownView.swift; sourceTree = "<group>"; };
 		5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSearchHeaderCell.xib; sourceTree = "<group>"; };
 		5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactHeaderCell.swift; sourceTree = "<group>"; };
-		5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsListNewCell.swift; path = ../../../../../../../../Downloads/GroupsListNewCell.swift; sourceTree = "<group>"; };
 		5FF8A44E216E6F4A00ADCFF1 /* GroupsListMemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListMemberModel.swift; sourceTree = "<group>"; };
+		5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCellNew.swift; sourceTree = "<group>"; };
+		5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListCellnew.swift; sourceTree = "<group>"; };
+		5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
+		5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListHeaderView.swift; sourceTree = "<group>"; };
+		5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListHeaderView.xib; sourceTree = "<group>"; };
+		5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListNewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,12 +286,17 @@
 		0A0B1CD9216CAA68007A0FD8 /* Contact List */ = {
 			isa = PBXGroup;
 			children = (
+				5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */,
 				5613CF5E216CC664006DC121 /* ContactListViewController.swift */,
 				5613CF60216CC664006DC121 /* ContactsListModel.swift */,
 				5613CF5B216CC664006DC121 /* ContactsListCell.swift */,
 				5613CF5D216CC664006DC121 /* ContactsListCell.xib */,
-				5FF8A44C216E20EA00ADCFF1 /* GroupsListNewCell.swift */,
 				5613CF5F216CC664006DC121 /* ContactsData.json */,
+				5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */,
+				5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */,
+				5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */,
+				5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */,
+				5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */,
 			);
 			path = "Contact List";
 			sourceTree = "<group>";
@@ -620,6 +635,7 @@
 				5613CF52216CC360006DC121 /* ConversationView.storyboard in Resources */,
 				5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */,
 				0A0B1D42216CAA69007A0FD8 /* Contact.storyboard in Resources */,
+				5FF8A461217074F100ADCFF1 /* ContactListHeaderView.xib in Resources */,
 				0A0B1D81216CAA69007A0FD8 /* Main.storyboard in Resources */,
 				0A0B1D63216CAA69007A0FD8 /* ChannelCell.xib in Resources */,
 				0A0B1CA6216CA5DE007A0FD8 /* Assets.xcassets in Resources */,
@@ -673,11 +689,11 @@
 				5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,
+				5FF8A4632170951000ADCFF1 /* GroupsListNewCell.swift in Sources */,
 				5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */,
 				5613CF40216CC040006DC121 /* MemberListViewController.swift in Sources */,
 				0A0B1D89216CAA69007A0FD8 /* EncryptionUtils.swift in Sources */,
 				5613CF62216CC664006DC121 /* ContactsListCell.swift in Sources */,
-				5FF8A44D216E20EA00ADCFF1 /* GroupsListNewCell.swift in Sources */,
 				0A0B1D87216CAA69007A0FD8 /* CommonUtility.swift in Sources */,
 				0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */,
 				5613CF41216CC040006DC121 /* MemberListTableViewCell.swift in Sources */,
@@ -693,10 +709,13 @@
 				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
 				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
+				5FF8A45B216F774500ADCFF1 /* GroupsListCellnew.swift in Sources */,
 				0A0B1D8D216CAA69007A0FD8 /* AESCipher.swift in Sources */,
+				5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */,
 				0A0B1D83216CAA69007A0FD8 /* LoginViewModel.swift in Sources */,
 				5613CF53216CC360006DC121 /* ConversationViewController.swift in Sources */,
 				0A0B1D4C216CAA69007A0FD8 /* MemberDetailViewController.swift in Sources */,
+				5FF8A459216F771200ADCFF1 /* ContactListCellNew.swift in Sources */,
 				0A0B1D7F216CAA69007A0FD8 /* SettingsViewController.swift in Sources */,
 				5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */,
 				0A0B1D8B216CAA69007A0FD8 /* ContactDatabaseHelper.swift in Sources */,
@@ -708,6 +727,7 @@
 				0A0B1D4D216CAA69007A0FD8 /* NotificationPanelViewController.swift in Sources */,
 				0A0B1D7E216CAA69007A0FD8 /* SettingsTableViewCell.swift in Sources */,
 				0A0B1D86216CAA69007A0FD8 /* UIViewController+Extensions.swift in Sources */,
+				5FF8A45F217074CA00ADCFF1 /* ContactListHeaderView.swift in Sources */,
 				5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */,
 				5FF8A447216E1CE700ADCFF1 /* GroupsListMemberViewController.swift in Sources */,
 				5FF8A44F216E6F4A00ADCFF1 /* GroupsListMemberModel.swift in Sources */,

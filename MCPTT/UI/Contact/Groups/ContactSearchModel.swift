@@ -48,7 +48,8 @@ final class ContactSearchModel{
                     
                 }
                 self.cellViewModels = vms
-                
+                print(self.cellViewModels)
+                print("Final")
             } catch {
                 
             }
