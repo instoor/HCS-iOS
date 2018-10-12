@@ -32,7 +32,7 @@ final class CommonUtility {
         return value
     }
     
-    static func showActionsheet(viewController: UIViewController, title: String, message: String, actions: [(String, UIAlertActionStyle)], completion: @escaping (_ index: Int) -> Void) {
+    static func showActionsheet(viewController: UIViewController, title: String?, message: String?, actions: [(String, UIAlertActionStyle)], completion: @escaping (_ index: Int) -> Void) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         for (index, (title, style)) in actions.enumerated() {
             let alertAction = UIAlertAction(title: title, style: style) { (_) in
