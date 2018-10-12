@@ -15,55 +15,50 @@ protocol ChannelListProtocol {
 
 final class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    var contactNameDictionary = [String: [String]]()
+    var contactModelDictionary = [String: [Contact]]()
     var contactNameTitles = [String]()
-    var contacts = [String]()
+    var contacts = [Contact]()
     
     var groups = ["Special TF A(999)", "Special TF B(999)", "Special TF C(999)"]
     
      var contactSectionTitlesUpdated = [String]()
    
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var contactListTableView: UITableView!
+    @IBOutlet private weak var icFabButton: UIButton!
     
     let screenSize = UIScreen.main.bounds
     
-    lazy var viewModel: ContactsListModel = {
-        return ContactsListModel()
+    lazy var viewModel: ContactsListViewModel = {
+        return ContactsListViewModel()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // init view model
-        tableView.register(UINib.init(nibName: "ContactListHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ContactListHeaderView")
+        contactListTableView.register(UINib.init(nibName: "ContactListHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ContactListHeaderView")
+        setupICFabButtons()
         initVM()
  
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-       
-        let vm = viewModel.cellViewModels
+        self.contactListTableView.delegate = self
+        self.contactListTableView.dataSource = self
         
-        for name in vm {
+        for contactModel in viewModel.cellViewModels {
             //print(names)
-            contacts.append(name.contactName)
-            //cars.append(names.contactEmail)
-            //cars.append(names.contactAvailablabilityStatus)
+            contacts.append(contactModel)
         }
        
-        for contact in contacts {
-            let contactKey = String(contact.prefix(1))
-            if var contactListArray = contactNameDictionary[contactKey] {
-                contactListArray.append(contact)
-                contactNameDictionary[contactKey] = contactListArray
+        for contactModel in contacts {
+            let contactKey = String(contactModel.contactName.prefix(1))
+            if var contactListArray = contactModelDictionary[contactKey] {
+                contactListArray.append(contactModel)
+                contactModelDictionary[contactKey] = contactListArray
             } else {
-                contactNameDictionary[contactKey] = [contact]
+                contactModelDictionary[contactKey] = [contactModel]
             }
         }
-        //print(carsDictionary)
-        contactNameTitles = [String](contactNameDictionary.keys)
-        //print(carSectionTitles)
+        contactNameTitles = [String](contactModelDictionary.keys)
         contactNameTitles = contactNameTitles.sorted(by: { $0 < $1 })
-        
         contactSectionTitlesUpdated = ["Me", "Groups"]
         contactSectionTitlesUpdated += contactNameTitles
         
@@ -74,7 +69,7 @@ final class ContactListViewController: UIViewController, UITableViewDataSource, 
         
         viewModel.reloadCollectionViewClosure = { [weak self] () in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self?.contactListTableView.reloadData()
             }
         }
 func launchConversationView() {
@@ -86,7 +81,18 @@ return
 self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
 }
     }
-
+    private func setupICFabButtons() {
+        icFabButton.setTitle("IC", for: .normal)
+        icFabButton.backgroundColor = UIColor.darkGray
+        icFabButton.layer.cornerRadius = 27
+        icFabButton.layer.masksToBounds = true
+        icFabButton.layer.zPosition = 1
+    }
+    @IBAction func icFabButtonAction(_ sender: Any) {
+        let contactSearchViewContoller = ContactSearchViewController.instantiateFromStoryboard("Contact", storyboardId: "ContactSearchViewController")
+        navigationController?.pushViewController(contactSearchViewContoller, animated: true)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
          return contactSectionTitlesUpdated.count
     }
@@ -99,7 +105,7 @@ self.parent?.navigationController?.pushViewController(conversationViewController
             return groups.count
         default:
             let contactKey = contactSectionTitlesUpdated[section]
-            if let contactValue = contactNameDictionary[contactKey] {
+            if let contactValue = contactModelDictionary[contactKey] {
                 return contactValue.count
             }
             return 0
@@ -117,28 +123,24 @@ self.parent?.navigationController?.pushViewController(conversationViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalCell", for: indexPath) as? PersonalCell
             cell?.contactNameLabel.text = "Jeanette Mchale"
             cell?.mcidLabel.text = "MCID"
+            cell?.selectionStyle = .none
             return cell ?? PersonalCell()
             
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsListCellnew", for: indexPath) as? GroupsListCellnew
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsListCell", for: indexPath) as? GroupsListCell
             cell?.groupNameLabel.text = groups[indexPath.row]
-            return cell  ?? GroupsListCellnew()
+            cell?.selectionStyle = .none
+            return cell  ?? GroupsListCell()
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCellNew", for: indexPath) as? ContactListCellNew
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell", for: indexPath) as? ContactListCell
             let contactKey = contactSectionTitlesUpdated[indexPath.section]
-            if let contactValue = contactNameDictionary[contactKey] {
-                //cell.textLabel?.text = carValues[indexPath.row]
-                cell?.contactNameLabel.text = contactValue[indexPath.row]
-                cell?.mcidLabel.text = "MCID"
+            if let contactModel = contactModelDictionary[contactKey] {
+                cell?.configureChanneListCell(contactVM: contactModel[indexPath.row])
             }
-            return cell ?? ContactListCellNew()
+            cell?.selectionStyle = .none
+            return cell ?? ContactListCell()
         }
     }
-    
-//     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        //return carSectionTitles[section]
-//        return carSectionTitlesUpdated[section]
-//    }
     
      func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return contactNameTitles
@@ -157,5 +159,4 @@ self.parent?.navigationController?.pushViewController(conversationViewController
             return
         }
     }
-
-} //class ending
+}

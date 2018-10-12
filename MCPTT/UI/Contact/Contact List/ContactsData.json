@@ -2,12 +2,12 @@
     "contacts": [
                 {
                 "name": "Anderw Adams",
-                "email": "andrew.adams@gmail.com",
+                "email": "andrew.adas@gmail.com",
                 "availablity": "online",
                 },
                 {
                 "name": "Maggie Forbes",
-                "email": "maggie.forbes@gmail.com",
+                "email": "maggie.forb@gmail.com",
                 "availablity": "offline",
                 },
                 {
@@ -17,7 +17,7 @@
                 },
                 {
                 "name": "Adam Gilcrist",
-                "email": "adam.gilcrist@gmail.com.com",
+                "email": "adam.gilc@gmail.com.com",
                 "availablity": "online",
                 },
                 {
@@ -27,7 +27,7 @@
                 },
                 {
                 "name": "Rayan Cleark",
-                "email": "rayan.clercka@gmail.com",
+                "email": "rayan.cler@gmail.com",
                 "availablity": "dnd",
                 }
                 ],

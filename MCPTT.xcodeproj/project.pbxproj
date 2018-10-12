@@ -58,11 +58,10 @@
 		5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF4E216CC360006DC121 /* ChatMessageCell.swift */; };
 		5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF56216CC3F8006DC121 /* LandingViewController.swift */; };
 		5613CF59216CC3F8006DC121 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF57216CC3F8006DC121 /* Dashboard.storyboard */; };
-		5613CF62216CC664006DC121 /* ContactsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5B216CC664006DC121 /* ContactsListCell.swift */; };
-		5613CF64216CC664006DC121 /* ContactsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5D216CC664006DC121 /* ContactsListCell.xib */; };
 		5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5E216CC664006DC121 /* ContactListViewController.swift */; };
 		5613CF66216CC664006DC121 /* ContactsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5F216CC664006DC121 /* ContactsData.json */; };
-		5613CF67216CC664006DC121 /* ContactsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF60216CC664006DC121 /* ContactsListModel.swift */; };
+		5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF60216CC664006DC121 /* ContactsListViewModel.swift */; };
+		5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8AB9722170E42A00DC9FDD /* GroupsListCell.swift */; };
 		5FF8A43E216E1CE700ADCFF1 /* contactslist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A430216E1CE700ADCFF1 /* contactslist.json */; };
 		5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */; };
 		5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A433216E1CE700ADCFF1 /* ContactSearchModel.swift */; };
@@ -73,8 +72,7 @@
 		5FF8A449216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */; };
 		5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */; };
 		5FF8A44F216E6F4A00ADCFF1 /* GroupsListMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A44E216E6F4A00ADCFF1 /* GroupsListMemberModel.swift */; };
-		5FF8A459216F771200ADCFF1 /* ContactListCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */; };
-		5FF8A45B216F774500ADCFF1 /* GroupsListCellnew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */; };
+		5FF8A459216F771200ADCFF1 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A458216F771200ADCFF1 /* ContactListCell.swift */; };
 		5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */; };
 		5FF8A45F217074CA00ADCFF1 /* ContactListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */; };
 		5FF8A461217074F100ADCFF1 /* ContactListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */; };
@@ -158,11 +156,10 @@
 		5613CF4E216CC360006DC121 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		5613CF56216CC3F8006DC121 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5613CF57216CC3F8006DC121 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
-		5613CF5B216CC664006DC121 /* ContactsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListCell.swift; sourceTree = "<group>"; };
-		5613CF5D216CC664006DC121 /* ContactsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsListCell.xib; sourceTree = "<group>"; };
 		5613CF5E216CC664006DC121 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		5613CF5F216CC664006DC121 /* ContactsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactsData.json; sourceTree = "<group>"; };
-		5613CF60216CC664006DC121 /* ContactsListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListModel.swift; sourceTree = "<group>"; };
+		5613CF60216CC664006DC121 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
+		5F8AB9722170E42A00DC9FDD /* GroupsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListCell.swift; sourceTree = "<group>"; };
 		5FF8A430216E1CE700ADCFF1 /* contactslist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contactslist.json; sourceTree = "<group>"; };
 		5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchViewController.swift; sourceTree = "<group>"; };
 		5FF8A433216E1CE700ADCFF1 /* ContactSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchModel.swift; sourceTree = "<group>"; };
@@ -173,8 +170,7 @@
 		5FF8A43B216E1CE700ADCFF1 /* ContactSearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSearchHeaderCell.xib; sourceTree = "<group>"; };
 		5FF8A43C216E1CE700ADCFF1 /* ContactHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactHeaderCell.swift; sourceTree = "<group>"; };
 		5FF8A44E216E6F4A00ADCFF1 /* GroupsListMemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListMemberModel.swift; sourceTree = "<group>"; };
-		5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCellNew.swift; sourceTree = "<group>"; };
-		5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListCellnew.swift; sourceTree = "<group>"; };
+		5FF8A458216F771200ADCFF1 /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
 		5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
 		5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListHeaderView.swift; sourceTree = "<group>"; };
 		5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListHeaderView.xib; sourceTree = "<group>"; };
@@ -292,12 +288,10 @@
 			children = (
 				5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */,
 				5613CF5E216CC664006DC121 /* ContactListViewController.swift */,
-				5613CF60216CC664006DC121 /* ContactsListModel.swift */,
-				5613CF5B216CC664006DC121 /* ContactsListCell.swift */,
-				5613CF5D216CC664006DC121 /* ContactsListCell.xib */,
+				5613CF60216CC664006DC121 /* ContactsListViewModel.swift */,
 				5613CF5F216CC664006DC121 /* ContactsData.json */,
-				5FF8A458216F771200ADCFF1 /* ContactListCellNew.swift */,
-				5FF8A45A216F774500ADCFF1 /* GroupsListCellnew.swift */,
+				5FF8A458216F771200ADCFF1 /* ContactListCell.swift */,
+				5F8AB9722170E42A00DC9FDD /* GroupsListCell.swift */,
 				5FF8A45C216F7C4000ADCFF1 /* PersonalCell.swift */,
 				5FF8A45E217074CA00ADCFF1 /* ContactListHeaderView.swift */,
 				5FF8A460217074F100ADCFF1 /* ContactListHeaderView.xib */,
@@ -635,7 +629,6 @@
 				0A0B1D68216CAA69007A0FD8 /* channelmemberlist.json in Resources */,
 				0A0B1D4E216CAA69007A0FD8 /* NotificationPanel.storyboard in Resources */,
 				0A0B1D84216CAA69007A0FD8 /* Login.storyboard in Resources */,
-				5613CF64216CC664006DC121 /* ContactsListCell.xib in Resources */,
 				0A0B1D6D216CAA69007A0FD8 /* Channel.storyboard in Resources */,
 				0A0B1D7C216CAA69007A0FD8 /* Setting.storyboard in Resources */,
 				5613CF52216CC360006DC121 /* ConversationView.storyboard in Resources */,
@@ -700,14 +693,13 @@
 				5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */,
 				5613CF40216CC040006DC121 /* MemberListViewController.swift in Sources */,
 				0A0B1D89216CAA69007A0FD8 /* EncryptionUtils.swift in Sources */,
-				5613CF62216CC664006DC121 /* ContactsListCell.swift in Sources */,
 				0A0B1D87216CAA69007A0FD8 /* CommonUtility.swift in Sources */,
 				0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */,
 				5613CF41216CC040006DC121 /* MemberListTableViewCell.swift in Sources */,
 				0A0B1D8E216CAA69007A0FD8 /* ICipher.swift in Sources */,
 				0A0B1D90216CAA69007A0FD8 /* IPValidator.swift in Sources */,
 				0A0B1D61216CAA69007A0FD8 /* SectionHeaderCell.swift in Sources */,
-				5613CF67216CC664006DC121 /* ContactsListModel.swift in Sources */,
+				5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */,
 				5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */,
 				0A0B1D8C216CAA69007A0FD8 /* AES256Cipher.swift in Sources */,
 				5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */,
@@ -716,18 +708,18 @@
 				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
 				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
-				5FF8A45B216F774500ADCFF1 /* GroupsListCellnew.swift in Sources */,
 				0A0B1D8D216CAA69007A0FD8 /* AESCipher.swift in Sources */,
 				5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */,
 				0A0B1D83216CAA69007A0FD8 /* LoginViewModel.swift in Sources */,
 				5613CF53216CC360006DC121 /* ConversationViewController.swift in Sources */,
 				0A0B1D4C216CAA69007A0FD8 /* MemberDetailViewController.swift in Sources */,
-				5FF8A459216F771200ADCFF1 /* ContactListCellNew.swift in Sources */,
+				5FF8A459216F771200ADCFF1 /* ContactListCell.swift in Sources */,
 				0A0B1D7F216CAA69007A0FD8 /* SettingsViewController.swift in Sources */,
 				5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */,
 				0A0B1D8B216CAA69007A0FD8 /* ContactDatabaseHelper.swift in Sources */,
 				5613CF50216CC360006DC121 /* ConversationModel.swift in Sources */,
 				5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */,
+				5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */,
 				5613CF3C216CBF8E006DC121 /* ChannelListViewController.swift in Sources */,
 				0A0B1D82216CAA69007A0FD8 /* HomeScreenViewController.swift in Sources */,
 				5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */,
