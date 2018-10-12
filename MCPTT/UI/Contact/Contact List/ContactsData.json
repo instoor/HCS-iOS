@@ -14,6 +14,32 @@
                 "name": "Grace Olsen",
                 "email": "grace.olsen@gmail.com",
                 "availablity": "dnd",
+                },
+                {
+                "name": "Adam Gilcrist",
+                "email": "adam.gilcrist@gmail.com.com",
+                "availablity": "online",
+                },
+                {
+                "name": "Stefen Haward",
+                "email": "stefen.haward@gamil.com.com",
+                "availablity": "online",
+                },
+                {
+                "name": "Rayan Cleark",
+                "email": "rayan.clercka@gmail.com",
+                "availablity": "dnd",
                 }
-                ]
+                ],
+    "groups" :  [
+                {
+                "name": "Special TF A(999)",
+                },
+                {
+                "name": "Special TF B(999)"
+                },
+                {
+                "name": "Special TF C(999)"
+                }
+    ]
 }

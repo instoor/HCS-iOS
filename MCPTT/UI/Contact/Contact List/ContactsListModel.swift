@@ -1,5 +1,5 @@
 //
-//  ContactsViewModel.swift
+//  ContactsListModel.swift
 //  mcpttapp
 //
 //  Created by Raju Maramulla on 09/10/18.
@@ -8,14 +8,15 @@
 
 import Foundation
 
-struct ContactsMainCellViewModel {
-    let contactName: String?
-    let contactEmail: String?
-    let contactAvailablabilityStatus: String?
+struct ContactsListCellViewModel {
+    let contactName: String!
+    let contactEmail: String!
+    let contactAvailablabilityStatus: String!
 }
 
-final class ContactsViewModel {
-    private var cellViewModels = [ContactsMainCellViewModel]() {
+final class ContactsListModel {
+    
+    public var cellViewModels = [ContactsListCellViewModel]() {
         didSet {
             self.reloadCollectionViewClosure?()
         }
@@ -30,7 +31,7 @@ final class ContactsViewModel {
         return cellViewModels.count
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> ContactsMainCellViewModel {
+    func getCellViewModel( at indexPath: IndexPath ) -> ContactsListCellViewModel {
         return cellViewModels[indexPath.row]
     }
     
@@ -39,7 +40,7 @@ final class ContactsViewModel {
         if let path = Bundle.main.path(forResource: "ContactsData", ofType: "json") {
             do {
                 
-                var vms = [ContactsMainCellViewModel]()
+                var vms = [ContactsListCellViewModel]()
                 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject>
@@ -47,16 +48,17 @@ final class ContactsViewModel {
                 let contacts = jsonResult?["contacts"] as? [[String: String]]
                 
                 for contact in contacts ?? [[:]] {
-                    let contactsMainCellVM = ContactsMainCellViewModel.init(
+                    let ContactsListCellVM = ContactsListCellViewModel.init(
                         contactName: contact["name"],
                         contactEmail: contact["email"],
                         contactAvailablabilityStatus: contact["availablity"]
                     )
-                    vms.append(contactsMainCellVM)
+                    vms.append(ContactsListCellVM)
                     
                 }
                 self.cellViewModels = vms
-                
+                print(self.cellViewModels)
+                print("List")
             } catch {
                 
             }

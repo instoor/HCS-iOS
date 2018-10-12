@@ -1,5 +1,5 @@
 //
-//  NewContactsCell.swift
+//  ContactSearchCell.swift
 //  mcpttapp
 //
 //  Created by harman on 08/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewContactsCell: UICollectionViewCell {
+class ContactSearchCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var mcidLabel: UILabel!
     @IBOutlet var plusIcon: UIButton!
