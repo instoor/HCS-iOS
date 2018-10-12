@@ -29,9 +29,9 @@ final class HomeScreenViewController: UIViewController {
         counterTimer.invalidate()
         if CommonUtility.isAlreadyLunched() {
             if CommonUtility.isAlreadyLoggedIn() {
-                let layout = UICollectionViewFlowLayout()
-                let vc = LandingViewController.makeViewController(collectionViewLayout: layout)
-                navigationController?.pushViewController(vc, animated: true)
+                let vc = LandingViewController.instantiateFromStoryboard("Dashboard", storyboardId: "LandingViewController")
+                let landingNavigationController = UINavigationController.init(rootViewController: vc)
+                AppDelegate.sharedDelegate()?.window?.rootViewController = landingNavigationController
             } else {
                 let loginViewContoller = LoginViewContoller.instantiateFromStoryboard("Login", storyboardId: "LoginViewContoller")
                 navigationController?.pushViewController(loginViewContoller, animated: true)

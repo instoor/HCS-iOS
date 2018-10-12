@@ -12,11 +12,6 @@ class LandingViewController: UIViewController {
     
     @IBOutlet weak var scrollPager: ScrollPager!
     
-    static func makeViewController(collectionViewLayout: UICollectionViewLayout) -> LandingViewController {
-        let landingViewController = LandingViewController.instantiateFromStoryboard("Dashboard", storyboardId: "LandingViewController")
-        return landingViewController
-    }
-    
      var channelListViewController: ChannelListViewController?
     
      var contactListViewController: ContactListViewController?
@@ -25,13 +20,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //self.title = "MCPTT"
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width-32, height: view.frame.size.height))
-        titleLabel.text = "MCPTT"
-        navigationItem.titleView = titleLabel
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.hidesBackButton = true
-        
+        self.title = "MCPTT"
         scrollPager.delegate = self
         
          let channelStoryboard = UIStoryboard.init(name: "Channel", bundle: nil)
@@ -73,13 +62,14 @@ class LandingViewController: UIViewController {
         actions.append(("Sign Out", UIAlertActionStyle.default))
         actions.append(("Cancel", UIAlertActionStyle.cancel))
         
-        CommonUtility.showActionsheet(viewController: self, title: "", message: "", actions: actions) { (index) in
+        CommonUtility.showActionsheet(viewController: self, title: nil, message: nil, actions: actions) { (index) in
             switch index {
             case 0:
                  let settingViewController = SettingsViewController.instantiateFromStoryboard("Setting", storyboardId: "SettingsViewController")
-                self.navigationController?.pushViewController(settingViewController, animated: true)
+                 self.navigationController?.pushViewController(settingViewController, animated: true)
             case 1:
-            //Need to implement logoout funtionality
+                let loginViewController = LoginViewContoller.instantiateFromStoryboard("Login", storyboardId: "LoginViewContoller")
+                AppDelegate.sharedDelegate()?.window?.rootViewController = loginViewController
             return
             default:
                 return

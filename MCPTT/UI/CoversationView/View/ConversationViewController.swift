@@ -88,7 +88,7 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
         var actions: [(String, UIAlertActionStyle)] = []
         actions.append(("Members", UIAlertActionStyle.default))
         actions.append(("Cancel", UIAlertActionStyle.cancel))
-        CommonUtility.showActionsheet(viewController: self, title: "", message: "", actions: actions) { (index) in
+        CommonUtility.showActionsheet(viewController: self, title: nil, message: nil, actions: actions) { (index) in
             if index == 0 {
                  let memberDetailVc = MemberListViewController.instantiateFromStoryboard("Channel", storyboardId: "MemberListViewController")
                 self.navigationController?.pushViewController(memberDetailVc, animated: true)
