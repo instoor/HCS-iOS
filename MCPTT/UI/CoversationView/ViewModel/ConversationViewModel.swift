@@ -25,16 +25,8 @@ class ConversationViewModel {
         "https://github.com/SD10",
         "Check out this awesome UI library for Chat",
         "My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.",
-        """
-            You know, this iPhone, as a matter of fact, the engine in here is made in America.
-            And not only are the engines in here made in America, but engines are made in America and are exported.
-            The glass on this phone is made in Kentucky. And so we've been working for years on doing more and more in the United States.
-            """,
-        """
-            Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life.
-            Because almost everything - all external expectations, all pride, all fear of embarrassment or failure -
-            these things just fall away in the face of death, leaving only what is truly important.
-            """,
+        "You know, this iPhone, as a matter of fact, the engine in here is made in America.And not only are the engines in here made in America, but engines are made in America and are exported.The glass on this phone is made in Kentucky. And so we've been working for years on doing more and more in the United States.",
+        "Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life.Because almost everything - all external expectations, all pride, all fear of embarrassment or failure -these things just fall away in the face of death, leaving only what is truly important.",
         "I think if you do something and it turns out pretty good, then you should go do something else wonderful, not dwell on it for too long. Just figure out what’s next.",
         "Price is rarely the most important thing. A cheap product might sell some units. Somebody gets it home and they feel great when they pay the money, but then they get it home and use it and the joy is gone."
     ]
@@ -57,6 +49,28 @@ class ConversationViewModel {
         completion(messages)
     }
     
+    func sendMessage(text: String, senderName: String, senderId: String, messageKind: MessageKind, completion: (ConversationModel) -> Void) {
+        let messages: ConversationModel
+        switch messageKind {
+        case .text(let text):
+             messages = generateMessage(text: text, senderName: senderName, senderId: senderId, messageKind: messageKind)
+        case .audio(let text):
+             messages = generateAudio(text: text, senderName: senderName, senderId: senderId, messageKind: messageKind)
+        }
+        completion(messages)
+    }
+    
+    func generateMessage(text: String, senderName: String, senderId: String, messageKind: MessageKind) -> ConversationModel {
+        let uniqueID = NSUUID().uuidString
+        let date = dateAddingRandomTime()
+        return ConversationModel(text: text, sender: currentSender, messageId: uniqueID, date: date, messageStatus: true)
+    }
+    
+    func generateAudio(text: String, senderName: String, senderId: String, messageKind: MessageKind) -> ConversationModel {
+         let uniqueID = NSUUID().uuidString
+         let date = dateAddingRandomTime()
+       return ConversationModel(audioPath: text, sender: currentSender, messageId: uniqueID, date: date, messageStatus: true)
+    }
     func dateAddingRandomTime() -> Date {
         let randomNumber = Int(arc4random_uniform(UInt32(10)))
         if randomNumber % 2 == 0 {
@@ -87,7 +101,7 @@ class ConversationViewModel {
         
         switch messageTypes[randomMessageType] {
         case "Text":
-            return ConversationModel(text: messageTextValues[randomNumberText], sender: sender, messageId: uniqueID, date: date)
+            return ConversationModel(text: messageTextValues[randomNumberText], sender: sender, messageId: uniqueID, date: date, messageStatus: true)
 //        case "Audio":
 //            let audioPath = audioMessage[0]
 //            return ConversationModel(thumbnail: audioPath, sender: sender, messageId: uniqueID, date: date)

@@ -35,9 +35,13 @@ enum PTTState {
 }
 public enum MessageKind {
     case text(String)
-    case audio(Data)
+    case audio(String)
 }
 
+public enum MessageStatus {
+    case success(Bool)
+    case fail(Bool)
+}
 protocol MessageType {
     var sender: Sender { get }
     var messageId: String { get }
@@ -58,20 +62,19 @@ struct ConversationModel: MessageType {
     var sender: Sender
     var sentDate: Date
     var kind: MessageKind
+    var messageStatus: MessageStatus
     
-    private init(kind: MessageKind, sender: Sender, messageId: String, date: Date) {
+    private init(kind: MessageKind, sender: Sender, messageId: String, date: Date, messageStatus: MessageStatus) {
         self.kind = kind
         self.sender = sender
         self.messageId = messageId
         self.sentDate = date
+        self.messageStatus = messageStatus
     }
-    init(text: String, sender: Sender, messageId: String, date: Date) {
-        self.init(kind: .text(text), sender: sender, messageId: messageId, date: date)
+    init(text: String, sender: Sender, messageId: String, date: Date, messageStatus: Bool) {
+        self.init(kind: .text(text), sender: sender, messageId: messageId, date: date, messageStatus: .success(messageStatus))
     }
-    
-    //todo audio
-    //    init(audioUrl: Data, sender: Sender, messageId: String, date: Date) {
-    //       // let mediaItem = MockMediaItem(image: thumbnail)
-    //        self.init(kind: .audio(Data), sender: sender, messageId: messageId, date: date)
-    //    }
+    init(audioPath: String, sender: Sender, messageId: String, date: Date, messageStatus: Bool) {
+        self.init(kind: .audio(audioPath), sender: sender, messageId: messageId, date: date, messageStatus: .success(messageStatus))
+    }
 }
