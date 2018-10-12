@@ -7,7 +7,32 @@
 //
 
 import Foundation
+import UIKit
 
+enum PTTState {
+    case idleState
+    case busyState
+    
+    // TODO: once we get images for ptt button state will modify this method or add new one
+    var colorCode: UIColor {
+        switch self {
+        case .idleState:
+           return UIColor.gray
+        case .busyState:
+           return UIColor.green
+        }
+    }
+    
+    var colorForSpeakingMode: UIColor {
+        switch self {
+        case .idleState:
+            return UIColor.red
+        case .busyState:
+            return UIColor.yellow
+        }
+    }
+
+}
 public enum MessageKind {
     case text(String)
     case audio(Data)

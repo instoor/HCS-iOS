@@ -17,10 +17,13 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ChatCollectionView: UICollectionView!
     @IBOutlet weak var ChatCollectionViewHeightConst: NSLayoutConstraint!
     @IBOutlet weak var messageViewHightConst: NSLayoutConstraint!
-    
+    @IBOutlet private weak var pttButton: UIButton!
+    var pttState: PTTState = .idleState
+
     var isPTTEnabled: Bool = true
     var messageList: [ConversationModel] = []
-    
+    var pttStateChangeTimer: Timer!
+
     override func viewDidLoad() {
         
         ChatCollectionView.delegate = self
@@ -59,7 +62,19 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
         //observer for keyboard show and hide
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        // Setup PTT button
+        pttButton.layer.cornerRadius = pttButton.frame.size.height/2
+        pttButton.layer.borderWidth = 15
+        changePttButton(color: pttState.colorCode)
+        pttStateChangeTimer = Timer.scheduledTimer(timeInterval: 9, target: self, selector: #selector(changePTTState), userInfo: nil, repeats: true)
+        pttStateChangeTimer.fire()
+
     }
+    
+}
+
+private extension ConversationViewController {
     
     // MARK: Keyboard and PTT toggle
     @IBAction func togglePTTAndKeyboard(_ sender: Any) {
@@ -80,7 +95,7 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
     }
     @objc func keyboardWillHide(notification: NSNotification) {
         isPTTEnabled = !isPTTEnabled
-            self.ChatCollectionViewHeightConst.constant += messageViewHightConst.constant
+        self.ChatCollectionViewHeightConst.constant += messageViewHightConst.constant
     }
     
     // MARK: Navigate to UserList
@@ -90,16 +105,40 @@ class ConversationViewController: UIViewController, UITextViewDelegate {
         actions.append(("Cancel", UIAlertActionStyle.cancel))
         CommonUtility.showActionsheet(viewController: self, title: nil, message: nil, actions: actions) { (index) in
             if index == 0 {
-                 let memberDetailVc = MemberListViewController.instantiateFromStoryboard("Channel", storyboardId: "MemberListViewController")
+                let memberDetailVc = MemberListViewController.instantiateFromStoryboard("Channel", storyboardId: "MemberListViewController")
                 self.navigationController?.pushViewController(memberDetailVc, animated: true)
             }
         }
     }
     
-     // MARK: activate and Deactivate call
+    // MARK: activate and Deactivate call
     @objc func activatePTT() {
         //todo hemanth
     }
+    
+    @objc func changePTTState() {
+        if pttState == .busyState {
+            pttState = .idleState
+        } else {
+            pttState = .busyState
+        }
+        changePttButton(color: pttState.colorCode)
+    }
+    
+    func changePttButton(color: UIColor) {
+        pttButton.layer.borderColor = color.cgColor
+    }
+    
+    // When user release button press then this method will call
+    @IBAction func pttButtonTouchInside() {
+        changePttButton(color: pttState.colorCode)
+    }
+
+    // When user tap on button the this method will call
+    @IBAction func pttButtonTouchDown() {
+        changePttButton(color: pttState.colorForSpeakingMode)
+    }
+    
 }
 extension ConversationViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
