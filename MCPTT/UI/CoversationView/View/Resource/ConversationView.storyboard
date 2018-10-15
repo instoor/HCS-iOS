@@ -41,7 +41,7 @@
                                             <constraint firstAttribute="width" constant="42" id="Kjx-gI-FN1"/>
                                             <constraint firstAttribute="height" constant="43" id="nyp-zD-vwI"/>
                                         </constraints>
-                                        <state key="normal" image="ptt_launcher_icon"/>
+                                        <state key="normal" image="keyboard"/>
                                         <connections>
                                             <action selector="togglePTTAndKeyboard:" destination="50N-ss-gYy" eventType="touchUpInside" id="QPd-mz-sIJ"/>
                                         </connections>
@@ -139,8 +139,8 @@
                             <constraint firstItem="nMI-Ut-57S" firstAttribute="leading" secondItem="H3i-io-Pj6" secondAttribute="leading" id="OVK-GN-R1C"/>
                             <constraint firstItem="fX9-PC-ndY" firstAttribute="trailing" secondItem="H3i-io-Pj6" secondAttribute="trailing" id="Pxf-zM-gPU"/>
                             <constraint firstItem="jJf-me-htU" firstAttribute="leading" secondItem="H3i-io-Pj6" secondAttribute="leading" id="bWV-2f-JL0"/>
+                            <constraint firstAttribute="bottom" secondItem="jJf-me-htU" secondAttribute="bottom" id="e5L-V2-Hb3"/>
                             <constraint firstItem="jJf-me-htU" firstAttribute="trailing" secondItem="H3i-io-Pj6" secondAttribute="trailing" id="kxw-eL-bJh"/>
-                            <constraint firstItem="jJf-me-htU" firstAttribute="bottom" secondItem="H3i-io-Pj6" secondAttribute="bottom" id="tZL-Fy-BCw"/>
                             <constraint firstItem="nMI-Ut-57S" firstAttribute="top" secondItem="fX9-PC-ndY" secondAttribute="bottom" id="vjy-d6-mOA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H3i-io-Pj6"/>
@@ -170,7 +170,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ptt_launcher_icon" width="144" height="144"/>
+        <image name="keyboard" width="125" height="125"/>
         <image name="record_icon" width="122" height="122"/>
         <image name="speaker_icon" width="224" height="224"/>
     </resources>

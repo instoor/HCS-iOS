@@ -260,9 +260,9 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
     @IBAction func togglePTTAndKeyboard(_ sender: Any) {
         if isPTTEnabled {
             messageText.becomeFirstResponder()
-            pttToggleBtn.setImage(UIImage(named: "keyboard"), for: .normal)
-        } else {
             pttToggleBtn.setImage(UIImage(named: "ptt_launcher_icon"), for: .normal)
+        } else {
+            pttToggleBtn.setImage(UIImage(named: "keyboard"), for: .normal)
             messageText.resignFirstResponder()
         }
     }

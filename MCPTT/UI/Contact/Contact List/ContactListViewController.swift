@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-protocol ChannelListProtocol {
+protocol ChannelListProtocol: class {
     func launchConversationView()
 }
 
-final class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-   
+final class ContactListViewController: UIViewController, ChannelListProtocol, UITableViewDataSource, UITableViewDelegate {
+    
     var contactModelDictionary = [String: [Contact]]()
     var contactNameTitles = [String]()
     var contacts = [Contact]()
@@ -32,6 +32,15 @@ final class ContactListViewController: UIViewController, UITableViewDataSource, 
         return ContactsListViewModel()
     }()
     
+    //to launch the conversationView from the contact list
+    func launchConversationView() {
+        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
+        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
+            return
+        }
+        self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,14 +81,6 @@ final class ContactListViewController: UIViewController, UITableViewDataSource, 
                 self?.contactListTableView.reloadData()
             }
         }
-func launchConversationView() {
-let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
-guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
-return
-}
-
-self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
-}
     }
     private func setupICFabButtons() {
         icFabButton.setTitle("IC", for: .normal)
@@ -133,6 +134,7 @@ self.parent?.navigationController?.pushViewController(conversationViewController
             return cell  ?? GroupsListCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell", for: indexPath) as? ContactListCell
+            cell?.delegate = self
             let contactKey = contactSectionTitlesUpdated[indexPath.section]
             if let contactModel = contactModelDictionary[contactKey] {
                 cell?.configureChanneListCell(contactVM: contactModel[indexPath.row])
