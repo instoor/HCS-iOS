@@ -34,7 +34,7 @@ final class LoginViewContoller: UIViewController {
 private extension LoginViewContoller {
     @IBAction func continueButtonPressed() {
         CommonUtility.userLoggedIn(value: true)
-        let vc = LandingViewController.instantiateFromStoryboard("Dashboard", storyboardId: "LandingViewController")
+        let vc = LandingViewController.instantiateFromStoryboard("Login", storyboardId: "LandingViewController")
         let landingNavigationController = UINavigationController.init(rootViewController: vc)
         AppDelegate.sharedDelegate()?.window?.rootViewController = landingNavigationController
     }

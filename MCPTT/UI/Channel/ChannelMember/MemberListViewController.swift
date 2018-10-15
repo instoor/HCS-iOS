@@ -68,10 +68,7 @@ extension MemberListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contactStoryboard = UIStoryboard.init(name: "Contact", bundle: nil)
-        guard let memberDetailVc = contactStoryboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as? MemberDetailViewController else {
-            return
-        }
+        let memberDetailVc = MemberDetailViewController.instantiate(storyboardName: "Contact", storyboardId: "MemberDetailViewController")
         memberDetailVc.memberListModel = viewModel.getCellViewModel( at: indexPath )
         self.navigationController?.pushViewController(memberDetailVc, animated: true)
     }

@@ -57,10 +57,7 @@ class MemberDetailViewController: UIViewController {
     }
     
     @IBAction func craeteChannel(_ sender: Any) {
-        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
-        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
-            return
-        }
+        let conversationViewController = ConversationViewController.instantiate(storyboardName: "Channel", storyboardId: "ConversationViewController")
         navigationController?.pushViewController(conversationViewController, animated: true)
     }
     
