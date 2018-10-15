@@ -19,11 +19,16 @@ class ContactListCell: UITableViewCell {
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactAvailibilityStatus: UIImageView!
     @IBOutlet weak var mcidLabel: UILabel!
+    weak var delegate: ChannelListProtocol?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func activateChatConversation(_ sender: Any) {
+        self.delegate?.launchConversationView()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
