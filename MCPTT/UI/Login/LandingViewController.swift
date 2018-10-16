@@ -23,11 +23,9 @@ class LandingViewController: UIViewController {
         self.title = "MCPTT"
         scrollPager.delegate = self
         
-         let channelStoryboard = UIStoryboard.init(name: "Channel", bundle: nil)
-         channelListViewController = channelStoryboard.instantiateViewController(withIdentifier: "ChannelListViewController") as? ChannelListViewController
-        let contactStoryboard = UIStoryboard.init(name: "Contact", bundle: nil)
+         channelListViewController = ChannelListViewController.instantiate(storyboardName: "Channel", storyboardId: "ChannelListViewController")
         
-        contactListViewController = contactStoryboard.instantiateViewController(withIdentifier: "ContactListViewController") as? ContactListViewController
+        contactListViewController = ContactListViewController.instantiate(storyboardName: "Contact", storyboardId: "ContactListViewController")
         
         if let channelListViewController = channelListViewController {
             addChildViewController(channelListViewController)

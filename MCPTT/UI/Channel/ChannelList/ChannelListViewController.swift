@@ -159,10 +159,7 @@ extension ChannelListViewController: UICollectionViewDataSource, UICollectionVie
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
-        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
-            return
-        }
+        let conversationViewController = ConversationViewController.instantiate(storyboardName: "Channel", storyboardId: "ConversationViewController")
         navigationController?.pushViewController(conversationViewController, animated: true)
     }
 

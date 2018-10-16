@@ -141,10 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate, C
         guard voipNotificationRaised else {
             fatalError("voip push notification is not received")
         }
-        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
-        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
-            return
-        }
+        let conversationViewController = ConversationViewController.instantiate(storyboardName: "Channel", storyboardId: "ConversationViewController")
         self.window?.rootViewController = conversationViewController
     }
 

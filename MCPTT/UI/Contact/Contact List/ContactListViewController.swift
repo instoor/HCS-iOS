@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ChannelListProtocol: class {
+protocol ChannelListProtocol: AnyObject {
     func launchConversationView()
 }
 
@@ -34,10 +34,7 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
     
     //to launch the conversationView from the contact list
     func launchConversationView() {
-        let channelStoryboard = UIStoryboard.init(name: "ConversationView", bundle: nil)
-        guard let conversationViewController = channelStoryboard.instantiateViewController(withIdentifier: "ConversationViewController") as? ConversationViewController else {
-            return
-        }
+        let conversationViewController = ConversationViewController.instantiate(storyboardName: "Channel", storyboardId: "ConversationViewController")
         self.parent?.navigationController?.pushViewController(conversationViewController, animated: true)
     }
 

@@ -29,7 +29,7 @@ final class HomeScreenViewController: UIViewController {
         counterTimer.invalidate()
         if CommonUtility.isAlreadyLunched() {
             if CommonUtility.isAlreadyLoggedIn() {
-                let vc = LandingViewController.instantiateFromStoryboard("Dashboard", storyboardId: "LandingViewController")
+                let vc = LandingViewController.instantiateFromStoryboard("Login", storyboardId: "LandingViewController")
                 let landingNavigationController = UINavigationController.init(rootViewController: vc)
                 AppDelegate.sharedDelegate()?.window?.rootViewController = landingNavigationController
             } else {
@@ -37,7 +37,7 @@ final class HomeScreenViewController: UIViewController {
                 navigationController?.pushViewController(loginViewContoller, animated: true)
             }
         } else {
-            let termViewContoller = TermAndConditionViewController.instantiateFromStoryboard("Main", storyboardId: "TermAndCondition")
+            let termViewContoller = TermAndConditionViewController.instantiateFromStoryboard("Login", storyboardId: "TermAndCondition")
             navigationController?.pushViewController(termViewContoller, animated: true)
             return
         }
