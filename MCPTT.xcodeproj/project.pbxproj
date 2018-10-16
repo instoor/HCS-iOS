@@ -76,6 +76,7 @@
 		5FF8A4632170951000ADCFF1 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */; };
 		A70FC1EA2170BF2800FEDF08 /* ChatAudioRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FC1E92170BF2800FEDF08 /* ChatAudioRecordCell.swift */; };
 		A70FC1EC2170BF3300FEDF08 /* ChatAudioRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70FC1EB2170BF3300FEDF08 /* ChatAudioRecordCell.xib */; };
+		D0D9C1E22175D90A00E0B88F /* DatabaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListNewCell.swift; sourceTree = "<group>"; };
 		A70FC1E92170BF2800FEDF08 /* ChatAudioRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAudioRecordCell.swift; sourceTree = "<group>"; };
 		A70FC1EB2170BF3300FEDF08 /* ChatAudioRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatAudioRecordCell.xib; sourceTree = "<group>"; };
+		D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +409,7 @@
 		0A0B1D38216CAA69007A0FD8 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */,
 				0A0B1D39216CAA69007A0FD8 /* ContactDatabaseHelper.swift */,
 			);
 			path = Database;
@@ -668,6 +671,7 @@
 				0A0B1D87216CAA69007A0FD8 /* CommonUtility.swift in Sources */,
 				0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */,
 				5613CF41216CC040006DC121 /* MemberListTableViewCell.swift in Sources */,
+				D0D9C1E22175D90A00E0B88F /* DatabaseConstants.swift in Sources */,
 				0A0B1D8E216CAA69007A0FD8 /* ICipher.swift in Sources */,
 				0A0B1D90216CAA69007A0FD8 /* IPValidator.swift in Sources */,
 				0A0B1D61216CAA69007A0FD8 /* SectionHeaderCell.swift in Sources */,
