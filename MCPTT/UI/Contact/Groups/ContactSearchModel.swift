@@ -43,13 +43,10 @@ final class ContactSearchModel{
                 let contacts = jsonResult?["contacts"] as? [[String: String]]
                 
                 for contact in contacts ?? [[:]] {
-                    let memberListCellVm = ContactCellSearchModel.init(contactName: contact["name"],  contactAvailablity: contact["availablity"], mcid: contact["mcid"])
+                    let memberListCellVm = ContactCellSearchModel.init(contactName: contact["name"], contactAvailablity: contact["availablity"], mcid: contact["mcid"])
                     vms.append(memberListCellVm)
-                    
                 }
                 self.cellViewModels = vms
-                print(self.cellViewModels)
-                print("Final")
             } catch {
                 
             }

@@ -30,16 +30,12 @@
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="top" secondItem="FwP-GI-tE8" secondAttribute="top" id="2Cu-Y7-PJj"/>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="leading" secondItem="FwP-GI-tE8" secondAttribute="leading" constant="16" id="HxA-Ek-k0a"/>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="bottom" secondItem="FwP-GI-tE8" secondAttribute="bottom" id="SSZ-Ib-RA8"/>
-                <constraint firstItem="3GT-6z-a9m" firstAttribute="centerY" secondItem="hYR-8U-efH" secondAttribute="centerY" id="WkH-qU-7Gz"/>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="bottom" secondItem="FwP-GI-tE8" secondAttribute="bottom" id="fCO-SJ-w67"/>
-                <constraint firstItem="3GT-6z-a9m" firstAttribute="leading" secondItem="F0N-Vc-iYE" secondAttribute="leading" constant="79" id="fYd-it-Ote"/>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="top" secondItem="FwP-GI-tE8" secondAttribute="top" id="gBn-qo-wfp"/>
-                <constraint firstItem="3GT-6z-a9m" firstAttribute="top" secondItem="FwP-GI-tE8" secondAttribute="top" constant="15" id="hGG-eK-WHc"/>
-                <constraint firstAttribute="trailing" secondItem="3GT-6z-a9m" secondAttribute="trailing" id="lI8-vt-iOO"/>
-                <constraint firstItem="hYR-8U-efH" firstAttribute="leading" secondItem="FwP-GI-tE8" secondAttribute="leading" constant="16" id="vPq-yF-w2P"/>
+                <constraint firstItem="hYR-8U-efH" firstAttribute="bottom" secondItem="FwP-GI-tE8" secondAttribute="bottom" id="2ny-0G-afj"/>
+                <constraint firstAttribute="trailing" secondItem="3GT-6z-a9m" secondAttribute="trailing" id="QLN-OD-nOf"/>
+                <constraint firstItem="hYR-8U-efH" firstAttribute="centerY" secondItem="3GT-6z-a9m" secondAttribute="centerY" id="XjU-mH-OdR"/>
+                <constraint firstItem="hYR-8U-efH" firstAttribute="top" secondItem="FwP-GI-tE8" secondAttribute="top" id="fdl-C8-VOo"/>
+                <constraint firstItem="hYR-8U-efH" firstAttribute="leading" secondItem="F0N-Vc-iYE" secondAttribute="leadingMargin" id="uaX-LX-MAs"/>
+                <constraint firstItem="3GT-6z-a9m" firstAttribute="leading" secondItem="F0N-Vc-iYE" secondAttribute="leading" constant="79" id="vQB-mO-OUW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="FwP-GI-tE8"/>
             <point key="canvasLocation" x="205.59999999999999" y="7.1964017991004505"/>
