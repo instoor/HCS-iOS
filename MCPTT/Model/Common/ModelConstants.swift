@@ -9,33 +9,33 @@
 import Foundation
 
 enum ChannelType {
-    case Main
-    case Sub
-    case Dormant
+    case main
+    case sub
+    case dormant
 }
 
 enum CallType {
-    case RestrictedChatGroupCall
-    case PreArrangendGroup
-    case Private
-    case AdhocGroup
-    case BroadcastGroup
-    case OffentGroup
-    case Invalid
+    case restrictedChatGroupCall
+    case preArrangendGroup
+    case privateGroup
+    case adhocGroup
+    case broadcastGroup
+    case offentGroup
+    case invalid
 }
 
 enum ChannelMediaType {
-    case Audio
-    case Video
-    case Message
-    case None
+    case audio
+    case video
+    case message
+    case none
 }
 
 enum CallEndReason {
-    case UserTriggered
-    case LowBattery
-    case OutOfBattery
-    case Other
+    case userTriggered
+    case lowBattery
+    case outOfBattery
+    case other
 }
 
 enum ContactType {
@@ -44,143 +44,143 @@ enum ContactType {
 }
 
 enum DisconnectCause {
-    case Unknown
-    case Error
-    case Remote
-    case Rejected
+    case unknown
+    case error
+    case remote
+    case rejected
 }
 
 enum CallRejectReason {
-    case UserRejected
-    case Other
+    case userRejected
+    case other
 }
 
 enum CommencementMode {
-    case None
-    case Manual
-    case Auto
-    case Force
+    case none
+    case manual
+    case auto
+    case force
 }
 
 enum LoginState {
-    case LoggedOut
-    case LoggingIn
-    case LoggedIn
-    case LoggingOut
-    case Unknown
+    case loggedOut
+    case loggingIn
+    case loggedIn
+    case loggingOut
+    case unknown
 }
 
 enum LoginReason {
-    case InternalError
-    case InvalidCredentials
-    case NetwrokTemporarilyUnavailable
-    case NoResponseFromServer
-    case Normal
-    case NotSupported
-    case Other
-    case ServerError
-    case NoService
+    case internalError
+    case invalidCredentials
+    case netwrokTemporarilyUnavailable
+    case noResponseFromServer
+    case normal
+    case notSupported
+    case other
+    case serverError
+    case noService
     case IMSServiceConnected // it does not come from IMS
 }
 
 enum CallPriority {
-    case Normal
-    case Peril
-    case Emergency
+    case normal
+    case peril
+    case emergency
 }
 
 enum SessionDirection {
-    case Incoming
-    case Outgoing
+    case incoming
+    case outgoing
     case unknown
 }
 
 // CallSessionState
 enum SessionState {
-    case Dialing
-    case Ringing
-    case Disconnected
-    case Established
+    case dialing
+    case ringing
+    case disconnected
+    case established
 }
 
 enum FtState {
-    case Ready
-    case Progress
-    case Completed
-    case Error
+    case ready
+    case progress
+    case completed
+    case error
 }
 
 enum FtError {
-    case Known
-    case RemoteNotAvailable
-    case RemoteCanceled
-    case RemoteNoResponse
-    case NetworkError
-    case Timeout
-    case FileIOError
-    case MaxSizeExceeded
+    case known
+    case remoteNotAvailable
+    case remoteCanceled
+    case remoteNoResponse
+    case networkError
+    case timeout
+    case fileIOError
+    case maxSizeExceeded
 }
 
 enum TextMessageType {
-    case Normal
-    case Urgent
+    case normal
+    case urgent
 }
 
 enum SessionMessageType {
-    case Miss
-    case Start
-    case End
+    case miss
+    case start
+    case end
 }
 
 // ModifyCall
 enum ModifyCallState {
-    case Unknown
-    case Failed
-    case Success
-    case Request
+    case unknown
+    case failed
+    case success
+    case request
 }
 
 // ModifyPriorityCall
 enum ModifyPriorityCallState {
-    case Unknonw
-    case Failed
-    case Success
-    case Incoming
+    case unknonw
+    case failed
+    case success
+    case incoming
 }
 
 // FloorState
 enum FloorState {
-    case Unknown
-    case Idle
-    case Granted
-    case Taken
-    case Rejected
-    case QueuePosition
-    case Revoked
-    case QueuedCancel
-    case RequestTimeout
-    case ReleaseTimeout
-    case RequestRelease
-    case Request
-    case Release
+    case unknown
+    case idle
+    case granted
+    case taken
+    case rejected
+    case queuePosition
+    case revoked
+    case queuedCancel
+    case requestTimeout
+    case releaseTimeout
+    case requestRelease
+    case request
+    case release
 }
 
 enum Reason {
-    case Success
-    case InvalidInput
-    case OperationNotAllowed
-    case IMSNotReady
-    case NotSupported
-    case AlreadyEstablishedSession
-    case D2DNotReady
-    case Unknow
+    case success
+    case invalidInput
+    case operationNotAllowed
+    case imsNotReady
+    case notSupported
+    case alreadyEstablishedSession
+    case d2dNotReady
+    case unknow
 }
 
 enum ResponseCodes: Int {
-    case Forbidden = 403
-    case MethodNotAllowed = 405
-    case TemporarilyUnavailable = 480
-    case NotAcceptableHere = 488
+    case forbidden = 403
+    case methodNotAllowed = 405
+    case temporarilyUnavailable = 480
+    case notAcceptableHere = 488
 }
 
 enum WarningCodes: Int {
@@ -190,40 +190,40 @@ enum WarningCodes: Int {
 }
 
 enum PttWarningCode: Int {
-    case None = 0
-    case AlreadyHaveHalfDuplexVoiceCall = 900
-    case AlreadyHaveHalfDuplexVodeoCall = 901
-    case AlreadyHaveFullDuplexVoiceCall = 910
-    case AlreadyHaveFullDuplexVodeoCall = 911
+    case none = 0
+    case alreadyHaveHalfDuplexVoiceCall = 900
+    case alreadyHaveHalfDuplexVodeoCall = 901
+    case alreadyHaveFullDuplexVoiceCall = 910
+    case alreadyHaveFullDuplexVodeoCall = 911
 }
 
 // FetchParticipantStatus
 enum FetchParticipantStatus {
-    case FetchParticipantStatusSuccess
-    case FetchParticipantStatusFail
-    case FetchParticipantStatusTerminated
-    case FetchParticipantStatusIgnored
+    case fetchParticipantStatusSuccess
+    case fetchParticipantStatusFail
+    case fetchParticipantStatusTerminated
+    case fetchParticipantStatusIgnored
 }
 
 // PttConferenceParticipantState
 enum ConferenceParticipantState {
-    case Invalid
-    case Inviting
-    case Active
-    case Removing
-    case NonActive
-    case Alerting
-    case OnHold
-    case Fail
+    case invalid
+    case inviting
+    case active
+    case removing
+    case nonActive
+    case alerting
+    case onHold
+    case fail
 }
 
 // CmcDocumentType
 enum CmcDocumentType {
-    case Invalid
+    case invalids
     case UEConfig
-    case UserProfile
-    case ServiceConfig
-    case InitialUEConfig
+    case userProfile
+    case serviceConfig
+    case initialUEConfig
     case KMS
 }
 

@@ -42,6 +42,12 @@
 		0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D3F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift */; };
 		0A0B1D90216CAA69007A0FD8 /* IPValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D40216CAA69007A0FD8 /* IPValidator.swift */; };
 		0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D41216CAA69007A0FD8 /* ModelConstants.swift */; };
+		4D51CE762175AAC20084CDBA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE752175AAC20084CDBA /* Channel.swift */; };
+		4D51CE782175BB4B0084CDBA /* PTTUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE772175BB4B0084CDBA /* PTTUri.swift */; };
+		4D51CE7A2175E2930084CDBA /* MediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE792175E2930084CDBA /* MediaInfo.swift */; };
+		4D51CE7C2175E40B0084CDBA /* FloorSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE7B2175E40B0084CDBA /* FloorSession.swift */; };
+		4D51CE7E217729E80084CDBA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE7D217729E80084CDBA /* Date+Extensions.swift */; };
+		4D51CE80217731450084CDBA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE7F217731450084CDBA /* Session.swift */; };
 		5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */; };
 		5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF37216CBF48006DC121 /* ScrollPager.swift */; };
 		5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF39216CBF71006DC121 /* channelListDemoData.json */; };
@@ -138,6 +144,12 @@
 		0A0B1D3F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAEncryptDecrypt.swift; sourceTree = "<group>"; };
 		0A0B1D40216CAA69007A0FD8 /* IPValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPValidator.swift; sourceTree = "<group>"; };
 		0A0B1D41216CAA69007A0FD8 /* ModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelConstants.swift; sourceTree = "<group>"; };
+		4D51CE752175AAC20084CDBA /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		4D51CE772175BB4B0084CDBA /* PTTUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTUri.swift; sourceTree = "<group>"; };
+		4D51CE792175E2930084CDBA /* MediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfo.swift; sourceTree = "<group>"; };
+		4D51CE7B2175E40B0084CDBA /* FloorSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorSession.swift; sourceTree = "<group>"; };
+		4D51CE7D217729E80084CDBA /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		4D51CE7F217731450084CDBA /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
 		5613CF37216CBF48006DC121 /* ScrollPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPager.swift; sourceTree = "<group>"; };
 		5613CF39216CBF71006DC121 /* channelListDemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = channelListDemoData.json; sourceTree = "<group>"; };
@@ -374,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				0A0B1D30216CAA69007A0FD8 /* UIViewController+Extensions.swift */,
+				4D51CE7D217729E80084CDBA /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,6 +412,7 @@
 		0A0B1D37216CAA69007A0FD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D51CE742175AAC20084CDBA /* Data */,
 				0A0B1D38216CAA69007A0FD8 /* Database */,
 				0A0B1D3A216CAA69007A0FD8 /* Cipher */,
 				0A0B1D3E216CAA69007A0FD8 /* Common */,
@@ -433,6 +447,18 @@
 				0A0B1D41216CAA69007A0FD8 /* ModelConstants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		4D51CE742175AAC20084CDBA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D51CE752175AAC20084CDBA /* Channel.swift */,
+				4D51CE772175BB4B0084CDBA /* PTTUri.swift */,
+				4D51CE792175E2930084CDBA /* MediaInfo.swift */,
+				4D51CE7B2175E40B0084CDBA /* FloorSession.swift */,
+				4D51CE7F217731450084CDBA /* Session.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		5613CF44216CC360006DC121 /* CoversationView */ = {
@@ -664,6 +690,7 @@
 				5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,
+				4D51CE762175AAC20084CDBA /* Channel.swift in Sources */,
 				5FF8A4632170951000ADCFF1 /* GroupsListNewCell.swift in Sources */,
 				5FF8A448216E1CE700ADCFF1 /* SearchAndDropDownView.swift in Sources */,
 				5613CF40216CC040006DC121 /* MemberListViewController.swift in Sources */,
@@ -675,15 +702,20 @@
 				0A0B1D8E216CAA69007A0FD8 /* ICipher.swift in Sources */,
 				0A0B1D90216CAA69007A0FD8 /* IPValidator.swift in Sources */,
 				0A0B1D61216CAA69007A0FD8 /* SectionHeaderCell.swift in Sources */,
+				4D51CE7C2175E40B0084CDBA /* FloorSession.swift in Sources */,
+				4D51CE782175BB4B0084CDBA /* PTTUri.swift in Sources */,
+				4D51CE7A2175E2930084CDBA /* MediaInfo.swift in Sources */,
 				5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */,
 				5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */,
 				0A0B1D8C216CAA69007A0FD8 /* AES256Cipher.swift in Sources */,
 				5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */,
 				0A0B1D85216CAA69007A0FD8 /* LoginViewContoller.swift in Sources */,
+				4D51CE7E217729E80084CDBA /* Date+Extensions.swift in Sources */,
 				5613CF4F216CC360006DC121 /* ConversationViewModel.swift in Sources */,
 				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
 				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
+				4D51CE80217731450084CDBA /* Session.swift in Sources */,
 				0A0B1D8D216CAA69007A0FD8 /* AESCipher.swift in Sources */,
 				5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */,
 				0A0B1D83216CAA69007A0FD8 /* LoginViewModel.swift in Sources */,
