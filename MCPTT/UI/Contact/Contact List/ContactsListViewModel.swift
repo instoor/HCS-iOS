@@ -51,8 +51,6 @@ final class ContactsListViewModel {
                     
                 }
                 self.cellViewModels = vms
-                print(self.cellViewModels)
-                print("List")
             } catch {
                 
             }

@@ -40,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate, C
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
             self.voipRegistry = PKPushRegistry.init(queue: DispatchQueue.main)
             self.voipRegistry?.delegate = self

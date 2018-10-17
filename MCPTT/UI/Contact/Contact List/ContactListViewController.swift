@@ -119,6 +119,7 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalCell", for: indexPath) as? PersonalCell
+            cell?.translatesAutoresizingMaskIntoConstraints = false
             cell?.contactNameLabel.text = "Jeanette Mchale"
             cell?.mcidLabel.text = "MCID"
             cell?.selectionStyle = .none
@@ -126,12 +127,14 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsListCell", for: indexPath) as? GroupsListCell
+            cell?.translatesAutoresizingMaskIntoConstraints = false
             cell?.groupNameLabel.text = groups[indexPath.row]
             cell?.selectionStyle = .none
             return cell  ?? GroupsListCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell", for: indexPath) as? ContactListCell
             cell?.delegate = self
+            cell?.translatesAutoresizingMaskIntoConstraints = false
             let contactKey = contactSectionTitlesUpdated[indexPath.section]
             if let contactModel = contactModelDictionary[contactKey] {
                 cell?.configureChanneListCell(contactVM: contactModel[indexPath.row])

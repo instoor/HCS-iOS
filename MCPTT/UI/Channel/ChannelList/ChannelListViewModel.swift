@@ -65,7 +65,6 @@ class ChannelListViewModel {
                 var activeChannelsData = [Channel]()
 
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                print(data)
                 let jsonResult = try JSONSerialization.jsonObject(with: data,
                                                                   options: JSONSerialization.ReadingOptions.mutableLeaves) as? Dictionary<String, AnyObject>
 
