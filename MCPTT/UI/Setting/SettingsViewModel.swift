@@ -11,18 +11,21 @@ import Foundation
 final class SettingsViewModel {
     var defaultSettings = [SettingsCellViewModel]()
     var messageSettings = [SettingsCellViewModel]()
+    var notificationSettings = [SettingsCellViewModel]()
     
     func initFetch() {
         processFetchedData()
     }
     private func processFetchedData() {
-       defaultSettings.append(SettingsCellViewModel.init(title: "Home Channel", subTitle: "_channel name_"))
-       defaultSettings.append(SettingsCellViewModel.init(title: "Call Priority", subTitle: "PTT Call"))
+       defaultSettings.append(SettingsCellViewModel.init(title: "Home channel", subTitle: "_channel name_"))
+       defaultSettings.append(SettingsCellViewModel.init(title: "Call priority", subTitle: "PTT Call"))
        defaultSettings.append(SettingsCellViewModel.init(title: "Emergency group", subTitle: "_group name_"))
-       defaultSettings.append(SettingsCellViewModel.init(title: "Message auto delete", subTitle: nil))
+       defaultSettings.append(SettingsCellViewModel.init(title: "Auto recording", subTitle: "Always"))
+        
+       defaultSettings.append(SettingsCellViewModel.init(title: "Message auto delete", subTitle: "Keep only messages/PTT/recording within 48hours"))
     
-       messageSettings.append(SettingsCellViewModel.init(title: "Alert Tone", subTitle: nil))
-       messageSettings.append(SettingsCellViewModel.init(title: "Vibration", subTitle: nil))
+       notificationSettings.append(SettingsCellViewModel.init(title: "Alert tone", subTitle: nil))
+       notificationSettings.append(SettingsCellViewModel.init(title: "Vibration", subTitle: nil))
         
     }
 }

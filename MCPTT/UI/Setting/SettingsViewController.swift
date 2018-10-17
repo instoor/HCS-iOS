@@ -38,7 +38,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return viewModel.defaultSettings.count
         case 1:
-            return viewModel.messageSettings.count
+            return viewModel.notificationSettings.count
+//        case 2:
+//            return 1
         default:
             return 1
         }
@@ -48,9 +50,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            if indexPath.row == 3 {
-                let cell = getMessageSettingsTableViewCell(tableView: tableView, indexPath: indexPath)
+            if indexPath.row == 4 {
+                let cell = getMessageAutodelete(tableView: tableView, indexPath: indexPath)
                 cell.titleLabel.text = viewModel.defaultSettings[indexPath.row].title
+                cell.subTitlelabel.text = viewModel.defaultSettings[indexPath.row].subTitle
                 return cell
             } else {
                 let cell = getDefaultSettingsTableViewCell(tableView: tableView, indexPath: indexPath)
@@ -60,15 +63,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             let cell = getMessageSettingsTableViewCell(tableView: tableView, indexPath: indexPath)
-            cell.titleLabel.text = viewModel.messageSettings[indexPath.row].title
+            cell.titleLabel.text = viewModel.notificationSettings[indexPath.row].title
             return cell
+            
         default:
             let cell = getMessageSettingsTableViewCell(tableView: tableView, indexPath: indexPath)
             if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] {
-             cell.titleLabel.text = "PTT Version: \(version)"
+                cell.titleLabel.text = "PTT Version: \(version)"
             }
             cell.switchButton.isHidden = true
             return cell
+            
         }
     }
     
@@ -85,7 +90,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func getMessageAutodelete(tableView: UITableView, indexPath: IndexPath) -> MessageAutodeleteTableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MessageAutodeleteTableViewCell", for: indexPath) as? MessageAutodeleteTableViewCell else {
+            fatalError("Cell not exists in storyboard")
+        }
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 4 {
+            return 80
+        }
         return 55
     }
     
@@ -93,7 +108,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
         switch section {
         case 1:
-            return "Message Notification"
+            return "Notifications"
         case 2:
             return "Version"
         default:
