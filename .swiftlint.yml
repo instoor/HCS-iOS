@@ -101,8 +101,8 @@ type_body_length:
 
 # TODO: dial this in, there are 29 instances
 function_parameter_count:
-  warning: 5
-  error: 7
+  warning: 10
+  error: 10
 
 #TODO: dial this in, there are 35 instances
 line_length: 400
