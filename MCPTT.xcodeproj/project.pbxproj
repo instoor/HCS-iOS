@@ -82,6 +82,12 @@
 		5FF8A4632170951000ADCFF1 /* GroupsListNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */; };
 		A70FC1EA2170BF2800FEDF08 /* ChatAudioRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FC1E92170BF2800FEDF08 /* ChatAudioRecordCell.swift */; };
 		A70FC1EC2170BF3300FEDF08 /* ChatAudioRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70FC1EB2170BF3300FEDF08 /* ChatAudioRecordCell.xib */; };
+		A7A6A0212178543400EAAAD4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A01A2178543400EAAAD4 /* MessageModel.swift */; };
+		A7A6A0222178543400EAAAD4 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A01B2178543400EAAAD4 /* NotificationModel.swift */; };
+		A7A6A0232178543400EAAAD4 /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A01D2178543400EAAAD4 /* TextMessage.swift */; };
+		A7A6A0242178543400EAAAD4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A01E2178543400EAAAD4 /* Message.swift */; };
+		A7A6A0252178543400EAAAD4 /* SessionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A01F2178543400EAAAD4 /* SessionMessage.swift */; };
+		A7A6A0262178543400EAAAD4 /* PttUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6A0202178543400EAAAD4 /* PttUrl.swift */; };
 		D0D9C1E22175D90A00E0B88F /* DatabaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +190,12 @@
 		5FF8A4622170951000ADCFF1 /* GroupsListNewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListNewCell.swift; sourceTree = "<group>"; };
 		A70FC1E92170BF2800FEDF08 /* ChatAudioRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAudioRecordCell.swift; sourceTree = "<group>"; };
 		A70FC1EB2170BF3300FEDF08 /* ChatAudioRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatAudioRecordCell.xib; sourceTree = "<group>"; };
+		A7A6A01A2178543400EAAAD4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		A7A6A01B2178543400EAAAD4 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		A7A6A01D2178543400EAAAD4 /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
+		A7A6A01E2178543400EAAAD4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A7A6A01F2178543400EAAAD4 /* SessionMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMessage.swift; sourceTree = "<group>"; };
+		A7A6A0202178543400EAAAD4 /* PttUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PttUrl.swift; sourceTree = "<group>"; };
 		D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -412,6 +424,7 @@
 		0A0B1D37216CAA69007A0FD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7A6A0182178543400EAAAD4 /* Model */,
 				4D51CE742175AAC20084CDBA /* Data */,
 				0A0B1D38216CAA69007A0FD8 /* Database */,
 				0A0B1D3A216CAA69007A0FD8 /* Cipher */,
@@ -522,6 +535,35 @@
 				5FF8A430216E1CE700ADCFF1 /* contactslist.json */,
 			);
 			path = Groups;
+			sourceTree = "<group>";
+		};
+		A7A6A0182178543400EAAAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7A6A0192178543400EAAAD4 /* Model */,
+				A7A6A01C2178543400EAAAD4 /* Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7A6A0192178543400EAAAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7A6A01A2178543400EAAAD4 /* MessageModel.swift */,
+				A7A6A01B2178543400EAAAD4 /* NotificationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7A6A01C2178543400EAAAD4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A7A6A01D2178543400EAAAD4 /* TextMessage.swift */,
+				A7A6A01E2178543400EAAAD4 /* Message.swift */,
+				A7A6A01F2178543400EAAAD4 /* SessionMessage.swift */,
+				A7A6A0202178543400EAAAD4 /* PttUrl.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -686,7 +728,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A6A0252178543400EAAAD4 /* SessionMessage.swift in Sources */,
 				0A0B1D80216CAA69007A0FD8 /* TermAndConditionViewController.swift in Sources */,
+				A7A6A0242178543400EAAAD4 /* Message.swift in Sources */,
 				5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,
@@ -715,12 +759,14 @@
 				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
 				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
+				A7A6A0212178543400EAAAD4 /* MessageModel.swift in Sources */,
 				4D51CE80217731450084CDBA /* Session.swift in Sources */,
 				0A0B1D8D216CAA69007A0FD8 /* AESCipher.swift in Sources */,
 				5FF8A45D216F7C4000ADCFF1 /* PersonalCell.swift in Sources */,
 				0A0B1D83216CAA69007A0FD8 /* LoginViewModel.swift in Sources */,
 				5613CF53216CC360006DC121 /* ConversationViewController.swift in Sources */,
 				0A0B1D4C216CAA69007A0FD8 /* MemberDetailViewController.swift in Sources */,
+				A7A6A0222178543400EAAAD4 /* NotificationModel.swift in Sources */,
 				5FF8A459216F771200ADCFF1 /* ContactListCell.swift in Sources */,
 				0A0B1D7F216CAA69007A0FD8 /* SettingsViewController.swift in Sources */,
 				5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */,
@@ -734,6 +780,7 @@
 				A70FC1EA2170BF2800FEDF08 /* ChatAudioRecordCell.swift in Sources */,
 				0A0B1D4D216CAA69007A0FD8 /* NotificationPanelViewController.swift in Sources */,
 				0A0B1D7E216CAA69007A0FD8 /* SettingsTableViewCell.swift in Sources */,
+				A7A6A0232178543400EAAAD4 /* TextMessage.swift in Sources */,
 				0A0B1D86216CAA69007A0FD8 /* UIViewController+Extensions.swift in Sources */,
 				5FF8A45F217074CA00ADCFF1 /* ContactListHeaderView.swift in Sources */,
 				5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */,
@@ -742,6 +789,7 @@
 				0A0B1D66216CAA69007A0FD8 /* channelCell.swift in Sources */,
 				0A0B1D88216CAA69007A0FD8 /* ChannelExtension.swift in Sources */,
 				0A0B1D7D216CAA69007A0FD8 /* SettingsViewModel.swift in Sources */,
+				A7A6A0262178543400EAAAD4 /* PttUrl.swift in Sources */,
 				0A0B1D8A216CAA69007A0FD8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

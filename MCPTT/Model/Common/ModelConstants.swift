@@ -14,7 +14,7 @@ enum ChannelType {
     case dormant
 }
 
-enum CallType {
+public enum CallType {
     case restrictedChatGroupCall
     case preArrangendGroup
     case privateGroup
@@ -83,7 +83,7 @@ enum LoginReason {
     case IMSServiceConnected // it does not come from IMS
 }
 
-enum CallPriority {
+public enum CallPriority {
     case normal
     case peril
     case emergency
@@ -121,12 +121,12 @@ enum FtError {
     case maxSizeExceeded
 }
 
-enum TextMessageType {
+public enum TextMessageType {
     case normal
     case urgent
 }
 
-enum SessionMessageType {
+public enum SessionMessageType {
     case miss
     case start
     case end
