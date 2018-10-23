@@ -55,6 +55,8 @@
 		4D51CE8C217DAD130084CDBA /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE8A217DAD130084CDBA /* NotificationModel.swift */; };
 		4D605749217F2C0D0049EDB5 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605747217F2C0D0049EDB5 /* ChannelModel.swift */; };
 		4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605748217F2C0D0049EDB5 /* ChannelList.swift */; };
+		4D60574D217F2FF70049EDB5 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60574C217F2FF70049EDB5 /* Injector.swift */; };
+		4D605751217F337D0049EDB5 /* InjectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605750217F337D0049EDB5 /* InjectionManager.swift */; };
 		5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */; };
 		5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF37216CBF48006DC121 /* ScrollPager.swift */; };
 		5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF39216CBF71006DC121 /* channelListDemoData.json */; };
@@ -167,6 +169,8 @@
 		4D605748217F2C0D0049EDB5 /* ChannelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelList.swift; sourceTree = "<group>"; };
 		4D827157217DE0A900BC7460 /* ChannelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelList.swift; sourceTree = "<group>"; };
 		4D827164217DFCC100BC7460 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
+		4D60574C217F2FF70049EDB5 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		4D605750217F337D0049EDB5 /* InjectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionManager.swift; sourceTree = "<group>"; };
 		5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
 		5613CF37216CBF48006DC121 /* ScrollPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPager.swift; sourceTree = "<group>"; };
 		5613CF39216CBF71006DC121 /* channelListDemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = channelListDemoData.json; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 		0A0B1D37216CAA69007A0FD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D60574B217F2FE40049EDB5 /* injection */,
 				A7A6A0182178543400EAAAD4 /* Model */,
 				4D51CE742175AAC20084CDBA /* Data */,
 				0A0B1D38216CAA69007A0FD8 /* Database */,
@@ -485,13 +490,13 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		4D605746217F2B9F0049EDB5 /* Recovered References */ = {
+		4D60574B217F2FE40049EDB5 /* injection */ = {
 			isa = PBXGroup;
 			children = (
-				4D827157217DE0A900BC7460 /* ChannelList.swift */,
-				4D827164217DFCC100BC7460 /* ChannelModel.swift */,
+				4D605750217F337D0049EDB5 /* InjectionManager.swift */,
+				4D60574C217F2FF70049EDB5 /* Injector.swift */,
 			);
-			name = "Recovered References";
+			path = injection;
 			sourceTree = "<group>";
 		};
 		5613CF44216CC360006DC121 /* CoversationView */ = {
@@ -760,6 +765,7 @@
 				0A0B1D85216CAA69007A0FD8 /* LoginViewContoller.swift in Sources */,
 				4D51CE7E217729E80084CDBA /* Date+Extensions.swift in Sources */,
 				5613CF4F216CC360006DC121 /* ConversationViewModel.swift in Sources */,
+				4D60574D217F2FF70049EDB5 /* Injector.swift in Sources */,
 				5FF8A443216E1CE700ADCFF1 /* ContactSearchCell.swift in Sources */,
 				5613CF42216CC040006DC121 /* MemberListViewModel.swift in Sources */,
 				5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */,
@@ -795,6 +801,7 @@
 				0A0B1D7D216CAA69007A0FD8 /* SettingsViewModel.swift in Sources */,
 				4D51CE88217DAD0A0084CDBA /* TextMessage.swift in Sources */,
 				0A0B1D8A216CAA69007A0FD8 /* AppDelegate.swift in Sources */,
+				4D605751217F337D0049EDB5 /* InjectionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

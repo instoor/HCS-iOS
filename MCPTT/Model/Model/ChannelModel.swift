@@ -120,9 +120,9 @@ class ChannelModel {
         }
     }
     
-    func active(channel: Channel1) {
+    func activate(channel: Channel1) {
         if channel.isActiveChannel {
-           //setM
+           setChannelAsMain(channel: channel)
         } else {
             
         }
@@ -133,11 +133,15 @@ class ChannelModel {
         handleEventType(for: .channelTypeChanged, channel: channel)
     }
     
-    func deactive(channel: Channel1, reason: CallEndReason) {
+    func deactivate(channel: Channel1, reason: CallEndReason) {
         if !channel.isActiveChannel {
             return
         }
         // TODO:
+    }
+    
+    func setMainChannel(channel: Channel1) {
+        activate(channel: channel)
     }
     
     func getCandidateMainChannel() -> Channel1? {
@@ -189,7 +193,7 @@ class ChannelModel {
         
         if channel.sessionState == .established {
             if channel.callType != .broadcastGroup {
-                setMain(channel: channel)
+                setChannelAsMain(channel: channel)
             }
         } else if channel == getMainChannel() && !channel.isActiveChannel {
             setChannelType(channel: channel, channelType: .dormant)
@@ -270,7 +274,7 @@ private extension ChannelModel {
         return Channel1()
     }
     
-    func setMain(channel: Channel1) {
+    func setChannelAsMain(channel: Channel1) {
         if channel.channeltype == .main {
             // Channel is already main channel
             return
@@ -284,7 +288,10 @@ private extension ChannelModel {
     }
     
     func setMainChannel() {
-        
+        guard let channel = getCandidateMainChannel() else {
+            return
+        }
+        setChannelAsMain(channel: channel)
     }
     
     func getGroupChannelFromDB() {
