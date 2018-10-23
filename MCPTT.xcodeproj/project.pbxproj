@@ -43,7 +43,6 @@
 		0A0B1D90216CAA69007A0FD8 /* IPValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D40216CAA69007A0FD8 /* IPValidator.swift */; };
 		0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B1D41216CAA69007A0FD8 /* ModelConstants.swift */; };
 		4D51CE762175AAC20084CDBA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE752175AAC20084CDBA /* Channel.swift */; };
-		4D51CE782175BB4B0084CDBA /* PTTUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE772175BB4B0084CDBA /* PTTUri.swift */; };
 		4D51CE7A2175E2930084CDBA /* MediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE792175E2930084CDBA /* MediaInfo.swift */; };
 		4D51CE7C2175E40B0084CDBA /* FloorSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE7B2175E40B0084CDBA /* FloorSession.swift */; };
 		4D51CE7E217729E80084CDBA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE7D217729E80084CDBA /* Date+Extensions.swift */; };
@@ -54,6 +53,8 @@
 		4D51CE88217DAD0A0084CDBA /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE84217DAD0A0084CDBA /* TextMessage.swift */; };
 		4D51CE8B217DAD130084CDBA /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE89217DAD130084CDBA /* MessageModel.swift */; };
 		4D51CE8C217DAD130084CDBA /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51CE8A217DAD130084CDBA /* NotificationModel.swift */; };
+		4D605749217F2C0D0049EDB5 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605747217F2C0D0049EDB5 /* ChannelModel.swift */; };
+		4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605748217F2C0D0049EDB5 /* ChannelList.swift */; };
 		5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */; };
 		5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF37216CBF48006DC121 /* ScrollPager.swift */; };
 		5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF39216CBF71006DC121 /* channelListDemoData.json */; };
@@ -152,7 +153,6 @@
 		0A0B1D40216CAA69007A0FD8 /* IPValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPValidator.swift; sourceTree = "<group>"; };
 		0A0B1D41216CAA69007A0FD8 /* ModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelConstants.swift; sourceTree = "<group>"; };
 		4D51CE752175AAC20084CDBA /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		4D51CE772175BB4B0084CDBA /* PTTUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTUri.swift; sourceTree = "<group>"; };
 		4D51CE792175E2930084CDBA /* MediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfo.swift; sourceTree = "<group>"; };
 		4D51CE7B2175E40B0084CDBA /* FloorSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorSession.swift; sourceTree = "<group>"; };
 		4D51CE7D217729E80084CDBA /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -163,6 +163,10 @@
 		4D51CE84217DAD0A0084CDBA /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
 		4D51CE89217DAD130084CDBA /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		4D51CE8A217DAD130084CDBA /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		4D605747217F2C0D0049EDB5 /* ChannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
+		4D605748217F2C0D0049EDB5 /* ChannelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelList.swift; sourceTree = "<group>"; };
+		4D827157217DE0A900BC7460 /* ChannelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelList.swift; sourceTree = "<group>"; };
+		4D827164217DFCC100BC7460 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
 		5613CF37216CBF48006DC121 /* ScrollPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPager.swift; sourceTree = "<group>"; };
 		5613CF39216CBF71006DC121 /* channelListDemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = channelListDemoData.json; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 				0A0B1CB2216CA5DF007A0FD8 /* MCPTTTests */,
 				0A0B1CBD216CA5DF007A0FD8 /* MCPTTUITests */,
 				0A0B1C9C216CA5DC007A0FD8 /* Products */,
+				4D605746217F2B9F0049EDB5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -473,12 +478,20 @@
 				4D51CE81217DAD0A0084CDBA /* SessionMessage.swift */,
 				4D51CE84217DAD0A0084CDBA /* TextMessage.swift */,
 				4D51CE752175AAC20084CDBA /* Channel.swift */,
-				4D51CE772175BB4B0084CDBA /* PTTUri.swift */,
 				4D51CE792175E2930084CDBA /* MediaInfo.swift */,
 				4D51CE7B2175E40B0084CDBA /* FloorSession.swift */,
 				4D51CE7F217731450084CDBA /* Session.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		4D605746217F2B9F0049EDB5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				4D827157217DE0A900BC7460 /* ChannelList.swift */,
+				4D827164217DFCC100BC7460 /* ChannelModel.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		5613CF44216CC360006DC121 /* CoversationView */ = {
@@ -547,6 +560,8 @@
 		A7A6A0182178543400EAAAD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D605748217F2C0D0049EDB5 /* ChannelList.swift */,
+				4D605747217F2C0D0049EDB5 /* ChannelModel.swift */,
 				4D51CE89217DAD130084CDBA /* MessageModel.swift */,
 				4D51CE8A217DAD130084CDBA /* NotificationModel.swift */,
 			);
@@ -727,6 +742,7 @@
 				0A0B1D87216CAA69007A0FD8 /* CommonUtility.swift in Sources */,
 				4D51CE8C217DAD130084CDBA /* NotificationModel.swift in Sources */,
 				0A0B1D91216CAA69007A0FD8 /* ModelConstants.swift in Sources */,
+				4D605749217F2C0D0049EDB5 /* ChannelModel.swift in Sources */,
 				5613CF41216CC040006DC121 /* MemberListTableViewCell.swift in Sources */,
 				D0D9C1E22175D90A00E0B88F /* DatabaseConstants.swift in Sources */,
 				0A0B1D8E216CAA69007A0FD8 /* ICipher.swift in Sources */,
@@ -734,7 +750,6 @@
 				0A0B1D61216CAA69007A0FD8 /* SectionHeaderCell.swift in Sources */,
 				4D51CE8B217DAD130084CDBA /* MessageModel.swift in Sources */,
 				4D51CE7C2175E40B0084CDBA /* FloorSession.swift in Sources */,
-				4D51CE782175BB4B0084CDBA /* PTTUri.swift in Sources */,
 				D0F1F3242178671800414108 /* LocalDatabaseHelper.swift in Sources */,
 				4D51CE7A2175E2930084CDBA /* MediaInfo.swift in Sources */,
 				5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */,
@@ -761,6 +776,7 @@
 				0A0B1D8B216CAA69007A0FD8 /* ContactDatabaseHelper.swift in Sources */,
 				5613CF50216CC360006DC121 /* ConversationModel.swift in Sources */,
 				5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */,
+				4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */,
 				5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */,
 				5613CF3C216CBF8E006DC121 /* ChannelListViewController.swift in Sources */,
 				0A0B1D82216CAA69007A0FD8 /* HomeScreenViewController.swift in Sources */,

@@ -8,7 +8,15 @@
 
 import Foundation
 
-public class PttUrl {
+public class PttUrl: Hashable {
+    public static func == (lhs: PttUrl, rhs: PttUrl) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+    public var hashValue: Int {
+        return url?.hashValue ?? 0
+    }
+    
     var url: URL?
     var INVALID_URL = ""
     var ADHOC_SCHEME = "adhoc:"

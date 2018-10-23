@@ -7,45 +7,44 @@
 //
 
 import Foundation
-//import PT
 
 class FloorSession {
     static let invalidId: Int32 = 0
-    var mId: Int64 = 0
-    var mFloorConnectTime: Int64 = 0
-    var mFloorDisconnectTime: Int64 = 0
-    var mStopTalkingTimer: Int64 = 0
-    var mFloorState: FloorState = .idle
-    var mPracticalFloorState: FloorState = .idle
-    var mFloorRejectCode: Int64 = 0
-    var mQueuePosition: Int64 = 0
-    var mFloorRevokeCode: Int64 = 0
-    //var mPerrUri: PTTU
+    var id: Int32 = 0
+    var floorConnectTime: Int64 = 0
+    var floorDisconnectTime: Int64 = 0
+    var stopTalkingTimer: Int64 = 0
+    var floorState: FloorState = .idle
+    var practicalFloorState: FloorState = .idle
+    var floorRejectCode: Int64 = 0
+    var queuePosition: Int64 = 0
+    var floorRevokeCode: Int64 = 0
+    var peerUrl: PttUrl = PttUrl.init(urls: "")
     
-    init(id: Int64) {
-        mId = id
+    init(id: Int32) {
+        self.id = id
     }
     
-    func setMFloorConnectTime() {
-        mFloorConnectTime = Date().toMilisecond()
+    func setFloorConnectTime() {
+        floorConnectTime = Date().toMilisecond()
     }
     
-    func setMFloorDisconnectTime() {
-        mFloorDisconnectTime = Date().toMilisecond()
+    func setFloorDisconnectTime() {
+        floorDisconnectTime = Date().toMilisecond()
     }
     
-    func setMStopTalkingTimer(stopTalkingTimer: Int64) {
-        mStopTalkingTimer = stopTalkingTimer * 1000
+    func setStopTalkingTimer(stopTalkingTimer: Int64) {
+        self.stopTalkingTimer = stopTalkingTimer * 1000
     }
     
     func setFloorFor(state: FloorState) {
-        mFloorState = state
+        floorState = state
         setPractical(floorState: state)
     }
     
     private func setPractical(floorState: FloorState) {
         if (floorState == .idle || floorState == .granted || floorState == .taken) {
-            mPracticalFloorState = floorState
+            practicalFloorState = floorState
         }
     }
 }
