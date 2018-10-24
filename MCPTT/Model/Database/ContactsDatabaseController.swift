@@ -17,7 +17,7 @@ class ContactsDatabaseController: DatabaseController {
     }
     
     /*Cursor*/
-    public static func getAllPrivateContact()-> Any{
+    public static func getAllPrivateContact()-> Any {
         /*
          return sInstance.query(ContactsDBTables.CONTACTS,
          privateContactColumns, null, null, null, null);
@@ -33,7 +33,6 @@ class ContactsDatabaseController: DatabaseController {
         return (Any).self
     }
     
-    //MARK: - Get Contact data
     public func getContact(url: PttUrl?) {
         /*
          ContactImpl result = sInstance.mCache.getGroupContact(uri);
@@ -63,7 +62,6 @@ class ContactsDatabaseController: DatabaseController {
          */
     }
     
-    
     public func getGroupContact(url: PttUrl?) {
         /*
          GroupContactImpl result = sInstance.mCache.getGroupContact(uri);
@@ -81,8 +79,7 @@ class ContactsDatabaseController: DatabaseController {
          return null;
          */
     }
-    
-    
+
     public func getPrivateContact(url: PttUrl?) {
         /*
          PrivateContactImpl result = sInstance.mCache.getPrivateContact(uri);
@@ -100,8 +97,7 @@ class ContactsDatabaseController: DatabaseController {
          return null;
          */
     }
-    
-    
+
     public func getAdhocContact(url: PttUrl?) {
         /*
          AdhocContactImpl result = sInstance.mCache.getAdhocContact(uri);
@@ -160,102 +156,35 @@ class ContactsDatabaseController: DatabaseController {
          */
     }
     
-    //MARK: - search contact: private, Adhoc
     func searchPrivateContact(url: PttUrl, cursor: Any){
-        /*
-         String selection = ContactsColumns.USER_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         return query(ContactsDBTables.CONTACTS,
-         privateContactColumns, selection, selectionArgs, null, null);
-         */
+        
     }
     
     func searchAdhocContact(url: PttUrl, cursor: String){
-        /*
-         String selection = AdhocGroupsColumns.URI + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         return query(ContactsDBTables.ADHOCGROUPS,
-         null, selection, selectionArgs, null, null);
-         */
+       
     }
     
-    //MARK: - Delete Contact
     private func deletePrivateContactFromDB(url: PttUrl) {
-        /*
-         String selection = ContactsColumns.USER_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         return delete(ContactsDBTables.CONTACTS, selection, selectionArgs);
-         */
+       
     }
     
     private func deleteContactRelationFromDB(url: PttUrl) {
-        /*
-         String selection = ContactRelationColumns.CONTACT_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         return delete(ContactsDBTables.CONTACT_RELATION, selection, selectionArgs);
-         */
+        
     }
     
     private func deleteGroupContactFromDB(url: PttUrl) -> Int{
-        /*
-         String selection = GroupsColumns.GROUP_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         return delete(ContactsDBTables.GROUPS, selection, selectionArgs);
-         */
+       
         return 1
     }
     
     /*groupContact is the file - contact related data in android*/
     public func deleteGroup(groupContact: Any) -> Bool{
-        /*
-         Log.d(TAG, "delete GroupContact");
-         
-         if (groupContact.getContactType() != ModelConstants.ContactType.XDM) {
-         Log.d(TAG, "only XDM group can be deleted");
-         return false;
-         }
-         
-         for (PrivateContactImpl member : groupContact.getContactsList()) {
-         deleteContact(member);
-         }
-         
-         int resultCount = deleteGroupContactFromDB(groupContact.getUri());
-         if (resultCount == 0) {
-         Log.w(TAG, "delete GroupContact from DB is fail");
-         Log.w(TAG, "name : " + groupContact.getName());
-         return false;
-         }
-         */
-        return true;
+        
+        return true
         
     }
     
-    
-    //MARK: - Private Contact Implementation
     private func newPrivateContact(cursor: Any) /* ->PrivateContactImpl*/{
-        /*
-         PttUri uri = new PttUri(cursor.getString(cursor.getColumnIndex(ContactsColumns.USER_ID)));
-         
-         PrivateContactImpl contact;
-         contact = sInstance.mCache.getPrivateContact(uri);
-         if (contact != null) {
-         return contact;
-         }
-         
-         contact = InjectionManager.createPrivateContact(uri);
-         
-         contact.setName(cursor.getString(cursor.getColumnIndex(ContactsColumns.DISPLAY_NAME)));
-         contact.setOrganization(cursor.getString(cursor.getColumnIndex(ContactsColumns.ORGANIZATION)));
-         contact.setFloorPriority(cursor.getInt(cursor.getColumnIndex(ContactsColumns.USER_PRIORITY)));
-         contact.setEmail(cursor.getString(cursor.getColumnIndex(ContactsColumns.EMAIL)));
-         contact.setContactType(cursor.getString(cursor.getColumnIndex(ContactsColumns.TYPE)));
-         
-         sInstance.mCache.add(contact);
-         
-         return contact;
-         */
     }
     
     private func newAdhocContact(cursor: String) /*-> AdhocContactImpl*/{
@@ -313,32 +242,9 @@ class ContactsDatabaseController: DatabaseController {
          */
         return false
     }
-    
-    
+
     /* Any - Cursor*/
-    private func getGroupMembers(groupUri: Any)-> Any{
-        /*
-         String[] columns = new String[privateContactColumns.length];
-         for (int i = 0; i < privateContactColumns.length; i++) {
-         columns[i] = ContactsDBTables.CONTACTS + "." + privateContactColumns[i];
-         }
-         
-         String selection = ContactsDBTables.GROUPS + "." + GroupsColumns.GROUP_ID + " = ?";
-         String[] selectionArgs = {groupUri.toString()};
-         
-         //contacts JOIN contact_relation ON (contacts._id = contact_relation.contact_id) JOIN groups ON ( contact_relation.group_id = groups._id)
-         String tableBuilder = ContactsDBTables.CONTACTS + " JOIN "
-         + ContactsDBTables.CONTACT_RELATION + " ON ( "
-         + ContactsDBTables.CONTACTS + "." + ContactsColumns._ID + " = "
-         + ContactsDBTables.CONTACT_RELATION + "." + ContactRelationColumns.CONTACT_ID + " ) JOIN "
-         + ContactsDBTables.GROUPS + " ON ( " + ContactsDBTables.CONTACT_RELATION + "."
-         + ContactRelationColumns.GROUP_ID + " = " + ContactsDBTables.GROUPS + "."
-         + GroupsColumns._ID + " )";
-         
-         String sortOrder = ContactsDBTables.CONTACTS + "." + ContactsColumns.DISPLAY_NAME + " ASC";
-         
-         return query(tableBuilder, columns, selection, selectionArgs, sortOrder, null);
-         */
+    private func getGroupMembers(groupUri: Any)-> Any {
         return (Any).self
     }
     
@@ -379,7 +285,7 @@ class ContactsDatabaseController: DatabaseController {
                               GroupsColumns.ALLOW_MODIFY                : groupContact.ALLOW_MODIFY,
                               GroupsColumns.TYPE                        : groupContact.TYPE] as [String : Any]]
         
-        let groupId : Int = insert(table: ContactsDBTables.GROUPS, contentValues: contentValues)
+        let groupId: Int = insert(table: ContactsDBTables.GROUPS, contentValues: contentValues)
         
         /*
          long groupId = insert(ContactsDBTables.GROUPS, null, contentValues);
@@ -403,7 +309,7 @@ class ContactsDatabaseController: DatabaseController {
     }
     
     /*AdhocContactImpl*/
-    private func insertAdhocContactToDb(adhocContact: AdhocTableImpl)-> Any {
+    private func insertAdhocContactToDb(adhocContact: AdhocTableImpl) {
         /*
          ContentValues contentValues = new ContentValues();
          
@@ -431,24 +337,6 @@ class ContactsDatabaseController: DatabaseController {
     }
     
     private func getPrivateContactId(uri: PttUrl) -> Any {
-        /*
-         int id = 0;
-         String selection = ContactsColumns.USER_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         Cursor cursor = query(ContactsDBTables.CONTACTS,
-         new String[]{ContactsColumns._ID},
-         selection, selectionArgs, null, null);
-         
-         if (cursor != null) {
-         if (cursor.getCount() > 0) {
-         id = cursor.getInt(0);
-         }
-         cursor.close();
-         }
-         
-         return id;
-         */
         return (Any).self
     }
     
@@ -468,73 +356,18 @@ class ContactsDatabaseController: DatabaseController {
     
     /*Any - cursor*/
     func searchGroupContact(uri: PttUrl) -> Any {
-        /*
-         String selection = GroupsColumns.GROUP_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         return query(ContactsDBTables.GROUPS,
-         groupContactColumns, selection, selectionArgs, null, null);
-         */
         return (Any).self
     }
     
-    
     private func getGroupContactId(uri: PttUrl) -> Any  {
-        /*
-         int id = 0;
-         
-         String selection = GroupsColumns.GROUP_ID + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         Cursor cursor = sInstance.query(ContactsDBTables.GROUPS,
-         new String[]{GroupsColumns._ID},
-         selection, selectionArgs, null, null);
-         
-         if (cursor != null) {
-         if (cursor.getCount() > 0) {
-         id = cursor.getInt(0);
-         }
-         
-         cursor.close();
-         }
-         
-         return id;
-         */
         return (Any).self
     }
     
     private func getAdhocContactId(uri: PttUrl) -> Any {
-        /*
-         int id = 0;
-         
-         String selection = AdhocGroupsColumns.URI + " = ?";
-         String[] selectionArgs = {uri.toString()};
-         
-         Cursor cursor = sInstance.query(ContactsDBTables.ADHOCGROUPS,
-         new String[]{AdhocGroupsColumns._ID},
-         selection, selectionArgs, null, null);
-         
-         if (cursor != null) {
-         if (cursor.getCount() > 0) {
-         id = cursor.getInt(0);
-         }
-         
-         cursor.close();
-         }
-         
-         return id;
-         */
         return (Any).self
     }
     
     public func delete(table: String, selection: String, args: [String])-> Any {
-        /*
-         mCache.clear();
-         return super.delete(table, selection, args);
-         */
-        //let selection : String = ContactsColumns.USER_ID + " = ?";
-        //String[] selectionArgs = {uri.toString()};
-        //return delete(ContactsDBTables.CONTACTS, selection, selectionArgs);
         
         return (Any).self
     }
@@ -549,43 +382,10 @@ class ContactsDatabaseController: DatabaseController {
     
     /*PrivateContactImpl contact*/
     public func modifyContactName(contact: Any, newName: Any) {
-        /*
-         if (!isExistPrivateContact(contact.getUri())
-         || contact.getContactType() != ModelConstants.ContactType.XDM) {
-         return;
-         }
-         
-         ContentValues contentValues = new ContentValues();
-         contentValues.put(ContactsColumns.DISPLAY_NAME, newName);
-         String selection = ContactsColumns.USER_ID + " = ?";
-         String[] selectionArgs = new String[]{contact.getUri().toString()};
-         
-         final int count = update(ContactsDBTables.CONTACTS, contentValues, selection, selectionArgs);
-         
-         Log.d(TAG, "modified row count : " + count);
-         */
     }
     
     /*GroupContactImpl group*/
     public func modifyGroupName(group: Any, newName: String) {
-        /*
-         if (!isExistGroupContact(group.getUri())
-         || group.getContactType() != ModelConstants.ContactType.XDM) {
-         return;
-         }
-         
-         ContentValues contentValues = new ContentValues();
-         contentValues.put(GroupsColumns.DISPLAY_NAME, newName);
-         String selection = GroupsColumns.GROUP_ID + " = ?";
-         String[] selectionArgs = new String[]{group.getUri().toString()};
-         
-         final int count = update(ContactsDBTables.GROUPS, contentValues, selection, selectionArgs);
-         
-         Log.d(TAG, "modified row count : " + count);
-         */
+
     }
-    
-    
 }
-
-

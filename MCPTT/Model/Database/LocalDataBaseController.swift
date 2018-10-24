@@ -38,23 +38,24 @@ class LocalDatabaseController: DatabaseController {
 
     public func insertMessage(message: TextMessage) -> Int {
         //TODO:  Need to add encryption for this method  ModelCipher.encrypt(message.getContentBody()
-        let tableName = "\(LocalDBTables.MESSAGE_DATABASE_TABLE)( \(MessageColumns.MESSAGE_IM_BODY_ENTRY), \(MessageColumns.MESSAGE_IS_SITUATION_ENTRY))"
-        let contentValues = "\(message.getContentBody()),\(message.getTextMessageType())"
+        let tableName = "\(LocalDBTables.MESSAGE_DATABASE_TABLE)"
+        let contentValues = [[MessageColumns.MESSAGE_IM_BODY_ENTRY: message.getContentBody(),
+                              MessageColumns.MESSAGE_IS_SITUATION_ENTRY: message.getTextMessageType()]]
         return insert(table: tableName, contentValues: contentValues)
         
     }
     
     //TODO: getEndTime method needs to implement in FloorMessage Class
 //    public func insertMessage(message: FloorMessage) -> Int {
-//        let tableName = "\(LocalDBTables.MESSAGE_DATABASE_TABLE)( \(MessageColumns.MESSAGE_END_TIME))"
-//        let contentValues = "\(message.getEndTime())"
+//        let tableName = "\(LocalDBTables.MESSAGE_DATABASE_TABLE)"
+//        let contentValues = [[MessageColumns.MESSAGE_END_TIME: message.getEndTime()]]
 //        return insert(table: tableName, contentValues: contentValues)
-//        
+//
 //    }
 
     public func insertMessage(message: SessionMessage) -> Int {
-        let tableName =  "\(LocalDBTables.MESSAGE_DATABASE_TABLE)( \(MessageColumns.MESSAGE_IS_SENT_ENTRY), \(MessageColumns.MESSAGE_CALL_PRIORITY))"
-        let contentValues = "\(message.sessionMessageType), \(message.callPriority)"
+        let tableName =  "\(LocalDBTables.MESSAGE_DATABASE_TABLE)"
+        let contentValues = [[MessageColumns.MESSAGE_IS_SENT_ENTRY: message.sessionMessageType , MessageColumns.MESSAGE_CALL_PRIORITY: message.callPriority]]
         return insert(table: tableName, contentValues: contentValues)
         
     }
