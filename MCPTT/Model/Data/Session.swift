@@ -11,81 +11,85 @@ import Foundation
 class Session {
     static let invalidId: Int32 = -1
     
-    var mId: Int32 = 0
-    var mConnectTime: Int64 = 0
-    var mDisconnectTime: Int64 = 0
-    var mCallReason: Reason = .unknow
-    var mDirection: SessionDirection = .unknown
-    var mMediaInfo: [MediaInfo] = []
-    var mIsFullyDuplex: Bool = false
-    var mCallType: CallType = .invalid
-    var mIsAmbientListeningCell: Bool = false
-    var mResourcePriority: Int32 = 0
-    var mIsBroadcast: Bool = false
-    var mLetteringText: String?
-    var mCallPriority: CallPriority = .normal
-    var mAnswerMode: CommencementMode = .none
-    var mRequestFloor: Bool = false
-    var mDisconnectCause: DisconnectCause = .unknown
-    var mDisconnectCode: Int32 = 0
-    var mDisconnectReason: String?
-    var mDisconnectWarningCode: Int32 = 0
-    var mState: SessionState = .dialing
-    var mModifyCallState: ModifyCallState = .unknown
-    var mModifyPriorityCallState: ModifyPriorityCallState = .unknonw
-    var mFetchParticipantStatus: FetchParticipantStatus = .fetchParticipantStatusSuccess
+    var id: Int32 = 0
+    var connectTime: Int64 = 0
+    var disconnectTime: Int64 = 0
+    var callReason: Reason = .unknow
+    var direction: SessionDirection = .unknown
+    var mediaInfo: [MediaInfo] = []
+    var isFullyDuplex: Bool = false
+    var callType: CallType = .invalid
+    var isAmbientListeningCell: Bool = false
+    var resourcePriority: Int32 = 0
+    var isBroadcast: Bool = false
+    var letteringText: String?
+    var callPriority: CallPriority = .normal
+    var answerMode: CommencementMode = .none
+    var isRequestFloor: Bool = false
+    var disconnectCause: DisconnectCause = .unknown
+    var disconnectCode: Int16 = 0
+    var disconnectReason: String?
+    var disconnectWarningCode: Int16 = 0
+    var state: SessionState = .dialing
+    var modifyCallState: ModifyCallState = .unknown
+    var modifyPriorityCallState: ModifyPriorityCallState = .unknonw
+    var fetchParticipantStatus: FetchParticipantStatus = .fetchParticipantStatusSuccess
     
     init(id: Int32) {
-        self.mId = id
+        self.id = id
     }
     
     func setIncomingData(mediaInfo: [MediaInfo], isFullDuplex: Bool, callType: CallType, isAmbientListeningCall: Bool, resourcePriority: Int32, isBroadcast: Bool, letteringText: String, callPriority: CallPriority, answerMode: CommencementMode ) {
         setCommonData(mediaInfo: mediaInfo, isFullDuplex: isFullDuplex, callType: callType, isAmbientListeningCall: isAmbientListeningCall, resourcePriority: resourcePriority, isBroadcast: isBroadcast)
-        mDirection = .incoming
-        mLetteringText = letteringText
-        mCallPriority = callPriority
-        mAnswerMode = answerMode
-        mRequestFloor = false
+        direction = .incoming
+        self.letteringText = letteringText
+        self.callPriority = callPriority
+        self.answerMode = answerMode
+        self.isRequestFloor = false
     }
     
     func setOutgoingData(mediaInfo: [MediaInfo], isFullDuplex: Bool, callType: CallType, isAmbientListeningCall: Bool, resourcePriority: Int32, isBroadcast: Bool, isRequestFloor: Bool, callPriority: CallPriority, answerMode: CommencementMode ) {
         setCommonData(mediaInfo: mediaInfo, isFullDuplex: isFullDuplex, callType: callType, isAmbientListeningCall: isAmbientListeningCall, resourcePriority: resourcePriority, isBroadcast: isBroadcast)
-        mDirection = .outgoing
-        mLetteringText = nil
-        mCallPriority = callPriority
-        mAnswerMode = answerMode
-        mRequestFloor = isRequestFloor
+        direction = .outgoing
+        letteringText = nil
+        self.callPriority = callPriority
+        self.answerMode = answerMode
+        self.isRequestFloor = isRequestFloor
     }
     
     func setCommonData(mediaInfo: [MediaInfo], isFullDuplex: Bool, callType: CallType, isAmbientListeningCall: Bool, resourcePriority: Int32, isBroadcast: Bool) {
-        mMediaInfo = mediaInfo
-        mIsFullyDuplex = isFullDuplex
-        mCallType = callType
-        mIsAmbientListeningCell = isAmbientListeningCall
-        mResourcePriority = resourcePriority
-        mIsBroadcast = isBroadcast
+        self.mediaInfo = mediaInfo
+        isFullyDuplex = isFullDuplex
+        self.callType = callType
+        isAmbientListeningCell = isAmbientListeningCall
+        self.resourcePriority = resourcePriority
+        self.isBroadcast = isBroadcast
     }
     
     func setConnectTime() {
-        mConnectTime = Date().toMilisecond()
+        connectTime = Date().toMilisecond()
     }
     
     func setDisConnectTime() {
-        mDisconnectTime = Date().toMilisecond()
+        disconnectTime = Date().toMilisecond()
     }
     
     func isOutgoingSession() -> Bool {
-        return mDirection == .outgoing
+        return direction == .outgoing
     }
     
     func isIncomingSession() -> Bool {
-        return mDirection == .incoming
+        return direction == .incoming
     }
     
-    func setDisconnectCause(for disconnectCause: DisconnectCause, code: Int32, reason: String, warningCode: Int32) {
-        mDisconnectCause = disconnectCause
-        mDisconnectCode = code
-        mDisconnectReason = reason
-        mDisconnectWarningCode = warningCode
+    func getMediaType() -> ChannelMediaType {
+        return .none
+    }
+    
+    func setDisconnectCause(for disconnectCause: DisconnectCause, code: Int16, reason: String, warningCode: Int16) {
+        self.disconnectCause = disconnectCause
+        disconnectCode = code
+        disconnectReason = reason
+        disconnectWarningCode = warningCode
     }
 }
