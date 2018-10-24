@@ -200,4 +200,3 @@ class AdhocTableImpl: NSObject {
         self.MEMBER_URIS = ""
     }
 }
-
