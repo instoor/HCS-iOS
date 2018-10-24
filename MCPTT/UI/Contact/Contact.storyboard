@@ -177,6 +177,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-h4-znp">
+                                <rect key="frame" x="147" y="200" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ISJ-zO-83b"/>
+                                    <constraint firstAttribute="width" constant="60" id="kyQ-rx-LJr"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIn-rk-bbk">
+                                <rect key="frame" x="85" y="260" width="205" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dxU-EL-kdf"/>
+                                </constraints>
+                                <state key="normal" title="SYNC WITH SERVER">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="syncWithServerButtonAction:" destination="qMh-RN-wNR" eventType="touchUpInside" id="Wmn-BV-DPW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updating...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXU-pc-WBr">
+                                <rect key="frame" x="135" y="250" width="151" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="Fd5-qi-9Xb"/>
+                                    <constraint firstAttribute="height" constant="45" id="eKA-I2-Sl9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dqw-dF-JG9">
                                 <rect key="frame" x="16" y="44" width="343" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,9 +372,18 @@
                             <constraint firstItem="YXR-NP-BMQ" firstAttribute="bottom" secondItem="dqw-dF-JG9" secondAttribute="bottom" constant="20" id="17L-Bz-tCZ"/>
                             <constraint firstItem="dqw-dF-JG9" firstAttribute="top" secondItem="YXR-NP-BMQ" secondAttribute="top" constant="24" id="4gH-Nz-jep"/>
                             <constraint firstItem="YXR-NP-BMQ" firstAttribute="trailing" secondItem="BOB-cb-Bo0" secondAttribute="trailing" constant="20" id="7aC-1c-Z3x"/>
+                            <constraint firstItem="Tph-h4-znp" firstAttribute="top" secondItem="YXR-NP-BMQ" secondAttribute="top" constant="180" id="8pJ-bR-y6H"/>
+                            <constraint firstItem="YXR-NP-BMQ" firstAttribute="trailing" secondItem="JIn-rk-bbk" secondAttribute="trailing" constant="85" id="9Cc-Ei-ijU"/>
+                            <constraint firstItem="JIn-rk-bbk" firstAttribute="top" secondItem="YXR-NP-BMQ" secondAttribute="top" constant="240" id="9bd-Al-Jjv"/>
                             <constraint firstItem="YXR-NP-BMQ" firstAttribute="trailing" secondItem="dqw-dF-JG9" secondAttribute="trailing" constant="16" id="Cmm-EE-a6z"/>
+                            <constraint firstItem="YXR-NP-BMQ" firstAttribute="trailing" secondItem="SXU-pc-WBr" secondAttribute="trailing" constant="89" id="Ecn-td-AHO"/>
+                            <constraint firstItem="YXR-NP-BMQ" firstAttribute="trailing" secondItem="Tph-h4-znp" secondAttribute="trailing" constant="168" id="HLM-RN-3hr"/>
+                            <constraint firstItem="SXU-pc-WBr" firstAttribute="leading" secondItem="YXR-NP-BMQ" secondAttribute="leading" constant="135" id="c41-X5-gUB"/>
+                            <constraint firstItem="JIn-rk-bbk" firstAttribute="leading" secondItem="YXR-NP-BMQ" secondAttribute="leading" constant="85" id="cDy-Fs-Imy"/>
+                            <constraint firstItem="Tph-h4-znp" firstAttribute="leading" secondItem="YXR-NP-BMQ" secondAttribute="leading" constant="147" id="h3w-fC-m8t"/>
                             <constraint firstItem="dqw-dF-JG9" firstAttribute="leading" secondItem="YXR-NP-BMQ" secondAttribute="leading" constant="16" id="uDP-dH-5fY"/>
                             <constraint firstItem="YXR-NP-BMQ" firstAttribute="bottom" secondItem="BOB-cb-Bo0" secondAttribute="bottom" constant="40" id="uJ5-YC-Qxw"/>
+                            <constraint firstItem="SXU-pc-WBr" firstAttribute="top" secondItem="YXR-NP-BMQ" secondAttribute="top" constant="230" id="yOS-gN-NYa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YXR-NP-BMQ"/>
                     </view>
@@ -353,6 +391,9 @@
                     <connections>
                         <outlet property="contactListTableView" destination="dqw-dF-JG9" id="P9c-an-PbI"/>
                         <outlet property="icFabButton" destination="BOB-cb-Bo0" id="Ct0-Ct-G9h"/>
+                        <outlet property="loadingActivityIndicator" destination="Tph-h4-znp" id="T5g-hy-e5Z"/>
+                        <outlet property="syncWithServerButton" destination="JIn-rk-bbk" id="MGW-27-LIe"/>
+                        <outlet property="updatingLabel" destination="SXU-pc-WBr" id="onn-qr-5DG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5w-XE-9F9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,7 +477,7 @@
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="--Select --" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Smx-tz-cVq">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Smx-tz-cVq">
                                         <rect key="frame" x="8" y="4" width="166" height="56"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="NO"/>

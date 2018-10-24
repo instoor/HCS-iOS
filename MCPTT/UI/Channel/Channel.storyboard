@@ -370,14 +370,26 @@
                                             <action selector="recordAction:" destination="xdu-KE-ZsU" eventType="touchUpInside" id="hYw-ys-uzv"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the PTT Button to speek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdN-C9-6T4">
+                                        <rect key="frame" x="70" y="8" width="234" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="234" id="Ba8-vK-UbL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Cbp-9b-zjN" firstAttribute="centerY" secondItem="1YH-98-5LQ" secondAttribute="centerY" id="1l7-iD-pvk"/>
+                                    <constraint firstItem="WdN-C9-6T4" firstAttribute="top" secondItem="1YH-98-5LQ" secondAttribute="top" constant="8" id="HPW-7y-Qj8"/>
+                                    <constraint firstAttribute="trailing" secondItem="WdN-C9-6T4" secondAttribute="trailing" constant="71" id="ZRq-Bg-VBw"/>
                                     <constraint firstAttribute="trailing" secondItem="pwd-XW-mcT" secondAttribute="trailing" constant="27" id="ZUh-RU-wWd"/>
                                     <constraint firstItem="HZ2-MB-pPI" firstAttribute="centerY" secondItem="1YH-98-5LQ" secondAttribute="centerY" constant="3.5" id="iSb-6O-BFP"/>
                                     <constraint firstItem="HZ2-MB-pPI" firstAttribute="centerX" secondItem="1YH-98-5LQ" secondAttribute="centerX" id="k8A-4P-XEz"/>
                                     <constraint firstItem="pwd-XW-mcT" firstAttribute="centerY" secondItem="1YH-98-5LQ" secondAttribute="centerY" id="ru2-yM-HBe"/>
+                                    <constraint firstItem="WdN-C9-6T4" firstAttribute="leading" secondItem="1YH-98-5LQ" secondAttribute="leading" constant="70" id="sH5-dm-YYR"/>
                                     <constraint firstItem="Cbp-9b-zjN" firstAttribute="leading" secondItem="1YH-98-5LQ" secondAttribute="leading" constant="36" id="uYn-cR-SDZ"/>
                                     <constraint firstAttribute="height" constant="197" id="zaf-dU-R0F"/>
                                 </constraints>
@@ -409,6 +421,7 @@
                         <outlet property="messageViewHightConst" destination="bmC-ep-tWr" id="aeE-2K-srY"/>
                         <outlet property="muteButton" destination="Cbp-9b-zjN" id="kYQ-os-DvT"/>
                         <outlet property="pttButton" destination="HZ2-MB-pPI" id="4SZ-i4-yMW"/>
+                        <outlet property="pttRecordingStatusLabel" destination="WdN-C9-6T4" id="yB7-qe-Pfk"/>
                         <outlet property="pttToggleBtn" destination="MLd-J7-Ty7" id="Bw3-j9-ndv"/>
                         <outlet property="pttView" destination="1YH-98-5LQ" id="Wgw-2u-nkC"/>
                         <outlet property="pttViewHeightConst" destination="zaf-dU-R0F" id="7ee-DJ-HFy"/>
@@ -419,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oE-CD-VFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3790" y="-188"/>
+            <point key="canvasLocation" x="3789.5999999999999" y="-188.45577211394306"/>
         </scene>
     </scenes>
     <resources>

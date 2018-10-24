@@ -21,11 +21,16 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
     
     var groups = ["Special TF A(999)", "Special TF B(999)", "Special TF C(999)"]
     
-     var contactSectionTitlesUpdated = [String]()
+    var contactSectionTitlesUpdated = [String]()
+    
+    private var isNetworkAvailable: Bool = false
    
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contactListTableView: UITableView!
     @IBOutlet private weak var icFabButton: UIButton!
     
+    @IBOutlet weak var syncWithServerButton: UIButton!
+    @IBOutlet weak var updatingLabel: UILabel!
     let screenSize = UIScreen.main.bounds
     
     lazy var viewModel: ContactsListViewModel = {
@@ -43,7 +48,7 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
         
         // init view model
         contactListTableView.register(UINib.init(nibName: "ContactListHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ContactListHeaderView")
-        setupICFabButtons()
+        
         initVM()
  
         self.contactListTableView.delegate = self
@@ -70,6 +75,21 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    updatingLabel.isHidden = true
+    loadingActivityIndicator.isHidden = true
+    setupsyncWithServerButton()
+    setupICFabButtons()
+        
+        if (!isNetworkAvailable) {
+            contactListTableView.isHidden = true
+            icFabButton.isHidden = true
+            syncWithServerButton.isHidden = false
+        }
+        
+    }
     func initVM() {
         viewModel.initFetch()
         
@@ -79,6 +99,13 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
             }
         }
     }
+    
+    private func setupsyncWithServerButton() {
+        syncWithServerButton.layer.borderWidth = 1
+        syncWithServerButton.layer.borderColor = UIColor.black.cgColor
+        syncWithServerButton.layer.masksToBounds = true
+    }
+    
     private func setupICFabButtons() {
         icFabButton.setTitle("IC", for: .normal)
         icFabButton.backgroundColor = UIColor.darkGray
@@ -86,6 +113,23 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
         icFabButton.layer.masksToBounds = true
         icFabButton.layer.zPosition = 1
     }
+    
+    @IBAction func syncWithServerButtonAction(_ sender: Any) {
+        updatingLabel.isHidden = false
+        loadingActivityIndicator.isHidden = false
+        self.syncWithServerButton.isHidden = true
+        loadingActivityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // your code here
+            self.isNetworkAvailable = true
+            self.updatingLabel.isHidden = true
+            self.loadingActivityIndicator.isHidden = true
+            self.loadingActivityIndicator.stopAnimating()
+            self.contactListTableView.isHidden = false
+            self.icFabButton.isHidden = false
+        }
+    }
+    
     @IBAction func icFabButtonAction(_ sender: Any) {
         let contactSearchViewContoller = ContactSearchViewController.instantiateFromStoryboard("Contact", storyboardId: "ContactSearchViewController")
         navigationController?.pushViewController(contactSearchViewContoller, animated: true)
@@ -111,7 +155,8 @@ final class ContactListViewController: UIViewController, ChannelListProtocol, UI
     }
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
          let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ContactListHeaderView") as? ContactListHeaderView
-         headerView?.contactListHeader.text = contactSectionTitlesUpdated[section]
+        headerView?.contactListHeader.text = contactSectionTitlesUpdated[section]
+       
         return headerView
     }
     

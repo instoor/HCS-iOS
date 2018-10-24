@@ -16,6 +16,7 @@ protocol ChatAudioRecordProtocol {
 
 class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UICollectionViewDelegateFlowLayout, ChatAudioRecordProtocol {
     
+    @IBOutlet weak var pttRecordingStatusLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var pttToggleBtn: UIButton!
     @IBOutlet weak var messageText: UITextView!
@@ -43,9 +44,11 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
     }
     
     @IBAction func sendMessageAction(_ sender: Any) {
+      
         ConversationViewModel.shared.sendMessage(text: messageText.text, senderName: ConversationViewModel.shared.currentSender.displayName, senderId: "123434", messageKind: .text(messageText.text), completion: { message in
-            self.messageList.append(message)//todo: remove hardcode value
+             self.messageList.append(message)//todo: remove hardcode value
         })
+        
         chatCollectionView.performBatchUpdates({() -> Void in
           let indexPath = NSIndexPath(item: messageList.count - 1, section: 0)
             chatCollectionView.insertItems(at: [indexPath as IndexPath])
@@ -64,7 +67,7 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
     var labelText: UILabel?
     var messageList: [ConversationModel] = []
     var pttStateChangeTimer: Timer!
-
+    
     var selectedAudioIndexPath: IndexPath?
    
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -76,6 +79,9 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
             sendMessageBtn.isEnabled = false
             sendMessageBtn.alpha = 0.8
             }
+        } else {
+            sendMessageBtn.isEnabled = false
+            sendMessageBtn.alpha = 0.8
         }
     }
     
@@ -89,7 +95,10 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
         messageText.layer.borderWidth = 0.5
         messageView.layer.borderColor = UIColor.darkGray.cgColor
         messageText.layer.borderColor = UIColor.lightGray.cgColor
-        
+        messageText.text = "Text message"
+        messageText.textColor = .gray
+        messageText.returnKeyType = .done
+       
         //Updating the image icon in navigatoritem for more and call
         let moreImage = UIImage(named: "nav_more_icon")
         let callImage = UIImage(named: "call_icon")
@@ -112,6 +121,12 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
                 DispatchQueue.main.async { //todo: remove count
                     self.messageList = messages
                     self.chatCollectionView.reloadData()
+                    
+                    //Help for to display latest message in CollectionView
+                    let contentSize = self.chatCollectionView.collectionViewLayout.collectionViewContentSize
+                    if contentSize.height > self.chatCollectionView.bounds.size.height {
+                        self.chatCollectionView.contentOffset = CGPoint(x: 0, y: contentSize.height - self.chatCollectionView.bounds.size.height)
+                    }
                 }
             }
         }
@@ -182,6 +197,8 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder?.delegate = self
             audioRecorder?.record()
+            pttRecordingStatusLabel.textAlignment = .center
+            pttRecordingStatusLabel.text = "Recording 00:30"
         } catch {
             finishRecording(success: false)
         }
@@ -250,6 +267,7 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
                 chatCollectionView.insertItems(at: [indexPath as IndexPath])
                 DispatchQueue.main.async {
                     self.chatCollectionView.scrollToItem(at: indexPath as IndexPath, at: .top, animated: true)
+                     self.pttRecordingStatusLabel.text = "Tap the PTT Button to speek"
                 }
             }, completion: nil)
         } else { // hemanth
@@ -314,6 +332,7 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
     
     func changePttButton(color: UIColor) {
         pttButton.layer.borderColor = color.cgColor
+        pttRecordingStatusLabel.text = "Tap the PTT Button to speek"
     }
     
     // When user release button press then this method will call
@@ -324,6 +343,8 @@ class ConversationViewController: UIViewController, UITextViewDelegate, AVAudioR
     // When user tap on button the this method will call
     @IBAction func pttButtonTouchDown() {
         changePttButton(color: pttState.colorForSpeakingMode)
+        pttRecordingStatusLabel.textAlignment = .center
+        pttRecordingStatusLabel.text = "... Seconds left"
     }
     
 }
@@ -372,5 +393,27 @@ extension ConversationViewController: UICollectionViewDataSource, UICollectionVi
                 cellHeight = 92
         }
         return CGSize(width: view.frame.width, height: cellHeight)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if messageText.text == "Text message"{
+            messageText.text = ""
+            messageText.textColor = .black
+            pttToggleBtn.setImage(UIImage(named: "ptt_launcher_icon"), for: .normal)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n"{
+            messageText.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = "Text message"
+            textView.textColor = .gray
+        }
     }
 }

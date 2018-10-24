@@ -49,7 +49,7 @@
             <connections>
                 <outlet property="headerNameLabel" destination="w6c-l8-vxM" id="BFD-ec-YJI"/>
             </connections>
-            <point key="canvasLocation" x="221.5" y="-156.5"/>
+            <point key="canvasLocation" x="220" y="-156.52173913043478"/>
         </collectionReusableView>
     </objects>
 </document>
