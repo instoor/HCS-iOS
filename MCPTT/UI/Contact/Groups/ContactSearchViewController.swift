@@ -48,12 +48,12 @@ class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPi
         self.title = "Contact List"
     }
     
-    func registerNib(){
+    func registerNib() {
     
-    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind:UICollectionElementKindSectionHeader , withReuseIdentifier: "ContactSearchCell")
+    self.collectionView.register(UINib.init(nibName: "ContactSearchHeaderCell", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell")
     }
 
-    func initVM(){
+    func initVM() {
         viewModel.initFetch()
     }
     
@@ -64,7 +64,7 @@ class ContactSearchViewController: UIViewController,UIPickerViewDataSource, UIPi
    
 }
 
-extension ContactSearchViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ContactSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ContactSearchCell", for: indexPath) as? ContactHeaderCell

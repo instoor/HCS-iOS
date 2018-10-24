@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ContactSearchModel{
+final class ContactSearchModel {
     
     private var cellViewModels = [ContactCellSearchModel]() {
         didSet {

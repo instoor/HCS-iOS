@@ -14,7 +14,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactListHeaderView" rowHeight="59" id="Iw7-6T-XzS" customClass="ContactListHeaderView" customModule="MCPTT" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iw7-6T-XzS" id="6LW-dZ-lJx">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iw7-6T-XzS" id="6LW-dZ-lJx">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -39,6 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="U7l-FB-36n" firstAttribute="bottom" secondItem="Gge-NM-3fa" secondAttribute="bottom" constant="-14" id="2t7-S4-oKn"/>
                     <constraint firstItem="Gge-NM-3fa" firstAttribute="centerY" secondItem="6LW-dZ-lJx" secondAttribute="centerY" id="HFs-W1-OfS"/>
@@ -47,6 +48,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="U7l-FB-36n" secondAttribute="trailing" constant="-9" id="fMa-ny-rwo"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="contactListHeader" destination="Gge-NM-3fa" id="AI4-Er-cnN"/>
             </connections>

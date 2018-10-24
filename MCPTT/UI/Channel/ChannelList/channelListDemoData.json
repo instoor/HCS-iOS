@@ -18,7 +18,7 @@
             "new_received_message_count": "1",
             "missed_ptt_call_count": "2",
             "ptt_call_icon_image_name": "Call_Missed_Icon",
-            "channel_description_status": "missed voice ptt"
+            "channel_description_status": "Voice PTT"
         },
         {
             "channel_id": "123",
@@ -50,7 +50,7 @@
             "new_received_message_count": "1",
             "missed_ptt_call_count": "1",
             "ptt_call_icon_image_name": "Call_Missed_Icon",
-            "channel_description_status": "missed voice ptt"
+            "channel_description_status": "Voice PTT"
         },
         {
             "channel_id": "126",
@@ -60,7 +60,7 @@
             "new_received_message_count": "3",
             "missed_ptt_call_count": "2",
             "ptt_call_icon_image_name": "Call_Missed_Icon",
-            "channel_description_status": "missed voice ptt"
+            "channel_description_status": "Voice PTT"
         },
         {
             "channel_id": "127",
@@ -70,7 +70,7 @@
             "new_received_message_count": "1",
             "missed_ptt_call_count": "3",
             "ptt_call_icon_image_name": "Call_Missed_Icon",
-            "channel_description_status": "missed voice ptt"
+            "channel_description_status": "Voice PTT"
         },
         {
             "channel_id":"128",
@@ -90,7 +90,7 @@
             "new_received_message_count": "1",
             "missed_ptt_call_count": "4",
             "ptt_call_icon_image_name": "Call_Missed_Icon",
-            "channel_description_status": "missed voice ptt"
+            "channel_description_status": "Voice PTT"
         },
         {
             "channel_id": "130",
