@@ -11,14 +11,11 @@ import SQLite3
 
 let dataBaseName = (dataPath as NSString).appendingPathComponent("contacts.db")
 
-class ContactDatabaseHelper
-{
+class ContactDatabaseHelper {
     let dbController = DatabaseController()
     static let sharedManager = ContactDatabaseHelper()
     
-    //MARK: - Create Table
-    func onCreate()
-    {
+    func onCreate() {
         dbController.createDirectory()
         
         guard sqlite3_open(dataBaseName, &db) != SQLITE_OK else {

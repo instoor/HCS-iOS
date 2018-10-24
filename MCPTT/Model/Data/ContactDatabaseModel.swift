@@ -184,7 +184,6 @@ class GroupContactImpl: NSObject {
     }
 }
 
-
 //Adhoc Groups Columns
 class AdhocTableImpl: NSObject {
     var ID: Int
@@ -201,5 +200,4 @@ class AdhocTableImpl: NSObject {
         self.MEMBER_URIS = ""
     }
 }
-
 
