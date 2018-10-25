@@ -17,7 +17,7 @@ class DatabaseController {
     init() {
     }
     
-    func createDirectory(){
+    func createDirectory() {
         if (!FileManager.default.fileExists(atPath: dataPath)) {
             try?FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
         }
@@ -47,7 +47,7 @@ class DatabaseController {
     func insert(table: String, contentValues: [[String: Any]]) -> Int {
         var id: Int = -1
         if isOpen() {
-            var statement: OpaquePointer? = nil
+            var statement: OpaquePointer?
             //Check Multiple Columns
             let getKeys = ""
             let getValues = ""
@@ -76,11 +76,11 @@ class DatabaseController {
     }
 
     // update Statement
-    func update(table : String, updateValues: String, whereClause : String) -> Int {
+    func update(table: String, updateValues: String, whereClause: String) -> Int {
         var count: Int = -1
         
         if isOpen() {
-            var statement: OpaquePointer? = nil
+            var statement: OpaquePointer?
             let updateQuery = "UPDATE \(table) SET \(updateValues) WHERE \(whereClause)"
             
             if  sqlite3_prepare_v2(db, updateQuery, -1, &statement, nil) == SQLITE_OK {
@@ -100,17 +100,17 @@ class DatabaseController {
         var count: Int = -1
         
         if isOpen() {
-            var statement: OpaquePointer? = nil
+            var statement: OpaquePointer?
             
             let select = selection.isEmpty ? "WHERE \(selection)" : ""
             let deleteQuery = "DELETE FROM \(table) \(select)"
             
-            if  sqlite3_prepare_v2(db, deleteQuery, -1, &statement, nil) == SQLITE_OK {
+            if  sqlite3_prepare_v2(statement, deleteQuery, -1, &statement, nil) == SQLITE_OK {
                 
                 if sqlite3_step(statement) == SQLITE_DONE {
                     count = Int(sqlite3_column_count(statement))
                 } else {
-                    print("Error in Run Statement :- \(String(describing: sqlite3_errmsg16(db)))")
+                    print("Error in Run Statement :- \(String(describing: sqlite3_errmsg16(statement)))")
                 }
             }
             sqlite3_finalize(statement)
@@ -119,10 +119,9 @@ class DatabaseController {
         return count
     }
     
-    func select(table: String, whereClause : String, selectionArgs : String, orderBy: String, sortOrder: String)-> [AnyObject] {
+    func select(table: String, whereClause: String, selectionArgs: String, orderBy: String, sortOrder: String)-> [AnyObject] {
         var result = [AnyObject]()
 //        if isOpen(){
-//            var statement : OpaquePointer? = nil
 //            let checkArgs       = selectionArgs.count>0 ? selectionArgs : "*"
 //            let whereStm        = whereClause.count>0 ? "WHERE \(whereClause)" : ""
 //            let checkOrderBy    = orderBy.count>0 ? "ORDER BY \(orderBy)" : ""

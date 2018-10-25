@@ -18,7 +18,6 @@ class LocalDatabaseHelper {
     }
     
     func onCreate(database: OpaquePointer?) {
-
         if sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS \(DatabaseConstants.createMessageDatabaseTable)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db))
             print("error creating table: \(errmsg)")

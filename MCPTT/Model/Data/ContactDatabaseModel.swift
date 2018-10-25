@@ -11,22 +11,22 @@ import Foundation
 //Contats Columns
 class PrivateContactImpl: NSObject {
     
-    var ID                  : Int
-    var URI                 : String
-    var USER_ID             : Int
-    var DISPLAY_NAME        : String
-    var EMAIL               : String
-    var ON_REQUIRED         : Int
-    var USER_PRIORITY       : Int
-    var OFF_USER_INFO_ID    : String
-    var PARTICIPANT_TYPE    : String
-    var ON_RECVONLY         : Int
-    var ORGANIZATION        : String
-    var GROUP_INFO          : String
-    var IS_PROFILE          : Int
-    var SEARCH_KEY          : String
-    var LIST_LABEL          : String
-    var TYPE                : String
+    var ID: Int
+    var URI: String
+    var USER_ID: Int
+    var DISPLAY_NAME: String
+    var EMAIL: String
+    var ON_REQUIRED: Int
+    var USER_PRIORITY: Int
+    var OFF_USER_INFO_ID: String
+    var PARTICIPANT_TYPE: String
+    var ON_RECVONLY: Int
+    var ORGANIZATION: String
+    var GROUP_INFO: String
+    var IS_PROFILE: Int
+    var SEARCH_KEY: String
+    var LIST_LABEL: String
+    var TYPE: String
     
     override init() {
         self.ID = 0

@@ -17,7 +17,6 @@ class ContactDatabaseHelper {
     
     func onCreate() {
         dbController.createDirectory()
-        
         guard sqlite3_open(dataBaseName, &db) != SQLITE_OK else {
             print("error opening database")
             return
