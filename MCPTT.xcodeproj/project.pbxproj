@@ -73,6 +73,8 @@
 		5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF5E216CC664006DC121 /* ContactListViewController.swift */; };
 		5613CF66216CC664006DC121 /* ContactsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF5F216CC664006DC121 /* ContactsData.json */; };
 		5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF60216CC664006DC121 /* ContactsListViewModel.swift */; };
+		564CFF7A2181A45C003643BB /* IMSManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564CFF792181A45B003643BB /* IMSManager.framework */; };
+		564CFF7B2181A45C003643BB /* IMSManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 564CFF792181A45B003643BB /* IMSManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8AB9722170E42A00DC9FDD /* GroupsListCell.swift */; };
 		5FF8A43E216E1CE700ADCFF1 /* contactslist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8A430216E1CE700ADCFF1 /* contactslist.json */; };
 		5FF8A43F216E1CE700ADCFF1 /* ContactSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */; };
@@ -119,6 +121,20 @@
 			remoteInfo = MCPTT;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		564CFF7C2181A45C003643BB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				564CFF7B2181A45C003643BB /* IMSManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A0B1C9B216CA5DC007A0FD8 /* MCPTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +209,7 @@
 		5613CF5E216CC664006DC121 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		5613CF5F216CC664006DC121 /* ContactsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactsData.json; sourceTree = "<group>"; };
 		5613CF60216CC664006DC121 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
+		564CFF792181A45B003643BB /* IMSManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSManager.framework; sourceTree = "<group>"; };
 		5F8AB9722170E42A00DC9FDD /* GroupsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsListCell.swift; sourceTree = "<group>"; };
 		5FF8A430216E1CE700ADCFF1 /* contactslist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contactslist.json; sourceTree = "<group>"; };
 		5FF8A431216E1CE700ADCFF1 /* ContactSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSearchViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564CFF7A2181A45C003643BB /* IMSManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +269,7 @@
 		0A0B1C92216CA5DC007A0FD8 = {
 			isa = PBXGroup;
 			children = (
+				564CFF792181A45B003643BB /* IMSManager.framework */,
 				0A0B1C9D216CA5DC007A0FD8 /* MCPTT */,
 				0A0B1CB2216CA5DF007A0FD8 /* MCPTTTests */,
 				0A0B1CBD216CA5DF007A0FD8 /* MCPTTUITests */,
@@ -605,6 +624,7 @@
 				0A0B1C98216CA5DC007A0FD8 /* Frameworks */,
 				0A0B1C99216CA5DC007A0FD8 /* Resources */,
 				4DB89485216DCF5E00A55941 /* ShellScript */,
+				564CFF7C2181A45C003643BB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -997,6 +1017,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MCPTT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1015,6 +1039,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MCPTT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
