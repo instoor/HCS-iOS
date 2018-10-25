@@ -49,17 +49,18 @@ class DatabaseController {
         if isOpen() {
             var statement: OpaquePointer?
             //Check Multiple Columns
-            let getKeys = ""
-            let getValues = ""
-//            if contentValues.count == 1 {
-//                getKeys = (contentValues.first?.keys)?.joined(separator: ",") ?? ""
-//                let values = (contentValues.first as? [String: Any])?.values
-//
-//                for element in values {
-//                    getValues.append("\(element),")
-//                }
-//            } else { }
-//
+            var getKeys = ""
+            var getValues = ""
+            if contentValues.count == 1 {
+                getKeys = (contentValues.first?.keys)?.joined(separator: ",") ?? ""
+
+                if let values = (contentValues.first)?.values {
+                    for (index, element) in values.enumerated() {
+                        getValues.append(index == values.count-1 ? "\(element)" : "\(element),")
+                    }
+                }
+            } else {}
+
             let insertQuery = "INSERT INTO \(table) (\(getKeys)) VALUES (\(getValues))"
             if  sqlite3_prepare_v2(db, insertQuery, -1, &statement, nil) == SQLITE_OK {
                 
@@ -75,7 +76,7 @@ class DatabaseController {
         return id
     }
 
-    // update Statement
+    // Update Statement
     func update(table: String, updateValues: String, whereClause: String) -> Int {
         var count: Int = -1
         
@@ -119,36 +120,36 @@ class DatabaseController {
         return count
     }
     
-    func select(table: String, whereClause: String, selectionArgs: String, orderBy: String, sortOrder: String)-> [AnyObject] {
+    // Select Statement
+    func select(table: String, columns: [String], whereClause: String, orderBy: String, sortOrder: String) -> [AnyObject] {
         var result = [AnyObject]()
-//        if isOpen(){
-//            let checkArgs       = selectionArgs.count>0 ? selectionArgs : "*"
-//            let whereStm        = whereClause.count>0 ? "WHERE \(whereClause)" : ""
-//            let checkOrderBy    = orderBy.count>0 ? "ORDER BY \(orderBy)" : ""
-//            let checkSortOrder  = sortOrder.count>0 ? sortOrder : ""
-//
-//            let selecttQuery = "SELECT \(checkArgs) FROM \(table) \(whereStm) \(checkOrderBy) \(checkSortOrder)"
-//
-//            if sqlite3_prepare(db, selecttQuery, -1, &statement, nil) == SQLITE_OK{
-//
-//                if sqlite3_step(statement) == SQLITE_DONE
-//                {
-//                    while sqlite3_step(statement) == SQLITE_ROW
-//                    {
-//                        result.append(statement as AnyObject)
-//                    }
-//                }
-//                else
-//                {
-//                    print("Error in Run Statement :- \(String(describing: sqlite3_errmsg16(db)))")
-//                }
-//
-//                let errmsg = String(cString: sqlite3_errmsg(db)!)
-//                print("error preparing insert: \(errmsg)")
-//
-//            }
-//            sqlite3_finalize(statement)
-//        }
+        if isOpen() {
+            var statement: OpaquePointer?
+            var columnArgs = ""
+            if columns.isEmpty {
+               columnArgs = "*"
+            } else {
+                columnArgs = columns.joined(separator: ",")
+            }
+            
+            let getWhereClause = whereClause.isEmpty ? "" : "WHERE \(whereClause)"
+            let checkOrderBy = orderBy.isEmpty ? "" : "ORDER BY \(orderBy)"
+            let checkSortOrder = sortOrder.isEmpty ? "" : sortOrder
+            
+            let selecttQuery = "SELECT (\(columnArgs)) FROM \(table) \(getWhereClause) \(checkOrderBy) \(checkSortOrder)"
+            
+            if sqlite3_prepare(db, selecttQuery, -1, &statement, nil) == SQLITE_OK {
+                
+                if sqlite3_step(statement) == SQLITE_DONE {
+                    while sqlite3_step(statement) == SQLITE_ROW {
+                        result.append(statement as AnyObject)
+                    }
+                } else {
+                    print("Error in Run Statement :- \(String(describing: sqlite3_errmsg16(db)))")
+                }
+            }
+            sqlite3_finalize(statement)
+        }
         
         return result
         
