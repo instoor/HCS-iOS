@@ -136,9 +136,9 @@ class DatabaseController {
             let checkOrderBy = orderBy.isEmpty ? "" : "ORDER BY \(orderBy)"
             let checkSortOrder = sortOrder.isEmpty ? "" : sortOrder
             
-            let selecttQuery = "SELECT (\(columnArgs)) FROM \(table) \(getWhereClause) \(checkOrderBy) \(checkSortOrder)"
+            let selectQuery = "SELECT (\(columnArgs)) FROM \(table) \(getWhereClause) \(checkOrderBy) \(checkSortOrder)"
             
-            if sqlite3_prepare(db, selecttQuery, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_prepare(db, selectQuery, -1, &statement, nil) == SQLITE_OK {
                 
                 if sqlite3_step(statement) == SQLITE_DONE {
                     while sqlite3_step(statement) == SQLITE_ROW {
