@@ -98,6 +98,8 @@
 		D05684DA217F1397007FAB4B /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05684D9217F1397007FAB4B /* DatabaseController.swift */; };
 		D06DFD2B217F3F080021F84D /* ContactsDatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DFD2A217F3F080021F84D /* ContactsDatabaseController.swift */; };
 		D06DFD2D218034C30021F84D /* FloorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DFD2C218034C30021F84D /* FloorMessage.swift */; };
+		D06DFD2F218043AC0021F84D /* MessageBodyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DFD2E218043AC0021F84D /* MessageBodyCache.swift */; };
+		D06DFD3121804D6C0021F84D /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DFD3021804D6C0021F84D /* DoublyLinkedList.swift */; };
 		D0D9C1E22175D90A00E0B88F /* DatabaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */; };
 		D0F1F3242178671800414108 /* LocalDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1F3232178671800414108 /* LocalDatabaseHelper.swift */; };
 		D0F1F3282178939100414108 /* LocalDataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1F3272178939100414108 /* LocalDataBaseController.swift */; };
@@ -218,6 +220,8 @@
 		D05684D9217F1397007FAB4B /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		D06DFD2A217F3F080021F84D /* ContactsDatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDatabaseController.swift; sourceTree = "<group>"; };
 		D06DFD2C218034C30021F84D /* FloorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorMessage.swift; sourceTree = "<group>"; };
+		D06DFD2E218043AC0021F84D /* MessageBodyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBodyCache.swift; sourceTree = "<group>"; };
+		D06DFD3021804D6C0021F84D /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
 		D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseConstants.swift; sourceTree = "<group>"; };
 		D0F1F3232178671800414108 /* LocalDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDatabaseHelper.swift; sourceTree = "<group>"; };
 		D0F1F3272178939100414108 /* LocalDataBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataBaseController.swift; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 		0A0B1D31216CAA69007A0FD8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D06DFD3021804D6C0021F84D /* DoublyLinkedList.swift */,
 				0A0B1D32216CAA69007A0FD8 /* CommonUtility.swift */,
 				0A0B1D33216CAA69007A0FD8 /* ChannelExtension.swift */,
 				0A0B1D34216CAA69007A0FD8 /* EncryptionUtils.swift */,
@@ -462,11 +467,12 @@
 			isa = PBXGroup;
 			children = (
 				0A0B1D39216CAA69007A0FD8 /* ContactDatabaseHelper.swift */,
+				D06DFD2A217F3F080021F84D /* ContactsDatabaseController.swift */,
 				D0D9C1E12175D90A00E0B88F /* DatabaseConstants.swift */,
 				D05684D9217F1397007FAB4B /* DatabaseController.swift */,
 				D0F1F3232178671800414108 /* LocalDatabaseHelper.swift */,
 				D0F1F3272178939100414108 /* LocalDataBaseController.swift */,
-				D06DFD2A217F3F080021F84D /* ContactsDatabaseController.swift */,
+				D06DFD2E218043AC0021F84D /* MessageBodyCache.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -810,6 +816,7 @@
 				5FF8A441216E1CE700ADCFF1 /* ContactSearchModel.swift in Sources */,
 				0A0B1D8B216CAA69007A0FD8 /* ContactDatabaseHelper.swift in Sources */,
 				5613CF50216CC360006DC121 /* ConversationModel.swift in Sources */,
+				D06DFD2F218043AC0021F84D /* MessageBodyCache.swift in Sources */,
 				5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */,
 				4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */,
 				5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */,
@@ -826,6 +833,7 @@
 				5FF8A44F216E6F4A00ADCFF1 /* GroupsListMemberModel.swift in Sources */,
 				0A0B1D66216CAA69007A0FD8 /* channelCell.swift in Sources */,
 				0A0B1D88216CAA69007A0FD8 /* ChannelExtension.swift in Sources */,
+				D06DFD3121804D6C0021F84D /* DoublyLinkedList.swift in Sources */,
 				4D51CE86217DAD0A0084CDBA /* Message.swift in Sources */,
 				0A0B1D7D216CAA69007A0FD8 /* SettingsViewModel.swift in Sources */,
 				4D51CE88217DAD0A0084CDBA /* TextMessage.swift in Sources */,
