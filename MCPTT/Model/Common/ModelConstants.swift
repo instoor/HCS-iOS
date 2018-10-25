@@ -8,6 +8,8 @@
 
 import Foundation
 
+let maxAdhocMemberCount = 100
+
 enum ChannelType {
     case main
     case sub
@@ -38,9 +40,9 @@ enum CallEndReason {
     case other
 }
 
-enum ContactType {
-    case GMS
-    case XDM
+enum ContactType: String {
+    case GMS = "gms"
+    case XDM = "xdm"
 }
 
 enum DisconnectCause {
