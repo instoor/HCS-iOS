@@ -1,0 +1,11 @@
+framework module IMSManager {
+  umbrella header "IMSManager.h"
+
+  export *
+  module * { export * }
+}
+
+module IMSManager.Swift {
+    header "IMSManager-Swift.h"
+    requires objc
+}
