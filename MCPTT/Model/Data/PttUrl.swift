@@ -19,7 +19,7 @@ public class PttUrl: Hashable {
     
     var url: URL?
     var INVALID_URL = ""
-    var ADHOC_SCHEME = "adhoc:"
+    static var ADHOC_SCHEME = "adhoc:"
     
     init(urls: String?) {
         url = URL(fileURLWithPath: urls ?? INVALID_URL)

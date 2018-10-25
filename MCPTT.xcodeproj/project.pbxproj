@@ -57,6 +57,10 @@
 		4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605748217F2C0D0049EDB5 /* ChannelList.swift */; };
 		4D60574D217F2FF70049EDB5 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60574C217F2FF70049EDB5 /* Injector.swift */; };
 		4D605751217F337D0049EDB5 /* InjectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D605750217F337D0049EDB5 /* InjectionManager.swift */; };
+		4DA0E7BE21804C84006E5800 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0E7BD21804C84006E5800 /* Contact.swift */; };
+		4DA0E7C021807A01006E5800 /* PrivateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0E7BF21807A01006E5800 /* PrivateContact.swift */; };
+		4DA0E7C221807F16006E5800 /* GroupContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0E7C121807F16006E5800 /* GroupContact.swift */; };
+		4DA0E7C421808D24006E5800 /* AdhocContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0E7C321808D24006E5800 /* AdhocContact.swift */; };
 		5613CF36216CBF30006DC121 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */; };
 		5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613CF37216CBF48006DC121 /* ScrollPager.swift */; };
 		5613CF3A216CBF71006DC121 /* channelListDemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5613CF39216CBF71006DC121 /* channelListDemoData.json */; };
@@ -195,6 +199,10 @@
 		4D605748217F2C0D0049EDB5 /* ChannelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelList.swift; sourceTree = "<group>"; };
 		4D60574C217F2FF70049EDB5 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		4D605750217F337D0049EDB5 /* InjectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionManager.swift; sourceTree = "<group>"; };
+		4DA0E7BD21804C84006E5800 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		4DA0E7BF21807A01006E5800 /* PrivateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateContact.swift; sourceTree = "<group>"; };
+		4DA0E7C121807F16006E5800 /* GroupContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupContact.swift; sourceTree = "<group>"; };
+		4DA0E7C321808D24006E5800 /* AdhocContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdhocContact.swift; sourceTree = "<group>"; };
 		5613CF35216CBF30006DC121 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
 		5613CF37216CBF48006DC121 /* ScrollPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPager.swift; sourceTree = "<group>"; };
 		5613CF39216CBF71006DC121 /* channelListDemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = channelListDemoData.json; sourceTree = "<group>"; };
@@ -532,6 +540,10 @@
 				6255EEAE2180961F00EF336F /* ContactImpl.swift */,
 				6255EEB02180962B00EF336F /* AdhocContactImpl.swift */,
 				6255EEB22180963600EF336F /* GroupContactImpl.swift */,
+				4DA0E7BD21804C84006E5800 /* Contact.swift */,
+				4DA0E7BF21807A01006E5800 /* PrivateContact.swift */,
+				4DA0E7C121807F16006E5800 /* GroupContact.swift */,
+				4DA0E7C321808D24006E5800 /* AdhocContact.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -784,6 +796,7 @@
 			files = (
 				0A0B1D80216CAA69007A0FD8 /* TermAndConditionViewController.swift in Sources */,
 				5FF8A446216E1CE700ADCFF1 /* GroupMembersCell.swift in Sources */,
+				4DA0E7C421808D24006E5800 /* AdhocContact.swift in Sources */,
 				0A0B1D8F216CAA69007A0FD8 /* RSAEncryptDecrypt.swift in Sources */,
 				5613CF54216CC360006DC121 /* ChatMessageCell.swift in Sources */,
 				4D51CE762175AAC20084CDBA /* Channel.swift in Sources */,
@@ -811,6 +824,7 @@
 				D06DFD2B217F3F080021F84D /* ContactsDatabaseController.swift in Sources */,
 				5613CF67216CC664006DC121 /* ContactsListViewModel.swift in Sources */,
 				4D51CE87217DAD0A0084CDBA /* PttUrl.swift in Sources */,
+				4DA0E7C021807A01006E5800 /* PrivateContact.swift in Sources */,
 				5613CF65216CC664006DC121 /* ContactListViewController.swift in Sources */,
 				0A0B1D8C216CAA69007A0FD8 /* AES256Cipher.swift in Sources */,
 				5613CF58216CC3F8006DC121 /* LandingViewController.swift in Sources */,
@@ -838,6 +852,7 @@
 				5613CF50216CC360006DC121 /* ConversationModel.swift in Sources */,
 				D06DFD2F218043AC0021F84D /* MessageBodyCache.swift in Sources */,
 				5613CF38216CBF48006DC121 /* ScrollPager.swift in Sources */,
+				4DA0E7C221807F16006E5800 /* GroupContact.swift in Sources */,
 				4D60574A217F2C0D0049EDB5 /* ChannelList.swift in Sources */,
 				5F8AB9732170E42A00DC9FDD /* GroupsListCell.swift in Sources */,
 				5613CF3C216CBF8E006DC121 /* ChannelListViewController.swift in Sources */,
@@ -845,6 +860,7 @@
 				5FF8A44A216E1CE700ADCFF1 /* ContactHeaderCell.swift in Sources */,
 				A70FC1EA2170BF2800FEDF08 /* ChatAudioRecordCell.swift in Sources */,
 				0A0B1D4D216CAA69007A0FD8 /* NotificationPanelViewController.swift in Sources */,
+				4DA0E7BE21804C84006E5800 /* Contact.swift in Sources */,
 				0A0B1D7E216CAA69007A0FD8 /* SettingsTableViewCell.swift in Sources */,
 				0A0B1D86216CAA69007A0FD8 /* UIViewController+Extensions.swift in Sources */,
 				5FF8A45F217074CA00ADCFF1 /* ContactListHeaderView.swift in Sources */,
